@@ -14,6 +14,8 @@ module SportsSouth
       saturday:  'S',
     }
 
+    attr_reader :order_number
+
     def initialize(options = {})
       requires!(options, :username, :password, :source, :customer_number)
       @options = options
@@ -100,6 +102,9 @@ module SportsSouth
       }
     end
 
+    # Returns the Net::HTTP and Net::HTTP::Post objects.
+    #
+    #   http, request = get_http_and_request(<endpoint>)
     def get_http_and_request(endpoint)
       uri = URI([API_URL, endpoint].join)
       http = Net::HTTP.new(uri.host, uri.port)
