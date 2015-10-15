@@ -60,7 +60,28 @@ module SportsSouth
     end
 
     def add_detail(detail = {})
-      raise 'Not yet implemented.'
+      raise StandardError.new("No @order_number present.") if @order_number.nil?
+
+      requires!(detail, :ss_item_number, :price)
+      detail[:quantity] = 1 unless detail.has_key?(:quantity)
+      detail[:item_number] = '' unless detail.has_key?(:item_number)
+      detail[:item_description] = '' unless detail.has_key?(:item_description)
+
+      http, request = get_http_and_request('/AddDetail')
+
+      request.set_form_data(form_params.merge({
+        OrderNumber: @order_number,
+        SSItemNumber: detail[:ss_item_number],
+        Quantity: detail[:quantity],
+        OrderPrice: detail[:price],
+        CustomerItemNumber: detail[:item_number],
+        CustomerItemDescription: detail[:item_description],
+      }))
+
+      response = http.request(request)
+      xml_doc = Nokogiri::XML(response.body)
+
+      xml_doc.content == 'true'
     end
 
     def submit!
