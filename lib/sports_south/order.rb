@@ -1,4 +1,5 @@
 require 'net/http'
+require 'nokogiri'
 
 module SportsSouth
   class Order < Base
@@ -30,16 +31,9 @@ module SportsSouth
       header[:shipping][:via] = SHIP_VIA[:ground] unless header.has_key?(:ship_via)
       header[:shipping][:address_two] = '' unless header[:shipping].has_key?(:address_two)
 
-      uri = URI([API_URL, '/AddHeader'].join)
-      http = Net::HTTP.new(uri.host, uri.port)
-      request = Net::HTTP::Post.new(uri.request_uri)
+      http, request = get_http_and_request('/AddHeader')
 
-      request.set_form_data({
-        UserName: @options[:username],
-        Password: @options[:password],
-        CustomerNumber: @options[:customer_number],
-        Source: @options[:source],
-
+      request.set_form_data(form_params.merge({
         PO: header[:purchase_order],
         CustomerOrderNumber: header[:customer_order_number],
         SalesMessage: header[:sales_message],
@@ -57,9 +51,12 @@ module SportsSouth
         AdultSignature: header[:adult_signature],
         Signature: header[:signature],
         Insurance: header[:insurance],
-      })
+      }))
 
       response = http.request(request)
+      xml_doc  = Nokogiri::XML(response.body)
+
+      @order_number = xml_doc.content
     end
 
     def add_detail(detail = {})
@@ -68,6 +65,26 @@ module SportsSouth
 
     def submit!
       raise 'Not yet implemented.'
+    end
+
+    private
+
+    # Returns a hash of common form params.
+    def form_params
+      {
+        UserName: @options[:username],
+        Password: @options[:password],
+        CustomerNumber: @options[:customer_number],
+        Source: @options[:source],
+      }
+    end
+
+    def get_http_and_request(endpoint)
+      uri = URI([API_URL, endpoint].join)
+      http = Net::HTTP.new(uri.host, uri.port)
+      request = Net::HTTP::Post.new(uri.request_uri)
+
+      return http, request
     end
 
   end
