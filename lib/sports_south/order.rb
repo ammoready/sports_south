@@ -87,7 +87,18 @@ module SportsSouth
     end
 
     def submit!
-      raise 'Not yet implemented.'
+      raise StandardError.new("No @order_number present.") if @order_number.nil?
+
+      http, request = get_http_and_request('/Submit')
+
+      request.set_form_data(form_params.merge({
+        OrderNumber: @order_number,
+      }))
+
+      response = http.request(request)
+      xml_doc = Nokogiri::XML(response.body)
+
+      xml_doc.content == 'true'
     end
 
     private
