@@ -14,6 +14,7 @@ module SportsSouth
       saturday:  'S',
     }
 
+    attr_reader :response_body
     attr_reader :order_number
 
     def initialize(options = {})
@@ -58,6 +59,7 @@ module SportsSouth
       response = http.request(request)
       xml_doc  = Nokogiri::XML(response.body)
 
+      @response_body = response.body
       @order_number = xml_doc.content
     end
 
@@ -83,6 +85,8 @@ module SportsSouth
       response = http.request(request)
       xml_doc = Nokogiri::XML(response.body)
 
+      @response_body = response.body
+
       xml_doc.content == 'true'
     end
 
@@ -97,6 +101,8 @@ module SportsSouth
 
       response = http.request(request)
       xml_doc = Nokogiri::XML(response.body)
+
+      @response_body = response.body
 
       xml_doc.content == 'true'
     end
