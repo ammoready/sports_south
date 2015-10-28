@@ -150,6 +150,45 @@ module SportsSouth
       }
     end
 
+    def details
+      raise StandardError.new("No @order_number present.") if @order_number.nil?
+
+      http, request = get_http_and_request('/GetDetail')
+
+      request.set_form_data(form_params.merge({
+        CustomerOrderNumber: @order_number,
+        OrderNumber: @order_number,
+      }))
+
+      response = http.request(request)
+      body = sanitize_response(response)
+      xml_doc = Nokogiri::XML(body)
+
+      @response_body = body
+      @details = []
+
+      xml_doc.css('Table').each do |table|
+        @details << {
+          system_order_number: table.css('ORDNO').first.content,
+          order_line_number: table.css('ORLINE').first.content,
+          customer_number: table.css('ORCUST').first.content,
+          order_item_number: table.css('ORITEM').first.content,
+          order_quantity: table.css('ORQTY').first.content,
+          order_price: table.css('ORPRC').first.content,
+          ship_quantity: table.css('ORQTYF').first.content,
+          ship_price: table.css('ORPRCF').first.content,
+          customer_item_number: table.css('ORCUSI').first.content,
+          customer_description: table.css('ORCUSD').first.content,
+          item_description: table.css('IDESC').first.content,
+          quantity_on_hand: table.css('QTYOH').first.content,
+          line_detail_comment: table.css('ORDCMT').first.content,
+          line_detail_po_number: table.css('ORPO2').first.content,
+        }
+      end
+
+      @details
+    end
+
     private
 
     # Returns a hash of common form params.
