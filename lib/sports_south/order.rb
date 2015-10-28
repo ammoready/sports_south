@@ -132,8 +132,7 @@ module SportsSouth
       }))
 
       response = http.request(request)
-      # HACK: We have to fix the malformed XML response SS is currently returning.
-      body = response.body.gsub('&lt;', '<').gsub('&gt;', '>')
+      body = sanitize_response(response)
       xml_doc = Nokogiri::XML(body)
 
       @response_body = body
@@ -172,6 +171,11 @@ module SportsSouth
       request = Net::HTTP::Post.new(uri.request_uri)
 
       return http, request
+    end
+
+    # HACK: We have to fix the malformed XML response SS is currently returning.
+    def sanitize_response(response)
+      response.body.gsub('&lt;', '<').gsub('&gt;', '>')
     end
 
   end
