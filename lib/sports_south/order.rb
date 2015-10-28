@@ -17,9 +17,15 @@ module SportsSouth
     attr_reader :response_body
     attr_reader :order_number
 
+    def self.find(order_number, options = {})
+      requires!(options, :username, :password, :source, :customer_number)
+      new(options.merge({order_number: order_number}))
+    end
+
     def initialize(options = {})
       requires!(options, :username, :password, :source, :customer_number)
       @options = options
+      @order_number = options[:order_number]
     end
 
     def add_header(header = {})
