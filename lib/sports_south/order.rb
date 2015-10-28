@@ -14,6 +14,14 @@ module SportsSouth
       saturday:  'S',
     }
 
+    # D=Placed, E=Error placing Order, R=Placed-Verifying, W=Open
+    STATUS = {
+      'D' => :placed,
+      'E' => :error_placing_order,
+      'R' => :placed_verifying,
+      'W' => :open,
+    }
+
     attr_reader :response_body
     attr_reader :order_number
 
@@ -111,6 +119,36 @@ module SportsSouth
       @response_body = response.body
 
       xml_doc.content == 'true'
+    end
+
+    def header
+      raise StandardError.new("No @order_number present.") if @order_number.nil?
+
+      http, request = get_http_and_request('/GetHeader')
+
+      request.set_form_data(form_params.merge({
+        CustomerOrderNumber: @order_number,
+        OrderNumber: @order_number
+      }))
+
+      response = http.request(request)
+      # HACK: We have to fix the malformed XML response SS is currently returning.
+      body = response.body.gsub('&lt;', '<').gsub('&gt;', '>')
+      xml_doc = Nokogiri::XML(body)
+
+      @response_body = body
+
+      @header = {
+        system_order_number: xml_doc.css('ORDNO').first.content,
+        customer_number: xml_doc.css('ORCUST').first.content,
+        order_po_number: xml_doc.css('ORPO').first.content,
+        customer_order_number: xml_doc.css('ORCONO').first.content,
+        order_date: xml_doc.css('ORDATE').first.content,
+        message: xml_doc.css('MSG').first.content,
+        air_code: xml_doc.css('ORAIR').first.content,
+        order_source: xml_doc.css('ORSRC').first.content,
+        status: STATUS[xml_doc.css('STATUS').first.content],
+      }
     end
 
     private
