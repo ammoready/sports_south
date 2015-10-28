@@ -4,7 +4,12 @@ module SportsSouth
 
     protected
 
-    def requires!(hash, *params)
+    # Wrapper to `self.requires!` that can be used as an instance method.
+    def requires!(*args)
+      self.class.requires!(*args)
+    end
+
+    def self.requires!(hash, *params)
       params.each do |param|
         if param.is_a?(Array)
           raise ArgumentError.new("Missing required parameter: #{param.first}") unless hash.has_key?(param.first)
