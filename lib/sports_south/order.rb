@@ -138,15 +138,15 @@ module SportsSouth
       @response_body = body
 
       @header = {
-        system_order_number: xml_doc.css('ORDNO').first.content,
-        customer_number: xml_doc.css('ORCUST').first.content,
-        order_po_number: xml_doc.css('ORPO').first.content,
-        customer_order_number: xml_doc.css('ORCONO').first.content,
-        order_date: xml_doc.css('ORDATE').first.content,
-        message: xml_doc.css('MSG').first.content,
-        air_code: xml_doc.css('ORAIR').first.content,
-        order_source: xml_doc.css('ORSRC').first.content,
-        status: STATUS[xml_doc.css('STATUS').first.content],
+        system_order_number: content_for(xml_doc, 'ORDNO'),
+        customer_number: content_for(xml_doc, 'ORCUST'),
+        order_po_number: content_for(xml_doc, 'ORPO'),
+        customer_order_number: content_for(xml_doc, 'ORCONO'),
+        order_date: content_for(xml_doc, 'ORDATE'),
+        message: content_for(xml_doc, 'MSG'),
+        air_code: content_for(xml_doc, 'ORAIR'),
+        order_source: content_for(xml_doc, 'ORSRC'),
+        status: STATUS[content_for(xml_doc, 'STATUS')],
       }
     end
 
@@ -169,20 +169,20 @@ module SportsSouth
 
       xml_doc.css('Table').each do |table|
         @details << {
-          system_order_number: table.css('ORDNO').first.content,
-          order_line_number: table.css('ORLINE').first.content,
-          customer_number: table.css('ORCUST').first.content,
-          order_item_number: table.css('ORITEM').first.content,
-          order_quantity: table.css('ORQTY').first.content,
-          order_price: table.css('ORPRC').first.content,
-          ship_quantity: table.css('ORQTYF').first.content,
-          ship_price: table.css('ORPRCF').first.content,
-          customer_item_number: table.css('ORCUSI').first.content,
-          customer_description: table.css('ORCUSD').first.content,
-          item_description: table.css('IDESC').first.content,
-          quantity_on_hand: table.css('QTYOH').first.content,
-          line_detail_comment: table.css('ORDCMT').first.content,
-          line_detail_po_number: table.css('ORPO2').first.content,
+          system_order_number: content_for(table, 'ORDNO'),
+          order_line_number: content_for(table, 'ORLINE'),
+          customer_number: content_for(table, 'ORCUST'),
+          order_item_number: content_for(table, 'ORITEM'),
+          order_quantity: content_for(table, 'ORQTY'),
+          order_price: content_for(table, 'ORPRC'),
+          ship_quantity: content_for(table, 'ORQTYF'),
+          ship_price: content_for(table, 'ORPRCF'),
+          customer_item_number: content_for(table, 'ORCUSI'),
+          customer_description: content_for(table, 'ORCUSD'),
+          item_description: content_for(table, 'IDESC'),
+          quantity_on_hand: content_for(table, 'QTYOH'),
+          line_detail_comment: content_for(table, 'ORDCMT'),
+          line_detail_po_number: content_for(table, 'ORPO2'),
         }
       end
 
@@ -210,6 +210,11 @@ module SportsSouth
       request = Net::HTTP::Post.new(uri.request_uri)
 
       return http, request
+    end
+
+    def content_for(xml_doc, field)
+      node = xml_doc.css(field).first
+      node.nil? ? nil : node.content
     end
 
     # HACK: We have to fix the malformed XML response SS is currently returning.
