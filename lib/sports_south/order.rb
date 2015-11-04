@@ -1,6 +1,3 @@
-require 'net/http'
-require 'nokogiri'
-
 module SportsSouth
   class Order < Base
 
@@ -48,7 +45,7 @@ module SportsSouth
       header[:shipping][:via] = SHIP_VIA[:ground] unless header.has_key?(:ship_via)
       header[:shipping][:address_two] = '' unless header[:shipping].has_key?(:address_two)
 
-      http, request = get_http_and_request('/AddHeader')
+      http, request = get_http_and_request(API_URL, '/AddHeader')
 
       request.set_form_data(form_params.merge({
         PO: header[:purchase_order],
@@ -85,7 +82,7 @@ module SportsSouth
       detail[:item_number] = '' unless detail.has_key?(:item_number)
       detail[:item_description] = '' unless detail.has_key?(:item_description)
 
-      http, request = get_http_and_request('/AddDetail')
+      http, request = get_http_and_request(API_URL, '/AddDetail')
 
       request.set_form_data(form_params.merge({
         OrderNumber: @order_number,
@@ -107,7 +104,7 @@ module SportsSouth
     def submit!
       raise StandardError.new("No @order_number present.") if @order_number.nil?
 
-      http, request = get_http_and_request('/Submit')
+      http, request = get_http_and_request(API_URL, '/Submit')
 
       request.set_form_data(form_params.merge({
         OrderNumber: @order_number,
@@ -124,7 +121,7 @@ module SportsSouth
     def header
       raise StandardError.new("No @order_number present.") if @order_number.nil?
 
-      http, request = get_http_and_request('/GetHeader')
+      http, request = get_http_and_request(API_URL, '/GetHeader')
 
       request.set_form_data(form_params.merge({
         CustomerOrderNumber: @order_number,
@@ -153,7 +150,7 @@ module SportsSouth
     def details
       raise StandardError.new("No @order_number present.") if @order_number.nil?
 
-      http, request = get_http_and_request('/GetDetail')
+      http, request = get_http_and_request(API_URL, '/GetDetail')
 
       request.set_form_data(form_params.merge({
         CustomerOrderNumber: @order_number,
@@ -187,39 +184,6 @@ module SportsSouth
       end
 
       @details
-    end
-
-    private
-
-    # Returns a hash of common form params.
-    def form_params
-      {
-        UserName: @options[:username],
-        Password: @options[:password],
-        CustomerNumber: @options[:customer_number],
-        Source: @options[:source],
-      }
-    end
-
-    # Returns the Net::HTTP and Net::HTTP::Post objects.
-    #
-    #   http, request = get_http_and_request(<endpoint>)
-    def get_http_and_request(endpoint)
-      uri = URI([API_URL, endpoint].join)
-      http = Net::HTTP.new(uri.host, uri.port)
-      request = Net::HTTP::Post.new(uri.request_uri)
-
-      return http, request
-    end
-
-    def content_for(xml_doc, field)
-      node = xml_doc.css(field).first
-      node.nil? ? nil : node.content
-    end
-
-    # HACK: We have to fix the malformed XML response SS is currently returning.
-    def sanitize_response(response)
-      response.body.gsub('&lt;', '<').gsub('&gt;', '>')
     end
 
   end
