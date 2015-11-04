@@ -4,26 +4,26 @@ module SportsSouth
     API_URL = 'http://webservices.theshootingwarehouse.com/smart/invoices.asmx'
 
     attr_reader :response_body
-    attr_reader :order_number
+    attr_reader :po_number
 
-    def self.find_by_order_number(order_number, options = {})
+    def self.find_by_po_number(po_number, options = {})
       requires!(options, :username, :password, :source, :customer_number)
-      new(options.merge({order_number: order_number}))
+      new(options.merge({po_number: po_number}))
     end
 
     def initialize(options = {})
       requires!(options, :username, :password, :source, :customer_number)
       @options = options
-      @order_number = options[:order_number]
+      @po_number = options[:po_number]
     end
 
     def tracking
-      raise StandardError.new("No @order_number present.") if @order_number.nil?
+      raise StandardError.new("No @po_number present.") if @po_number.nil?
 
       http, request = get_http_and_request(API_URL, '/GetTrackingByPo')
 
       request.set_form_data(form_params.merge({
-        PONumber: @order_number,
+        PONumber: @po_number,
       }))
 
       response = http.request(request)
