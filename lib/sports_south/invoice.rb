@@ -30,6 +30,8 @@ module SportsSouth
       body = sanitize_response(response)
       xml_doc = Nokogiri::XML(body)
 
+      raise SportsSouth::NotAuthenticated if not_authenticated?(xml_doc)
+
       @response_body = body
 
       @tracking = {

@@ -70,6 +70,8 @@ module SportsSouth
       response = http.request(request)
       xml_doc  = Nokogiri::XML(response.body)
 
+      raise SportsSouth::NotAuthenticated if not_authenticated?(xml_doc)
+
       @response_body = response.body
       @order_number = xml_doc.content
     end
@@ -96,6 +98,8 @@ module SportsSouth
       response = http.request(request)
       xml_doc = Nokogiri::XML(response.body)
 
+      raise SportsSouth::NotAuthenticated if not_authenticated?(xml_doc)
+
       @response_body = response.body
 
       xml_doc.content == 'true'
@@ -112,6 +116,8 @@ module SportsSouth
 
       response = http.request(request)
       xml_doc = Nokogiri::XML(response.body)
+
+      raise SportsSouth::NotAuthenticated if not_authenticated?(xml_doc)
 
       @response_body = response.body
 
@@ -131,6 +137,8 @@ module SportsSouth
       response = http.request(request)
       body = sanitize_response(response)
       xml_doc = Nokogiri::XML(body)
+
+      raise SportsSouth::NotAuthenticated if not_authenticated?(xml_doc)
 
       @response_body = body
 
@@ -160,6 +168,8 @@ module SportsSouth
       response = http.request(request)
       body = sanitize_response(response)
       xml_doc = Nokogiri::XML(body)
+
+      raise SportsSouth::NotAuthenticated if not_authenticated?(xml_doc)
 
       @response_body = body
       @details = []

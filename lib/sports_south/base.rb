@@ -48,6 +48,11 @@ module SportsSouth
       node.nil? ? nil : node.content.strip
     end
 
+    def not_authenticated?(xml_doc)
+      msg = content_for(xml_doc, 'ERROR')
+      (msg =~ /Authentication Failed/i) || (msg =~ /NOT AUTHENTICATED/i)
+    end
+
     # HACK: We have to fix the malformed XML response SS is currently returning.
     def sanitize_response(response)
       response.body.gsub('&lt;', '<').gsub('&gt;', '>')
