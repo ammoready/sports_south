@@ -47,7 +47,7 @@ module SportsSouth
 
       http, request = get_http_and_request(API_URL, '/AddHeader')
 
-      request.set_form_data(form_params.merge({
+      request.set_form_data(form_params(@options).merge({
         PO: header[:purchase_order],
         CustomerOrderNumber: header[:customer_order_number],
         SalesMessage: header[:sales_message],
@@ -86,7 +86,7 @@ module SportsSouth
 
       http, request = get_http_and_request(API_URL, '/AddDetail')
 
-      request.set_form_data(form_params.merge({
+      request.set_form_data(form_params(@options).merge({
         OrderNumber: @order_number,
         SSItemNumber: detail[:ss_item_number],
         Quantity: detail[:quantity],
@@ -110,7 +110,7 @@ module SportsSouth
 
       http, request = get_http_and_request(API_URL, '/Submit')
 
-      request.set_form_data(form_params.merge({
+      request.set_form_data(form_params(@options).merge({
         OrderNumber: @order_number,
       }))
 
@@ -129,7 +129,7 @@ module SportsSouth
 
       http, request = get_http_and_request(API_URL, '/GetHeader')
 
-      request.set_form_data(form_params.merge({
+      request.set_form_data(form_params(@options).merge({
         CustomerOrderNumber: @order_number,
         OrderNumber: @order_number
       }))
@@ -160,7 +160,7 @@ module SportsSouth
 
       http, request = get_http_and_request(API_URL, '/GetDetail')
 
-      request.set_form_data(form_params.merge({
+      request.set_form_data(form_params(@options).merge({
         CustomerOrderNumber: @order_number,
         OrderNumber: @order_number,
       }))

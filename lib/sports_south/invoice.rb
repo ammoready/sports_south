@@ -22,7 +22,7 @@ module SportsSouth
 
       http, request = get_http_and_request(API_URL, '/GetTrackingByPo')
 
-      request.set_form_data(form_params.merge({
+      request.set_form_data(form_params(@options).merge({
         PONumber: @po_number,
       }))
 

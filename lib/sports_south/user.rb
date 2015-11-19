@@ -3,6 +3,7 @@ module SportsSouth
 
     API_URL = 'http://webservices.theshootingwarehouse.com/smart/users.asmx'
 
+    attr_reader :response_body
 
     def initialize(options = {})
       requires!(options, :username, :password, :source, :customer_number)
@@ -20,7 +21,7 @@ module SportsSouth
     def email_preferences
       http, request = get_http_and_request(API_URL, '/GetEmailPrefs')
 
-      request.set_form_data(form_params)
+      request.set_form_data(form_params(@options))
 
       response = http.request(request)
       body = sanitize_response(response)

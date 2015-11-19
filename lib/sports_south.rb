@@ -4,6 +4,7 @@ require 'net/http'
 require 'nokogiri'
 
 require 'sports_south/base'
+require 'sports_south/inventory'
 require 'sports_south/invoice'
 require 'sports_south/order'
 require 'sports_south/user'

@@ -23,40 +23,45 @@ module SportsSouth
     end
 
     # Returns a hash of common form params.
-    def form_params
+    def self.form_params(options = {})
       {
-        UserName: @options[:username],
-        Password: @options[:password],
-        CustomerNumber: @options[:customer_number],
-        Source: @options[:source],
+        UserName: options[:username],
+        Password: options[:password],
+        CustomerNumber: options[:customer_number],
+        Source: options[:source],
       }
     end
+    def form_params(*args); self.class.form_params(*args); end
 
     # Returns the Net::HTTP and Net::HTTP::Post objects.
     #
     #   http, request = get_http_and_request(<api_url>, <endpoint>)
-    def get_http_and_request(api_url, endpoint)
+    def self.get_http_and_request(api_url, endpoint)
       uri = URI([api_url, endpoint].join)
       http = Net::HTTP.new(uri.host, uri.port)
       request = Net::HTTP::Post.new(uri.request_uri)
 
       return http, request
     end
+    def get_http_and_request(*args); self.class.get_http_and_request(*args); end
 
-    def content_for(xml_doc, field)
+    def self.content_for(xml_doc, field)
       node = xml_doc.css(field).first
       node.nil? ? nil : node.content.strip
     end
+    def content_for(*args); self.class.content_for(*args); end
 
-    def not_authenticated?(xml_doc)
+    def self.not_authenticated?(xml_doc)
       msg = content_for(xml_doc, 'ERROR')
       (msg =~ /Authentication Failed/i) || (msg =~ /NOT AUTHENTICATED/i)
     end
+    def not_authenticated?(*args); self.class.not_authenticated?(*args); end
 
     # HACK: We have to fix the malformed XML response SS is currently returning.
-    def sanitize_response(response)
+    def self.sanitize_response(response)
       response.body.gsub('&lt;', '<').gsub('&gt;', '>')
     end
+    def sanitize_response(*args); self.class.sanitize_response(*args); end
 
   end
 end
