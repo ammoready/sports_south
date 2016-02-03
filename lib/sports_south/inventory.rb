@@ -100,5 +100,26 @@ module SportsSouth
       items
     end
 
+    def self.inquiry(item_number, options = {})
+      requires!(options, :username, :password, :source, :customer_number)
+
+      http, request = get_http_and_request(API_URL, '/OnhandInquiry')
+
+      request.set_form_data(form_params(options).merge({ItemNumber: item_number}))
+
+      response = http.request(request)
+      body = sanitize_response(response)
+      xml_doc = Nokogiri::XML(body)
+
+      raise SportsSouth::NotAuthenticated if not_authenticated?(xml_doc)
+
+      {
+        item_number: content_for(xml_doc, 'I'),
+        quantity_on_hand: content_for(xml_doc, 'Q').to_i,
+        catalog_price: content_for(xml_doc, 'P'),
+        customer_price: content_for(xml_doc, 'C'),
+      }
+    end
+
   end
 end
