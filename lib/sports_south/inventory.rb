@@ -24,11 +24,14 @@ module SportsSouth
     def self.all(options = {})
       requires!(options, :username, :password, :source, :customer_number)
 
+      options[:last_update] ||= '1/1/1990'  # Return full catalog.
+      options[:last_item]   ||= '-1'  # Return all items.
+
       http, request = get_http_and_request(API_URL, '/DailyItemUpdate')
 
       request.set_form_data(form_params(options).merge({
-        LastUpdate: '1/1/1990',  # Return full catalog.
-        LastItem: '-1',  # Return all items.
+        LastUpdate: options[:last_update],
+        LastItem: options[:last_item],
       }))
 
       response = http.request(request)
