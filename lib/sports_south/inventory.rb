@@ -103,12 +103,28 @@ module SportsSouth
       items
     end
 
+    def self.get_text(item_number, options = {})
+      requires!(options, :username, :password, :source, :customer_number)
+
+      http, request = get_http_and_request(API_URL, '/GetText')
+
+      request.set_form_data(form_params(options).merge({ ItemNumber: item_number }))
+
+      response = http.request(request)
+      body = sanitize_response(response)
+      xml_doc = Nokogiri::XML(body)
+
+      raise SportsSouth::NotAuthenticated if not_authenticated?(xml_doc)
+
+      { catalog_text: content_for(xml_doc, 'CATALOGTEXT') }
+    end
+
     def self.inquiry(item_number, options = {})
       requires!(options, :username, :password, :source, :customer_number)
 
       http, request = get_http_and_request(API_URL, '/OnhandInquiry')
 
-      request.set_form_data(form_params(options).merge({ItemNumber: item_number}))
+      request.set_form_data(form_params(options).merge({ ItemNumber: item_number }))
 
       response = http.request(request)
       body = sanitize_response(response)
