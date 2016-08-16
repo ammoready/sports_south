@@ -167,5 +167,36 @@ module SportsSouth
       items
     end
 
+    # Pass an optional `:since` option (YYYY-MM-DDTHH:mm:ss.mss-HH:00) to get items updated since that timestamp.
+    def self.incremental_onhand_update(options = {})
+      requires!(options, :username, :password, :source, :customer_number)
+
+      options[:since] ||= '-1'
+
+      http, request = get_http_and_request(API_URL, '/IncrementalOnhandUpdate')
+
+      request.set_form_data(form_params(options).merge({ SinceDateTime: options[:since] }))
+
+      response = http.request(request)
+      body = sanitize_response(response)
+      xml_doc = Nokogiri::XML(body)
+
+      raise SportsSouth::NotAuthenticated if not_authenticated?(xml_doc)
+
+      items = []
+
+      xml_doc.css('Onhand').each do |item|
+        items << {
+          item_number: content_for(item, 'I'),
+          quantity: content_for(item, 'Q'),
+          quantity_changed: content_for(item, 'D'),
+          catalog_price: content_for(item, 'P'),
+          customer_price: content_for(item, 'C'),
+        }
+      end
+
+      items
+    end
+
   end
 end
