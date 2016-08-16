@@ -140,5 +140,32 @@ module SportsSouth
       }
     end
 
+    # This method accepts an Array of +item_numbers+.
+    def self.onhand_update_by_csv(item_numbers, options = {})
+      requires!(options, :username, :password, :source, :customer_number)
+
+      http, request = get_http_and_request(API_URL, '/OnhandUpdatebyCSV')
+
+      request.set_form_data(form_params(options).merge({ CSVItems: item_numbers.join(',') }))
+
+      response = http.request(request)
+      body = sanitize_response(response)
+      xml_doc = Nokogiri::XML(body)
+
+      raise SportsSouth::NotAuthenticated if not_authenticated?(xml_doc)
+
+      items = []
+
+      xml_doc.css('Table').each do |item|
+        items << {
+          item_number: content_for(item, 'I'),
+          quantity: content_for(item, 'Q'),
+          price: content_for(item, 'P'),
+        }
+      end
+
+      items
+    end
+
   end
 end
