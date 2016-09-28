@@ -10,5 +10,8 @@ require "sports_south"
 # require "pry"
 # Pry.start
 
+require 'net-http-spy'
+Net::HTTP.http_logger_options = {:trace => true}
+
 require "irb"
 IRB.start
