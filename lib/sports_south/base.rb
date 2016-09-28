@@ -2,6 +2,8 @@ module SportsSouth
   # Holds methods common to all classes.
   class Base
 
+    TIMEOUT = 960 # seconds
+
     protected
 
     # Wrapper to `self.requires!` that can be used as an instance method.
@@ -39,6 +41,7 @@ module SportsSouth
     def self.get_http_and_request(api_url, endpoint)
       uri = URI([api_url, endpoint].join)
       http = Net::HTTP.new(uri.host, uri.port)
+      http.read_timeout = TIMEOUT
       request = Net::HTTP::Post.new(uri.request_uri)
 
       return http, request
