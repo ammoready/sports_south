@@ -76,6 +76,25 @@ module SportsSouth
       @order_number = xml_doc.content
     end
 
+    def add_ship_instructions(ship_instructions = {})
+      requires!(ship_instructions, :ship_inst_1, :ship_inst_2)
+
+      http, request = get_http_and_request(API_URL, '/AddShipInstructions ')
+
+      request.set_form_data(form_params(@options).merge({
+        ShipInst1: header[:ship_inst_1],
+        ShipInst2: header[:ship_inst_2],
+      }))
+
+      response = http.request(request)
+      xml_doc  = Nokogiri::XML(response.body)
+
+      raise SportsSouth::NotAuthenticated if not_authenticated?(xml_doc)
+
+      @response_body = response.body
+      xml_doc.content == 'true'
+    end
+
     def add_detail(detail = {})
       raise StandardError.new("No @order_number present.") if @order_number.nil?
 
