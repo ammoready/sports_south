@@ -42,9 +42,9 @@ module SportsSouth
     def self.get_http_and_request(api_url, endpoint)
       uri = URI([api_url, endpoint].join)
       http = Net::HTTP.new(uri.host, uri.port)
-      http.initialize_http_header({ 'User-Agent' => USER_AGENT })
       http.read_timeout = TIMEOUT
       request = Net::HTTP::Post.new(uri.request_uri)
+      request["User-Agent"] = USER_AGENT
 
       return http, request
     end
