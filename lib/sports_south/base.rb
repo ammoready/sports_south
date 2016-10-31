@@ -3,6 +3,7 @@ module SportsSouth
   class Base
 
     TIMEOUT = 960 # seconds
+    USER_AGENT = "sports_south rubygems.org/gems/sports_south v(#{SportsSouth::VERSION})"
 
     protected
 
@@ -43,6 +44,7 @@ module SportsSouth
       http = Net::HTTP.new(uri.host, uri.port)
       http.read_timeout = TIMEOUT
       request = Net::HTTP::Post.new(uri.request_uri)
+      request["User-Agent"] = USER_AGENT
 
       return http, request
     end
