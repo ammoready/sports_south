@@ -1,5 +1,6 @@
 require 'sports_south/version'
 
+require 'json'
 require 'net/http'
 require 'nokogiri'
 
@@ -11,6 +12,7 @@ require 'sports_south/image'
 require 'sports_south/inventory'
 require 'sports_south/invoice'
 require 'sports_south/order'
+require 'sports_south/rotator'
 require 'sports_south/user'
 
 module SportsSouth
