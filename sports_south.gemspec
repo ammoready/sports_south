@@ -4,6 +4,8 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'sports_south/version'
 
 Gem::Specification.new do |spec|
+  spec.required_ruby_version = '~> 2.0'
+
   spec.name          = "sports_south"
   spec.version       = SportsSouth::VERSION
   spec.authors       = ["Dale Campbell"]
@@ -24,4 +26,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "net-http-spy", "~> 0.2"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.3"
+  spec.add_development_dependency "webmock", "~> 1.20"
 end
