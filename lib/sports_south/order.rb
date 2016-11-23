@@ -79,7 +79,7 @@ module SportsSouth
     def add_ship_instructions(ship_instructions = {})
       requires!(ship_instructions, :ship_inst_1, :ship_inst_2)
 
-      http, request = get_http_and_request(API_URL, '/AddShipInstructions ')
+      http, request = get_http_and_request(API_URL, '/AddShipInstructions')
 
       request.set_form_data(form_params(@options).merge({
         ShipInst1: header[:ship_inst_1],
