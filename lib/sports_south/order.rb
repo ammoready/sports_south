@@ -77,11 +77,12 @@ module SportsSouth
     end
 
     def add_ship_instructions(ship_instructions = {})
-      requires!(ship_instructions, :ship_inst_1, :ship_inst_2)
+      requires!(ship_instructions, :order_number, :ship_inst_1, :ship_inst_2)
 
       http, request = get_http_and_request(API_URL, '/AddShipInstructions')
 
       request.set_form_data(form_params(@options).merge({
+        SystemOrderNumber: ship_instructions[:order_number],
         ShipInst1: ship_instructions[:ship_inst_1],
         ShipInst2: ship_instructions[:ship_inst_2],
       }))
