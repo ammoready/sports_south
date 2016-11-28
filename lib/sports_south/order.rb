@@ -70,6 +70,8 @@ module SportsSouth
       response = http.request(request)
       xml_doc  = Nokogiri::XML(response.body)
 
+      puts xml_doc
+
       raise SportsSouth::NotAuthenticated if not_authenticated?(xml_doc)
 
       @response_body = response.body
