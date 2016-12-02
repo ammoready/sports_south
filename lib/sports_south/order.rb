@@ -41,8 +41,8 @@ module SportsSouth
       header[:insurance] = false unless header.has_key?(:insurance)
 
       requires!(header[:shipping], :name, :address_one, :city, :state, :zip, :phone)
-      header[:shipping][:attn] = header[:shipping][:name] unless header.has_key?(:attn)
-      header[:shipping][:via] = SHIP_VIA[:ground] unless header.has_key?(:ship_via)
+      header[:shipping][:attn] = '' unless header[:shipping].has_key?(:attn)
+      header[:shipping][:via] = SHIP_VIA[:ground] unless header[:shipping].has_key?(:ship_via)
       header[:shipping][:address_two] = '' unless header[:shipping].has_key?(:address_two)
 
       http, request = get_http_and_request(API_URL, '/AddHeader')
@@ -67,10 +67,14 @@ module SportsSouth
         Insurance: header[:insurance],
       }))
 
+      puts "sports_south.gem - Order.add_header (request)"
+      puts "sports_south.gem - #{request.body.inspect}"
+
       response = http.request(request)
       xml_doc  = Nokogiri::XML(response.body)
 
-      puts xml_doc
+      puts "sports_south.gem - Order.add_header (response)"
+      puts "sports_south.gem - #{xml_doc.inspect}"
 
       raise SportsSouth::NotAuthenticated if not_authenticated?(xml_doc)
 
