@@ -67,14 +67,8 @@ module SportsSouth
         Insurance: header[:insurance],
       }))
 
-      puts "sports_south.gem - Order.add_header (request)"
-      puts "sports_south.gem - #{request.body.inspect}"
-
       response = http.request(request)
       xml_doc  = Nokogiri::XML(response.body)
-
-      puts "sports_south.gem - Order.add_header (response)"
-      puts "sports_south.gem - #{xml_doc.inspect}"
 
       raise SportsSouth::NotAuthenticated if not_authenticated?(xml_doc)
 
