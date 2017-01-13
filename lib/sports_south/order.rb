@@ -41,8 +41,8 @@ module SportsSouth
       header[:insurance] = false unless header.has_key?(:insurance)
 
       requires!(header[:shipping], :name, :address_one, :city, :state, :zip, :phone)
-      header[:shipping][:attn] = header[:shipping][:name] unless header.has_key?(:attn)
-      header[:shipping][:via] = SHIP_VIA[:ground] unless header.has_key?(:ship_via)
+      header[:shipping][:attn] = '' unless header[:shipping].has_key?(:attn)
+      header[:shipping][:via] = SHIP_VIA[:ground] unless header[:shipping].has_key?(:ship_via)
       header[:shipping][:address_two] = '' unless header[:shipping].has_key?(:address_two)
 
       http, request = get_http_and_request(API_URL, '/AddHeader')
