@@ -227,11 +227,11 @@ module SportsSouth
 
     protected
 
-    def self.stream_to_tempfile(endpoint, options)
+    def self.stream_to_tempfile(endpoint, form_data)
       temp_file     = Tempfile.new
       http, request = get_http_and_request(API_URL, endpoint)
 
-      request.set_form_data(options)
+      request.set_form_data(form_data)
 
       http.request(request) do |response|
         File.open(temp_file, 'w') do |file|
