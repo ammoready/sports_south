@@ -236,8 +236,7 @@ module SportsSouth
       http.request(request) do |response|
         File.open(temp_file, 'w') do |file|
           response.read_body do |chunk|
-
-            file.write chunk
+            file.write(chunk.gsub('&lt;', '<').gsub('&gt;', '>'))
           end
         end
       end
