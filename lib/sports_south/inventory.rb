@@ -225,5 +225,25 @@ module SportsSouth
       items
     end
 
+    protected
+
+    def self.stream_to_tempfile(endpoint, options)
+      temp_file     = Tempfile.new
+      http, request = get_http_and_request(API_URL, endpoint)
+
+      request.set_form_data(options)
+
+      http.request(request) do |response|
+        File.open(temp_file, 'w') do |file|
+          response.read_body do |chunk|
+
+            file.write chunk
+          end
+        end
+      end
+
+      temp_file
+    end
+
   end
 end
