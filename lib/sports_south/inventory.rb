@@ -27,16 +27,13 @@ module SportsSouth
       options[:last_update] ||= '1/1/1990'  # Return full catalog.
       options[:last_item]   ||= '-1'  # Return all items.
 
-      http, request = get_http_and_request(API_URL, '/DailyItemUpdate')
-
-      request.set_form_data(form_params(options).merge({
+      form_data = form_params(options).merge({
         LastUpdate: options[:last_update],
         LastItem: options[:last_item],
-      }))
+      })
 
-      response = http.request(request)
-      body = sanitize_response(response)
-      xml_doc = Nokogiri::XML(body)
+      tempfile = stream_to_tempfile('/DailyItemUpdate', form_data)
+      xml_doc = Nokogiri::XML(tempfile)
 
       raise SportsSouth::NotAuthenticated if not_authenticated?(xml_doc)
 
