@@ -15,6 +15,8 @@ require 'sports_south/order'
 require 'sports_south/rotator'
 require 'sports_south/user'
 
+require 'sports_south/chunker'
+require 'sports_south/parser'
 require 'sports_south/documents/inventory_document'
 
 module SportsSouth
