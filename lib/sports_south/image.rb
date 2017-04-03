@@ -6,24 +6,23 @@ module SportsSouth
     def self.urls(item_number, options = {})
       requires!(options, :username, :password, :source, :customer_number)
 
-      http, request = get_http_and_request(API_URL, '/GetPictureURLs')
-
-      request.set_form_data(form_params(options).merge({
+      form_data = form_params(options).merge({
         ItemNumber: item_number
-      }))
+      })
 
-      response = http.request(request)
-      body = sanitize_response(response)
-      xml_doc = Nokogiri::XML(body)
+      tempfile  = stream_to_tempfile(API_URL, '/GetPictureURLs', form_data)
+      xml_doc   = Nokogiri::XML(tempfile)
 
       raise SportsSouth::NotAuthenticated if not_authenticated?(xml_doc)
 
-      images = {}
+      images = Hash.new
 
-      xml_doc.css('Table').each do |image|
-        size = content_for(image, 'ImageSize').to_sym
-        images[size] = content_for(image, 'Link')
+      SportsSouth::Parser.parse(tempfile, 'Table') do |node|
+        size = content_for(node, 'ImageSize').to_sym
+        images[size] = content_for(node, 'Link')
       end
+
+      tempfile.unlink
 
       images
     end
