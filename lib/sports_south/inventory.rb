@@ -100,6 +100,34 @@ module SportsSouth
       items
     end
 
+    def self.all_as_chunks(size, options = {})
+      requires!(options, :username, :password, :source, :customer_number)
+
+      form_data = form_params(options).merge({
+        LastUpdate: options[:last_update] ||= '1/1/1990',
+        LastItem:   options[:last_item] ||= '-1'
+      })
+
+      tempfile  = stream_to_tempfile('/DailyItemUpdate', form_data)
+      chunker   = SportsSouth::Chunker.new(size)
+
+      chunker.total_count = File.readlines(tempfile).size
+
+      SportsSouth::Parser.chunk(tempfile) do |chunk|
+        if chunker.is_full?
+          yield(chunker.chunk)
+
+          chunker.reset
+        elsif chunker.is_complete?
+          yield(chunker.chunk)
+
+          break
+        else
+          chunker.add(chunk)
+        end
+      end
+    end
+
     def self.get_text(item_number, options = {})
       requires!(options, :username, :password, :source, :customer_number)
 
