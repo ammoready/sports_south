@@ -10,7 +10,7 @@ module SportsSouth
       request.set_form_data(form_params(options))
 
       response = http.request(request)
-      xml_doc = Nokogiri::XML(sanitize_response(response))
+      xml_doc  = Nokogiri::XML(sanitize_response(response))
 
       raise SportsSouth::NotAuthenticated if not_authenticated?(xml_doc)
 
