@@ -4,6 +4,7 @@ module SportsSouth
 
     TIMEOUT = 960 # seconds
     USER_AGENT = "sports_south rubygems.org/gems/sports_south v(#{SportsSouth::VERSION})"
+    CONTENT_TYPE = 'application/x-www-form-urlencoded'.freeze
 
     protected
 
@@ -44,7 +45,8 @@ module SportsSouth
       http = Net::HTTP.new(uri.host, uri.port)
       http.read_timeout = TIMEOUT
       request = Net::HTTP::Post.new(uri.request_uri)
-      request["User-Agent"] = USER_AGENT
+      request['User-Agent'] = USER_AGENT
+      request['Content-Type'] = CONTENT_TYPE
 
       return http, request
     end
@@ -69,20 +71,20 @@ module SportsSouth
     def sanitize_response(*args); self.class.sanitize_response(*args); end
 
     def self.stream_to_tempfile(url, endpoint, form_data)
-      temp_file     = Tempfile.new
+      tempfile      = Tempfile.new
       http, request = get_http_and_request(url, endpoint)
 
       request.set_form_data(form_data)
 
       http.request(request) do |response|
-        File.open(temp_file, 'w') do |file|
+        File.open(tempfile, 'w') do |file|
           response.read_body do |chunk|
             file.write(chunk.gsub('&lt;', '<').gsub('&gt;', '>'))
           end
         end
       end
 
-      temp_file
+      tempfile
     end
 
   end

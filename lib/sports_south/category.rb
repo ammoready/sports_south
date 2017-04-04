@@ -1,25 +1,20 @@
 module SportsSouth
   class Category < Base
+
     API_URL = 'http://webservices.theshootingwarehouse.com/smart/inventory.asmx'
 
     def self.all(options = {})
       requires!(options, :username, :password, :source, :customer_number)
 
-      form_data = form_params(options)
-      tempfile  = stream_to_tempfile(API_URL, '/CategoryUpdate', form_data)
-      xml_doc   = Nokogiri::XML(tempfile)
+      http, request = get_http_and_request(API_URL, '/CategoryUpdate')
+      request.set_form_data(form_params(options))
+
+      response = http.request(request)
+      xml_doc = Nokogiri::XML(sanitize_response(response))
 
       raise SportsSouth::NotAuthenticated if not_authenticated?(xml_doc)
 
-      categories = Array.new
-
-      SportsSouth::Parser.parse(tempfile, 'Table') do |node|
-        categories.push(self.map_hash(node))
-      end
-
-      tempfile.unlink
-
-      categories
+      xml_doc.css('Table').map { |category| map_hash(category) }
     end
 
     protected
