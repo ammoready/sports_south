@@ -24,55 +24,21 @@ module SportsSouth
     def self.all(options = {})
       requires!(options, :username, :password, :source, :customer_number)
 
-      form_data = form_params(options).merge({
-        LastUpdate: options[:last_update] ||= '1/1/1990',
-        LastItem:   options[:last_item]   ||= '-1'
-      })
+      options[:last_update] ||= '1/1/1990' # Return full catalog.
+      options[:last_item]   ||= '-1'       # Return all items.
 
-      tempfile  = stream_to_tempfile(API_URL, '/DailyItemUpdate', form_data)
-      xml_doc   = Nokogiri::XML(tempfile)
+      http, request = get_http_and_request(API_URL, '/DailyItemUpdate')
+
+      request.set_form_data(form_params(options).merge({
+        LastUpdate: options[:last_update],
+        LastItem:   options[:last_item].to_s,
+      }))
+
+      xml_doc  = Nokogiri::XML(sanitize_response(http.request(request)))
 
       raise SportsSouth::NotAuthenticated if not_authenticated?(xml_doc)
 
-      items = Array.new
-
-      SportsSouth::Parser.parse(tempfile, 'Table') do |node|
-        items.push(self.map_hash(node))
-      end
-
-      tempfile.unlink
-
-      items
-    end
-
-    def self.all_as_chunks(size, options = {})
-      requires!(options, :username, :password, :source, :customer_number)
-
-      form_data = form_params(options).merge({
-        LastUpdate: options[:last_update] ||= '1/1/1990',
-        LastItem:   options[:last_item]   ||= '-1'
-      })
-
-      tempfile  = stream_to_tempfile(API_URL, '/DailyItemUpdate', form_data)
-      chunker   = SportsSouth::Chunker.new(size)
-
-      chunker.total_count = File.readlines(tempfile).size
-
-      SportsSouth::Parser.parse(tempfile, 'Table') do |node|
-        if chunker.is_full?
-          yield(chunker.chunk)
-
-          chunker.reset
-        elsif chunker.is_complete?
-          yield(chunker.chunk)
-
-          break
-        else
-          chunker.add(self.map_hash(node))
-        end
-      end
-
-      tempfile.unlink
+      xml_doc.css('Table').map { |item| map_hash(item) }
     end
 
     def self.get_text(item_number, options = {})
@@ -83,12 +49,14 @@ module SportsSouth
       request.set_form_data(form_params(options).merge({ ItemNumber: item_number }))
 
       response = http.request(request)
-      body = sanitize_response(response)
-      xml_doc = Nokogiri::XML(body)
+      xml_doc = Nokogiri::XML(sanitize_response(response))
 
       raise SportsSouth::NotAuthenticated if not_authenticated?(xml_doc)
 
-      { catalog_text: content_for(xml_doc, 'CATALOGTEXT') }
+      {
+        item_number:  item_number,
+        catalog_text: content_for(xml_doc, 'CATALOGTEXT')
+      }
     end
 
     def self.inquiry(item_number, options = {})
@@ -99,16 +67,15 @@ module SportsSouth
       request.set_form_data(form_params(options).merge({ ItemNumber: item_number }))
 
       response = http.request(request)
-      body = sanitize_response(response)
-      xml_doc = Nokogiri::XML(body)
+      xml_doc  = Nokogiri::XML(sanitize_response(response))
 
       raise SportsSouth::NotAuthenticated if not_authenticated?(xml_doc)
 
       {
-        item_number: content_for(xml_doc, 'I'),
+        item_number:      content_for(xml_doc, 'I'),
         quantity_on_hand: content_for(xml_doc, 'Q').to_i,
-        catalog_price: content_for(xml_doc, 'P'),
-        customer_price: content_for(xml_doc, 'C'),
+        catalog_price:    content_for(xml_doc, 'P'),
+        customer_price:   content_for(xml_doc, 'C'),
       }
     end
 
@@ -121,22 +88,17 @@ module SportsSouth
       request.set_form_data(form_params(options).merge({ CSVItems: item_numbers.join(',') }))
 
       response = http.request(request)
-      body = sanitize_response(response)
-      xml_doc = Nokogiri::XML(body)
+      xml_doc  = Nokogiri::XML(sanitize_response(response))
 
       raise SportsSouth::NotAuthenticated if not_authenticated?(xml_doc)
 
-      items = []
-
-      xml_doc.css('Table').each do |item|
-        items << {
+      xml_doc.css('Table').map do |item|
+        {
           item_number: content_for(item, 'I'),
           quantity: content_for(item, 'Q'),
           price: content_for(item, 'P'),
         }
       end
-
-      items
     end
 
     # Pass an optional `:since` option (YYYY-MM-DDTHH:mm:ss.mss-HH:00) to get items updated since that timestamp.
@@ -149,25 +111,19 @@ module SportsSouth
 
       request.set_form_data(form_params(options).merge({ SinceDateTime: options[:since] }))
 
-      response = http.request(request)
-      body = sanitize_response(response)
-      xml_doc = Nokogiri::XML(body)
+      xml_doc = Nokogiri::XML(sanitize_response(http.request(request)))
 
       raise SportsSouth::NotAuthenticated if not_authenticated?(xml_doc)
 
-      items = []
-
-      xml_doc.css('Onhand').each do |item|
-        items << {
-          item_number: content_for(item, 'I'),
-          quantity: content_for(item, 'Q'),
+      xml_doc.css('Onhand').map do |item|
+        {
+          item_number:      content_for(item, 'I'),
+          quantity:         content_for(item, 'Q'),
           quantity_changed: content_for(item, 'D'),
-          catalog_price: content_for(item, 'P'),
-          customer_price: content_for(item, 'C'),
+          catalog_price:    content_for(item, 'P'),
+          customer_price:   content_for(item, 'C'),
         }
       end
-
-      items
     end
 
     def self.onhand_update(options = {})
@@ -178,23 +134,18 @@ module SportsSouth
       request.set_form_data(form_params(options))
 
       response = http.request(request)
-      body = sanitize_response(response)
-      xml_doc = Nokogiri::XML(body)
+      xml_doc  = Nokogiri::XML(sanitize_response(response))
 
       raise SportsSouth::NotAuthenticated if not_authenticated?(xml_doc)
 
-      items = []
-
-      xml_doc.css('Table').each do |item|
-        items << {
-          item_number: content_for(item, 'I'),
-          quantity: content_for(item, 'Q'),
-          catalog_price: content_for(item, 'P'),
+      xml_doc.css('Table').map do |item|
+        {
+          item_number:    content_for(item, 'I'),
+          quantity:       content_for(item, 'Q').to_i,
+          catalog_price:  content_for(item, 'P'),
           customer_price: content_for(item, 'C'),
         }
       end
-
-      items
     end
 
     protected

@@ -15,9 +15,6 @@ require 'sports_south/order'
 require 'sports_south/rotator'
 require 'sports_south/user'
 
-require 'sports_south/chunker'
-require 'sports_south/parser'
-
 module SportsSouth
   class NotAuthenticated < StandardError; end
 end

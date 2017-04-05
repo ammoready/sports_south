@@ -70,22 +70,5 @@ module SportsSouth
     end
     def sanitize_response(*args); self.class.sanitize_response(*args); end
 
-    def self.stream_to_tempfile(url, endpoint, form_data)
-      tempfile      = Tempfile.new
-      http, request = get_http_and_request(url, endpoint)
-
-      request.set_form_data(form_data)
-
-      http.request(request) do |response|
-        File.open(tempfile, 'w') do |file|
-          response.read_body do |chunk|
-            file.write(chunk.gsub('&lt;', '<').gsub('&gt;', '>'))
-          end
-        end
-      end
-
-      tempfile
-    end
-
   end
 end
