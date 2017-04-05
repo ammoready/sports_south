@@ -27,5 +27,20 @@ module SportsSouth
       images
     end
 
+    def self.list_new_pictures(options = {})
+      requires!(options, :username, :password, :source, :customer_number)
+
+      http, request = get_http_and_request(API_URL, '/ListNewPictures')
+
+      request.set_form_data(form_params(options).merge({
+        DateFrom: (options[:date_from] || (DateTime.now - 1).strftime('%m/%d/%Y'))
+      }))
+
+      response = http.request(request)
+      xml_doc  = Nokogiri::XML(sanitize_response(response))
+
+      xml_doc.css('Table').map { |node| { item_number: content_for(node, 'ITEMNO') } }
+    end
+
   end
 end
