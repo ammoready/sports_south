@@ -13,12 +13,11 @@ module SportsSouth
       }))
 
       response = http.request(request)
-      body = sanitize_response(response)
-      xml_doc = Nokogiri::XML(body)
+      xml_doc  = Nokogiri::XML(sanitize_response(response))
 
       raise SportsSouth::NotAuthenticated if not_authenticated?(xml_doc)
 
-      images = {}
+      images = Hash.new
 
       xml_doc.css('Table').each do |image|
         size = content_for(image, 'ImageSize').to_sym

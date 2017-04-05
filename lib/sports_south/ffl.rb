@@ -13,8 +13,7 @@ module SportsSouth
       request.set_form_data(form_params(options).merge({ FFL: ffl }))
 
       response = http.request(request)
-      body = sanitize_response(response)
-      xml_doc = Nokogiri::XML(body)
+      xml_doc  = Nokogiri::XML(sanitize_response(response))
 
       raise SportsSouth::NotAuthenticated if not_authenticated?(xml_doc)
 

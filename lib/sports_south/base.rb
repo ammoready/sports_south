@@ -4,6 +4,7 @@ module SportsSouth
 
     TIMEOUT = 960 # seconds
     USER_AGENT = "sports_south rubygems.org/gems/sports_south v(#{SportsSouth::VERSION})"
+    CONTENT_TYPE = 'application/x-www-form-urlencoded'.freeze
 
     protected
 
@@ -44,7 +45,8 @@ module SportsSouth
       http = Net::HTTP.new(uri.host, uri.port)
       http.read_timeout = TIMEOUT
       request = Net::HTTP::Post.new(uri.request_uri)
-      request["User-Agent"] = USER_AGENT
+      request['User-Agent'] = USER_AGENT
+      request['Content-Type'] = CONTENT_TYPE
 
       return http, request
     end
