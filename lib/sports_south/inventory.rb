@@ -38,7 +38,7 @@ module SportsSouth
 
       raise SportsSouth::NotAuthenticated if not_authenticated?(xml_doc)
 
-      xml_doc.css('Table').map { |item| map_hash(item) }
+      xml_doc.css('Table').map { |item| map_hash(item, mode: options[:mode]) }
     end
 
     def self.get_text(item_number, options = {})
@@ -150,62 +150,71 @@ module SportsSouth
 
     protected
 
-    def self.map_hash(node)
-      {
-        item_number:              content_for(node, 'ITEMNO'),
-        description:              content_for(node, 'IDESC'),
-        manufacturer_sequence:    content_for(node, 'IMFSEQ'),
-        manufacturer_number:      content_for(node, 'IMFGNO'),
-        catalog_sequence:         content_for(node, 'CSEQ'),
-        item_type:                ITEM_TYPES[content_for(node, 'ITYPE')],
-        short_description:        content_for(node, 'SHDESC'),
-        unit_of_measure:          content_for(node, 'UOM'),
-        catalog_price:            content_for(node, 'PRC1'),
-        customer_price:           content_for(node, 'CPRC'),
-        quantity_on_hand:         content_for(node, 'QTYOH'),
-        weight_per_box:           content_for(node, 'WTPBX'),
-        upc:                      content_for(node, 'ITUPC'),
-        manufacturer_item_number: content_for(node, 'MFGINO'),
-        scan_name_1:              content_for(node, 'SCNAM1'),
-        scan_name_2:              content_for(node, 'SCNAM2'),
-        catalog_code:             CATALOG_CODES[content_for(node, 'CATCD')],
-        mapp_price_code:          content_for(node, 'MFPRTYP'),
-        mapp_price:               content_for(node, 'MFPRC'),
-        category_id:              content_for(node, 'CATID'),
-        text_reference_number:    content_for(node, 'TXTREF'),
-        picture_reference_number: content_for(node, 'PICREF'),
-        brand_id:                 content_for(node, 'ITBRDNO'),
-        item_model_number:        content_for(node, 'IMODEL'),
-        item_purpose:             content_for(node, 'IPURPOSE'),
-        series_description:       content_for(node, 'SERIES'),
-        item_length:              content_for(node, 'LENGTH'),
-        item_height:              content_for(node, 'HEIGHT'),
-        item_width:               content_for(node, 'WIDTH'),
-        item_ships_hazmat_air:    content_for(node, 'HAZAIR'),
-        item_ships_hazmat_ground: content_for(node, 'HAZGRND'),
-        date_of_last_change:      content_for(node, 'CHGDTE'),
-        date_added:               content_for(node, 'CHGDTE'),
-        attribute_1:              content_for(node, 'ITATR1'),
-        attribute_2:              content_for(node, 'ITATR2'),
-        attribute_3:              content_for(node, 'ITATR3'),
-        attribute_4:              content_for(node, 'ITATR4'),
-        attribute_5:              content_for(node, 'ITATR5'),
-        attribute_6:              content_for(node, 'ITATR6'),
-        attribute_7:              content_for(node, 'ITATR7'),
-        attribute_8:              content_for(node, 'ITATR8'),
-        attribute_9:              content_for(node, 'ITATR9'),
-        attribute_10:             content_for(node, 'ITATR0'),
-        attribute_11:             content_for(node, 'ITATR11'),
-        attribute_12:             content_for(node, 'ITATR12'),
-        attribute_13:             content_for(node, 'ITATR13'),
-        attribute_14:             content_for(node, 'ITATR14'),
-        attribute_15:             content_for(node, 'ITATR15'),
-        attribute_16:             content_for(node, 'ITATR16'),
-        attribute_17:             content_for(node, 'ITATR17'),
-        attribute_18:             content_for(node, 'ITATR18'),
-        attribute_19:             content_for(node, 'ITATR19'),
-        attribute_20:             content_for(node, 'ITATR20')
-      }
+    def self.map_hash(node, mode: nil)
+      if mode == :minimal
+        {
+          item_number:      content_for(node, 'ITEMNO'),
+          catalog_price:    content_for(node, 'PRC1'),
+          customer_price:   content_for(node, 'CPRC'),
+          quantity_on_hand: content_for(node, 'QTYOH'),
+        }
+      else
+        {
+          item_number:              content_for(node, 'ITEMNO'),
+          description:              content_for(node, 'IDESC'),
+          manufacturer_sequence:    content_for(node, 'IMFSEQ'),
+          manufacturer_number:      content_for(node, 'IMFGNO'),
+          catalog_sequence:         content_for(node, 'CSEQ'),
+          item_type:                ITEM_TYPES[content_for(node, 'ITYPE')],
+          short_description:        content_for(node, 'SHDESC'),
+          unit_of_measure:          content_for(node, 'UOM'),
+          catalog_price:            content_for(node, 'PRC1'),
+          customer_price:           content_for(node, 'CPRC'),
+          quantity_on_hand:         content_for(node, 'QTYOH'),
+          weight_per_box:           content_for(node, 'WTPBX'),
+          upc:                      content_for(node, 'ITUPC'),
+          manufacturer_item_number: content_for(node, 'MFGINO'),
+          scan_name_1:              content_for(node, 'SCNAM1'),
+          scan_name_2:              content_for(node, 'SCNAM2'),
+          catalog_code:             CATALOG_CODES[content_for(node, 'CATCD')],
+          mapp_price_code:          content_for(node, 'MFPRTYP'),
+          mapp_price:               content_for(node, 'MFPRC'),
+          category_id:              content_for(node, 'CATID'),
+          text_reference_number:    content_for(node, 'TXTREF'),
+          picture_reference_number: content_for(node, 'PICREF'),
+          brand_id:                 content_for(node, 'ITBRDNO'),
+          item_model_number:        content_for(node, 'IMODEL'),
+          item_purpose:             content_for(node, 'IPURPOSE'),
+          series_description:       content_for(node, 'SERIES'),
+          item_length:              content_for(node, 'LENGTH'),
+          item_height:              content_for(node, 'HEIGHT'),
+          item_width:               content_for(node, 'WIDTH'),
+          item_ships_hazmat_air:    content_for(node, 'HAZAIR'),
+          item_ships_hazmat_ground: content_for(node, 'HAZGRND'),
+          date_of_last_change:      content_for(node, 'CHGDTE'),
+          date_added:               content_for(node, 'CHGDTE'),
+          attribute_1:              content_for(node, 'ITATR1'),
+          attribute_2:              content_for(node, 'ITATR2'),
+          attribute_3:              content_for(node, 'ITATR3'),
+          attribute_4:              content_for(node, 'ITATR4'),
+          attribute_5:              content_for(node, 'ITATR5'),
+          attribute_6:              content_for(node, 'ITATR6'),
+          attribute_7:              content_for(node, 'ITATR7'),
+          attribute_8:              content_for(node, 'ITATR8'),
+          attribute_9:              content_for(node, 'ITATR9'),
+          attribute_10:             content_for(node, 'ITATR0'),
+          attribute_11:             content_for(node, 'ITATR11'),
+          attribute_12:             content_for(node, 'ITATR12'),
+          attribute_13:             content_for(node, 'ITATR13'),
+          attribute_14:             content_for(node, 'ITATR14'),
+          attribute_15:             content_for(node, 'ITATR15'),
+          attribute_16:             content_for(node, 'ITATR16'),
+          attribute_17:             content_for(node, 'ITATR17'),
+          attribute_18:             content_for(node, 'ITATR18'),
+          attribute_19:             content_for(node, 'ITATR19'),
+          attribute_20:             content_for(node, 'ITATR20')
+        }
+      end
     end
 
   end
