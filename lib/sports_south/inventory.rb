@@ -19,6 +19,7 @@ module SportsSouth
       '5' => :optics,
       '6' => :archery,
       '7' => :reloading,
+      '8' => :suppressor,
     }
 
     def self.all(options = {})
