@@ -37,7 +37,7 @@ describe SportsSouth::Inventory do
             "UserName" => "usr"
           }, headers: {
             'Content-Type' => 'application/x-www-form-urlencoded',
-            'User-Agent'   => 'sports_south rubygems.org/gems/sports_south v(1.2.1)'
+            'User-Agent'   => "sports_south rubygems.org/gems/sports_south v(#{SportsSouth::VERSION})"
           }).
         to_return(status: 200, body: sample_list_new_text)
 
