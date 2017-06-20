@@ -80,6 +80,23 @@ module SportsSouth
       }
     end
 
+    def self.list_new_text(options = {})
+      requires!(options, :username, :password, :source, :customer_number)
+      options[:since] ||= (Time.now - 86400).strftime('%m/%d/%Y')
+
+      http, request = get_http_and_request(API_URL, '/ListNewText')
+      request.set_form_data(form_params(options).merge({ DateFrom: options[:since] }))
+
+      xml_doc = Nokogiri::XML(sanitize_response(http.request(request)))
+
+      xml_doc.css('Table').map do |item|
+        {
+          item_number: content_for(item, 'ITEMNO'),
+          text: content_for(item, 'TEXT')
+        }
+      end
+    end
+
     # This method accepts an Array of +item_numbers+.
     def self.onhand_update_by_csv(item_numbers, options = {})
       requires!(options, :username, :password, :source, :customer_number)
