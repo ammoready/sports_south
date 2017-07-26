@@ -35,7 +35,37 @@ describe SportsSouth::Order do
       }
     end
 
-    # it { pp order.add_header(params) }
+    before do
+      stub_request(:post, "http://webservices.theshootingwarehouse.com/smart/orders.asmx/AddHeader").
+        with(body: {
+          "AdultSignature" => "false",
+          "CustomerNumber" => "10001",
+          "CustomerOrderNumber" => "1000",
+          "Insurance" => "false",
+          "PO" => "1000",
+          "Password" => "secret",
+          "SalesMessage" => "Order via AmmoReady.com",
+          "ShipToAddr1" => "123 Bob Ln.",
+          "ShipToAddr2" => "",
+          "ShipToAttn" => "Transferee - Fake Transferee",
+          "ShipToCity" => "Greenville",
+          "ShipToName" => "Fake name",
+          "ShipToPhone" => "8009915555",
+          "ShipToState" => "SC",
+          "ShipToZip" => "29601",
+          "ShipVia" => "",
+          "Signature" => "false",
+          "Source" => "ruby-gem",
+          "UserName" => "bob"
+        }, headers: {
+          'Accept' => '*/*',
+          'Content-Type' => 'application/x-www-form-urlencoded', 
+          'User-Agent' => 'sports_south rubygems.org/gems/sports_south v(1.3.0)'
+        }).to_return(status: 200, body: add_header_response, headers: {})
+      order.add_header(params)
+    end
+
+    it { expect(order.order_number).to eq('1200099') }
   end
 
 end
