@@ -17,7 +17,7 @@ module SportsSouth
       if options[:last_updated].present?
         options[:last_updated].to_s("yyyy-MM-ddTHH:mm:sszzz")
       else
-        options[:last_updated] = '2017-09-25T14:15:47-04:00'
+        options[:last_updated] = '1990-09-25T14:15:47-04:00'
       end
 
       options[:last_item] ||= '-1'
