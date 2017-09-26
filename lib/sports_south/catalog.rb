@@ -77,6 +77,8 @@ module SportsSouth
         short_description: content_for(node, 'SHDESC'),
         long_description: content_for(node, 'IDESC'),
         category: content_for(node, 'CATID'),
+        product_type: ITEM_TYPES[content_for(node, 'ITYPE')],
+        mfg_number: content_for(node, 'IMFGNO'),
         weight: content_for(node, 'WTPBX'),
         map_price: content_for(node, 'MFPRC'),
         brand: content_for(node, 'ITBRDNO'),
