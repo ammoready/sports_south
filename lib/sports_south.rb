@@ -5,6 +5,7 @@ require 'net/http'
 require 'nokogiri'
 
 require 'sports_south/base'
+require 'sports_south/chunker'
 require 'sports_south/brand'
 require 'sports_south/category'
 require 'sports_south/ffl'
