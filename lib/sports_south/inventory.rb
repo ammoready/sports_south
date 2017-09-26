@@ -15,7 +15,7 @@ module SportsSouth
       requires!(options, :username, :password)
 
       if options[:last_updated].present?
-        options[:last_updated].to_s("yyyy-MM-ddTHH:mm:sszzz")
+        options[:last_updated] = options[:last_updated].to_s("yyyy-MM-ddTHH:mm:sszzz")
       else
         options[:last_updated] = '1990-09-25T14:15:47-04:00'
       end
