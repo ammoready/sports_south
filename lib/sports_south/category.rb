@@ -3,11 +3,21 @@ module SportsSouth
 
     API_URL = 'http://webservices.theshootingwarehouse.com/smart/inventory.asmx'
 
+    def initialize(options = {})
+      requires!(options, :username, :password)
+
+      @options = options
+    end
+
     def self.all(options = {})
       requires!(options, :username, :password)
 
+      new(options).all
+    end
+
+    def all
       http, request = get_http_and_request(API_URL, '/CategoryUpdate')
-      request.set_form_data(form_params(options))
+      request.set_form_data(form_params(@options))
 
       response = http.request(request)
       xml_doc  = Nokogiri::XML(sanitize_response(response))
@@ -19,7 +29,7 @@ module SportsSouth
 
     protected
 
-    def self.map_hash(node)
+    def map_hash(node)
       {
         category_id:            content_for(node, 'CATID'),
         description:            content_for(node, 'CATDES'),

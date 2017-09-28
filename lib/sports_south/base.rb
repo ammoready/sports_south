@@ -57,11 +57,10 @@ module SportsSouth
     end
     def get_http_and_request(*args); self.class.get_http_and_request(*args); end
 
-    def self.not_authenticated?(xml_doc)
+    def not_authenticated?(xml_doc)
       msg = content_for(xml_doc, 'ERROR')
       (msg =~ /Authentication Failed/i) || (msg =~ /NOT AUTHENTICATED/i)
     end
-    def not_authenticated?(*args); self.class.not_authenticated?(*args); end
 
     # HACK: We have to fix the malformed XML response SS is currently returning.
     def self.sanitize_response(response)
