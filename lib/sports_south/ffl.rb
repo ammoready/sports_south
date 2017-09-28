@@ -6,7 +6,7 @@ module SportsSouth
     DATE_REGEX = /\A\d+\/\d+\/\d+/
 
     def self.accepts_transfer(ffl, options = {})
-      requires!(options, :username, :password, :source, :customer_number)
+      requires!(options, :username, :password)
 
       http, request = get_http_and_request(API_URL, '/FFLAcceptsTransfer')
 

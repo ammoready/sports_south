@@ -4,7 +4,7 @@ module SportsSouth
     API_URL = 'http://webservices.theshootingwarehouse.com/smart/inventory.asmx'
 
     def self.all(options = {})
-      requires!(options, :username, :password, :source, :customer_number)
+      requires!(options, :username, :password)
 
       http, request = get_http_and_request(API_URL, '/BrandUpdate')
       request.set_form_data(form_params(options))

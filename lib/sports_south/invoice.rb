@@ -7,7 +7,7 @@ module SportsSouth
     attr_reader :po_number
 
     def self.find_by_po_number(po_number, options = {})
-      requires!(options, :username, :password, :source, :customer_number)
+      requires!(options, :username, :password)
       new(options.merge({po_number: po_number}))
     end
 

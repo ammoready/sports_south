@@ -23,12 +23,12 @@ module SportsSouth
     attr_reader :order_number
 
     def self.find(order_number, options = {})
-      requires!(options, :username, :password, :source, :customer_number)
+      requires!(options, :username, :password)
       new(options.merge({order_number: order_number}))
     end
 
     def initialize(options = {})
-      requires!(options, :username, :password, :source, :customer_number)
+      requires!(options, :username, :password)
       @options = options
       @order_number = options[:order_number]
     end
