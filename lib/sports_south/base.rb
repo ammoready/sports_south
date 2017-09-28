@@ -36,8 +36,8 @@ module SportsSouth
       {
         UserName: options[:username],
         Password: options[:password],
-        CustomerNumber: options[:customer_number],
-        Source: options[:source],
+        CustomerNumber: options[:username],
+        Source: 'ammor',
       }
     end
     def form_params(*args); self.class.form_params(*args); end

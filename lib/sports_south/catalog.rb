@@ -26,8 +26,6 @@ module SportsSouth
       requires!(options, :username, :password)
 
       @options = options
-      @options[:customer_number] ||= options[:username]
-      @options[:source]          ||= 'ammor' 
     end
 
     def self.all(chunk_size = 15, options = {}, &block)
