@@ -33,8 +33,13 @@ module SportsSouth
     def self.all(chunk_size = 15, options = {}, &block)
       requires!(options, :username, :password)
 
-      options[:last_updated]  ||= '1/1/1990'
-      options[:last_item]     ||= '-1'
+      if options[:last_updated].present?
+        options[:last_updated] = options[:last_updated].strftime("%-m/%-d/%Y")
+      else
+        options[:last_updated] ||= '1/1/1990'
+      end
+
+      options[:last_item] ||= '-1'
 
       new(options).all(chunk_size, &block)
     end
