@@ -25,7 +25,9 @@ module SportsSouth
     def initialize(options = {})
       requires!(options, :username, :password)
 
-      @options = options
+      @options    = options
+      @categories = SportsSouth::Category.all(options)
+      @brands     = SportsSouth::Brand.all(options)
     end
 
     def self.all(chunk_size = 15, options = {}, &block)
@@ -60,7 +62,7 @@ module SportsSouth
 
           chunker.reset!
         else
-          chunker.add(self.map_hash(item))
+          chunker.add(map_hash(item))
         end
 
         if chunker.chunk.count > 0
@@ -72,23 +74,27 @@ module SportsSouth
     protected
 
     def map_hash(node)
+      category  = @categories.find { |category| category[:category_id] == content_for(node, 'CATID') }
+      brand     = @brands.find { |brand| brand[:brand_id] == content_for(node, 'ITBRDNO') }
+
       {
-        upc:  content_for(node, 'ITUPC'),
-        item_identifier:  content_for(node, 'ITEMNO'),
-        quantity: content_for(node, 'QTYOH').to_i,
-        price: content_for(node, 'CPRC'),
-        short_description: content_for(node, 'SHDESC'),
-        long_description: content_for(node, 'IDESC'),
-        category: content_for(node, 'CATID'),
-        product_type: ITEM_TYPES[content_for(node, 'ITYPE')],
-        mfg_number: content_for(node, 'IMFGNO'),
-        weight: content_for(node, 'WTPBX'),
-        map_price: content_for(node, 'MFPRC'),
-        brand: content_for(node, 'ITBRDNO'),
+        upc:                content_for(node, 'ITUPC'),
+        item_identifier:    content_for(node, 'ITEMNO'),
+        quantity:           content_for(node, 'QTYOH').to_i,
+        price:              content_for(node, 'CPRC'),
+        short_description:  content_for(node, 'SHDESC'),
+        long_description:   content_for(node, 'IDESC'),
+        category:           category[:department_description],
+        sub_category:       category[:description],
+        product_type:       ITEM_TYPES[content_for(node, 'ITYPE')],
+        mfg_number:         content_for(node, 'IMFGNO'),
+        weight:             content_for(node, 'WTPBX'),
+        map_price:          content_for(node, 'MFPRC'),
+        brand:              brand[:name],
         features: {
           length: content_for(node, 'LENGTH'),
           height: content_for(node, 'HEIGHT'),
-          width: content_for(node, 'WIDTH')
+          width:  content_for(node, 'WIDTH')
         }
       }
     end
