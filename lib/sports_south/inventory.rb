@@ -48,10 +48,10 @@ module SportsSouth
         else
           chunker.add(self.map_hash(item))
         end
+      end
 
-        if chunker.chunk.count > 0
-          yield(chunker.chunk)
-        end
+      if chunker.chunk.count > 0
+        yield(chunker.chunk)
       end
     end
 
