@@ -44,6 +44,12 @@ module SportsSouth
       new(options).all(chunk_size, &block)
     end
 
+    def self.get_description(item_number, options = {})
+      requires!(options, :username, :password)
+
+      new(options, :username, :password)
+    end
+
     def all(chunk_size, &block)
       chunker = SportsSouth::Chunker.new(chunk_size)
       http, request = get_http_and_request(API_URL, '/DailyItemUpdate')
@@ -71,11 +77,25 @@ module SportsSouth
       end
     end
 
+    def get_description(item_number)
+      http, request = get_http_and_request(API_URL, '/GetText')
+
+      request.set_form_data(form_params(@options).merge({
+        ItemNumber: item_number
+      }))
+
+      response  = http.request(request)
+      xml_doc   = Nokogiri::XML(sanitize_response(response))
+
+      content_for(xml_doc, 'CATALOGTEXT')
+    end
+
     protected
 
     def map_hash(node)
       category  = @categories.find { |category| category[:category_id] == content_for(node, 'CATID') }
       brand     = @brands.find { |brand| brand[:brand_id] == content_for(node, 'ITBRDNO') }
+      long_description = self.get_description(content_for(node, 'ITEMNO'))
 
       {
         upc:                content_for(node, 'ITUPC'),
@@ -83,14 +103,14 @@ module SportsSouth
         quantity:           content_for(node, 'QTYOH').to_i,
         price:              content_for(node, 'CPRC'),
         short_description:  content_for(node, 'SHDESC'),
-        long_description:   content_for(node, 'IDESC'),
+        long_description:   long_description,
         category:           category[:department_description],
-        sub_category:       category[:description],
+        subcategory:        category[:description],
         product_type:       ITEM_TYPES[content_for(node, 'ITYPE')],
         mfg_number:         content_for(node, 'IMFGNO'),
         weight:             content_for(node, 'WTPBX'),
         map_price:          content_for(node, 'MFPRC'),
-        brand:              brand[:name],
+        brand:              brand.present? ? brand[:name] : nil,
         features: {
           length: content_for(node, 'LENGTH'),
           height: content_for(node, 'HEIGHT'),
