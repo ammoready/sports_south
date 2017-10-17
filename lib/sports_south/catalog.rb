@@ -98,6 +98,7 @@ module SportsSouth
       long_description = self.get_description(content_for(node, 'ITEMNO'))
 
       {
+        name:               content_for(node, 'IDESC'),
         upc:                content_for(node, 'ITUPC'),
         item_identifier:    content_for(node, 'ITEMNO'),
         quantity:           content_for(node, 'QTYOH').to_i,
