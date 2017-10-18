@@ -4,11 +4,12 @@ module SportsSouth
     API_URL = 'http://webservices.theshootingwarehouse.com/smart/orders.asmx'
 
     SHIP_VIA = {
-      ground:    '',
-      next_day:  'N',
-      two_day:   '2',
+      ground: '',
+      next_day: 'N',
+      two_day: '2',
       three_day: '3',
-      saturday:  'S',
+      saturday: 'S',
+      premium_ground: 'G',
     }
 
     # D=Placed, E=Error placing Order, R=Placed-Verifying, W=Open
@@ -42,8 +43,8 @@ module SportsSouth
 
       requires!(header[:shipping], :name, :address_one, :city, :state, :zip, :phone)
       header[:shipping][:attn] = '' unless header[:shipping].has_key?(:attn)
-      header[:shipping][:via] = SHIP_VIA[:ground] unless header[:shipping].has_key?(:ship_via)
       header[:shipping][:address_two] = '' unless header[:shipping].has_key?(:address_two)
+      header[:shipping][:via] = (header[:shipping].has_key?(:ship_via) ? SHIP_VIA[header[:shipping][:ship_via]] : SHIP_VIA[:ground])
 
       http, request = get_http_and_request(API_URL, '/AddHeader')
 
