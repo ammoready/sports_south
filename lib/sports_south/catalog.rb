@@ -68,7 +68,7 @@ module SportsSouth
 
           chunker.reset!
         else
-          chunker.add(map_hash(item))
+          chunker.add(map_hash(item, @options[:full_product].present?))
         end
       end
 
@@ -92,10 +92,15 @@ module SportsSouth
 
     protected
 
-    def map_hash(node)
+    def map_hash(node, full_product = false)
       category  = @categories.find { |category| category[:category_id] == content_for(node, 'CATID') }
       brand     = @brands.find { |brand| brand[:brand_id] == content_for(node, 'ITBRDNO') }
-      long_description = self.get_description(content_for(node, 'ITEMNO'))
+
+      if full_product
+        long_description = self.get_description(content_for(node, 'ITEMNO'))
+      else
+        nil
+      end
 
       {
         name:               content_for(node, 'IDESC'),
