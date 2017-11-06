@@ -95,6 +95,7 @@ module SportsSouth
     def map_hash(node, full_product = false)
       category  = @categories.find { |category| category[:category_id] == content_for(node, 'CATID') }
       brand     = @brands.find { |brand| brand[:brand_id] == content_for(node, 'ITBRDNO') }
+      caliber   = content_for(node, 'ITATR3').present? ? content_for(node, 'ITATR3') : nil
 
       if full_product
         long_description = self.get_description(content_for(node, 'ITEMNO'))
@@ -115,6 +116,7 @@ module SportsSouth
         product_type:       ITEM_TYPES[content_for(node, 'ITYPE')],
         mfg_number:         content_for(node, 'IMFGNO'),
         weight:             content_for(node, 'WTPBX'),
+        caliber:            caliber,
         map_price:          content_for(node, 'MFPRC'),
         brand:              brand.present? ? brand[:name] : nil,
         features: {
