@@ -104,7 +104,7 @@ module SportsSouth
       end
 
       {
-        name:               content_for(node, 'IDESC'),
+        name:               content_for(node, 'IDESC').gsub(/\s+/, ' '),
         upc:                content_for(node, 'ITUPC'),
         item_identifier:    content_for(node, 'ITEMNO'),
         quantity:           content_for(node, 'QTYOH').to_i,
