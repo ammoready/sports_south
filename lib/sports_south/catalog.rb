@@ -95,7 +95,13 @@ module SportsSouth
     def map_hash(node, full_product = false)
       category  = @categories.find { |category| category[:category_id] == content_for(node, 'CATID') }
       brand     = @brands.find { |brand| brand[:brand_id] == content_for(node, 'ITBRDNO') }
-      caliber   = content_for(node, 'ITATR3').present? ? content_for(node, 'ITATR3') : nil
+      features  = self.map_features(category.except(:category_id, :department_id, :department_description, :description), node)
+
+      if features[:caliber].present?
+        caliber = features[:caliber]
+      elsif features[:gauge].present?
+        caliber = features[:gauge]
+      end
 
       if full_product
         long_description = self.get_description(content_for(node, 'ITEMNO'))
@@ -118,12 +124,37 @@ module SportsSouth
         caliber:            caliber,
         map_price:          content_for(node, 'MFPRC'),
         brand:              brand.present? ? brand[:name] : nil,
-        features: {
-          length: content_for(node, 'LENGTH'),
-          height: content_for(node, 'HEIGHT'),
-          width:  content_for(node, 'WIDTH')
-        }
+        features:           features
       }
+    end
+
+    def map_features(attributes, node)
+      features = {
+        attributes[:attribute_1] => content_for(node, 'ITATR1'),
+        attributes[:attribute_2] => content_for(node, 'ITATR2'),
+        attributes[:attribute_3] => content_for(node, 'ITATR3'),
+        attributes[:attribute_4] => content_for(node, 'ITATR4'),
+        attributes[:attribute_5] => content_for(node, 'ITATR5'),
+        attributes[:attribute_6] => content_for(node, 'ITATR6'),
+        attributes[:attribute_7] => content_for(node, 'ITATR7'),
+        attributes[:attribute_8] => content_for(node, 'ITATR8'),
+        attributes[:attribute_9] => content_for(node, 'ITATR9'),
+        attributes[:attribute_10] => content_for(node, 'ITATR10'),
+        attributes[:attribute_11] => content_for(node, 'ITATR11'),
+        attributes[:attribute_12] => content_for(node, 'ITATR12'),
+        attributes[:attribute_13] => content_for(node, 'ITATR13'),
+        attributes[:attribute_14] => content_for(node, 'ITATR14'),
+        attributes[:attribute_15] => content_for(node, 'ITATR15'),
+        attributes[:attribute_16] => content_for(node, 'ITATR16'),
+        attributes[:attribute_17] => content_for(node, 'ITATR17'),
+        attributes[:attribute_18] => content_for(node, 'ITATR18'),
+        attributes[:attribute_19] => content_for(node, 'ITATR19'),
+        attributes[:attribute_20] => content_for(node, 'ITATR20')
+      }
+
+      features.delete_if { |k, v| v.to_s.blank? }
+      features.transform_keys! { |k| k.gsub(/\s+/, '_').downcase }
+      features.symbolize_keys!
     end
 
   end
