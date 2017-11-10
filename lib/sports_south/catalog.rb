@@ -103,6 +103,10 @@ module SportsSouth
         caliber = features[:gauge]
       end
 
+      if features[:action].present?
+        action = features[:action]
+      end
+
       if full_product
         long_description = self.get_description(content_for(node, 'ITEMNO'))
       else
@@ -122,6 +126,7 @@ module SportsSouth
         mfg_number:         content_for(node, 'IMFGNO'),
         weight:             content_for(node, 'WTPBX'),
         caliber:            caliber,
+        action:             action,
         map_price:          content_for(node, 'MFPRC'),
         brand:              brand.present? ? brand[:name] : nil,
         features:           features
