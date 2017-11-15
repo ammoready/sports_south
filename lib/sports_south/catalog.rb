@@ -115,7 +115,7 @@ module SportsSouth
 
       {
         name:               content_for(node, 'IDESC').gsub(/\s+/, ' '),
-        upc:                content_for(node, 'ITUPC'),
+        upc:                content_for(node, 'ITUPC').rjust(12, "0"),
         item_identifier:    content_for(node, 'ITEMNO'),
         quantity:           content_for(node, 'QTYOH').to_i,
         price:              content_for(node, 'CPRC'),
