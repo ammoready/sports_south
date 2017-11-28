@@ -123,7 +123,7 @@ module SportsSouth
         long_description:   long_description,
         category:           category[:description],
         product_type:       ITEM_TYPES[content_for(node, 'ITYPE')],
-        mfg_number:         content_for(node, 'IMFGNO'),
+        mfg_number:         content_for(node, 'MFGINO'),
         weight:             content_for(node, 'WTPBX'),
         caliber:            caliber,
         action:             action,
