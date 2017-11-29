@@ -28,7 +28,7 @@ module SportsSouth
 
     def content_for(xml_doc, field)
       node = xml_doc.css(field).first
-      node.nil? ? nil : node.content.strip
+      node.nil? ? nil : CGI.unescapeHTML(node.content.strip)
     end
 
     # Returns a hash of common form params.
