@@ -115,6 +115,7 @@ module SportsSouth
 
       if features.respond_to?(:[]=)
         features[:model] = content_for(node, 'IMODEL')
+        features[:series] = content_for(node, 'SERIES')
       end
 
       {
