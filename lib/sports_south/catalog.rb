@@ -114,27 +114,27 @@ module SportsSouth
       end
 
       if features.respond_to?(:[]=)
-        features[:model] = content_for(node, 'IMODEL')
         features[:series] = content_for(node, 'SERIES')
       end
 
       {
-        name:               content_for(node, 'IDESC').gsub(/\s+/, ' '),
-        upc:                content_for(node, 'ITUPC').rjust(12, "0"),
-        item_identifier:    content_for(node, 'ITEMNO'),
-        quantity:           content_for(node, 'QTYOH').to_i,
-        price:              content_for(node, 'CPRC'),
-        short_description:  content_for(node, 'SHDESC'),
-        long_description:   long_description,
-        category:           category[:description],
-        product_type:       ITEM_TYPES[content_for(node, 'ITYPE')],
-        mfg_number:         content_for(node, 'MFGINO'),
-        weight:             content_for(node, 'WTPBX'),
-        caliber:            caliber,
-        action:             action,
-        map_price:          content_for(node, 'MFPRC'),
-        brand:              brand.present? ? brand[:name] : nil,
-        features:           features
+        name:              content_for(node, 'IDESC').gsub(/\s+/, ' '),
+        model:             content_for(node, 'IMODEL'),
+        upc:               content_for(node, 'ITUPC').rjust(12, "0"),
+        item_identifier:   content_for(node, 'ITEMNO'),
+        quantity:          content_for(node, 'QTYOH').to_i,
+        price:             content_for(node, 'CPRC'),
+        short_description: content_for(node, 'SHDESC'),
+        long_description:  long_description,
+        category:          category[:description],
+        product_type:      ITEM_TYPES[content_for(node, 'ITYPE')],
+        mfg_number:        content_for(node, 'MFGINO'),
+        weight:            content_for(node, 'WTPBX'),
+        caliber:           caliber,
+        action:            action,
+        map_price:         content_for(node, 'MFPRC'),
+        brand:             brand.present? ? brand[:name] : nil,
+        features:          features
       }
     end
 
