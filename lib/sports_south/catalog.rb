@@ -113,6 +113,10 @@ module SportsSouth
         nil
       end
 
+      if features.respond_to?(:[]=)
+        features[:model] = content_for(node, 'IMODEL')
+      end
+
       {
         name:               content_for(node, 'IDESC').gsub(/\s+/, ' '),
         upc:                content_for(node, 'ITUPC').rjust(12, "0"),
