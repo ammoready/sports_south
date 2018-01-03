@@ -1,3 +1,3 @@
 module SportsSouth
-  VERSION = '2.0.21'.freeze
+  VERSION = '2.0.21.debug'.freeze
 end
