@@ -33,7 +33,7 @@ module SportsSouth
     def self.all(chunk_size = 15, options = {}, &block)
       requires!(options, :username, :password)
 
-      if options[:last_updated].present?
+      if options[:last_updated]
         options[:last_updated] = options[:last_updated].strftime("%-m/%-d/%Y")
       else
         options[:last_updated] ||= '1/1/1990'
@@ -68,7 +68,7 @@ module SportsSouth
 
           chunker.reset!
         else
-          chunker.add(map_hash(item, @options[:full_product].present?))
+          chunker.add(map_hash(item, !@options[:full_product].nil?))
         end
       end
 
@@ -97,13 +97,17 @@ module SportsSouth
       brand     = @brands.find { |brand| brand[:brand_id] == content_for(node, 'ITBRDNO') }
       features  = self.map_features(category.except(:category_id, :department_id, :department_description, :description), node)
 
-      if features[:caliber].present?
+      model      = content_for(node, 'IMODEL')
+      series     = content_for(node, 'SERIES')
+      mfg_number = content_for(node, 'MFGINO')
+
+      if features[:caliber]
         caliber = features[:caliber]
-      elsif features[:gauge].present?
+      elsif features[:gauge]
         caliber = features[:gauge]
       end
 
-      if features[:action].present?
+      if features[:action]
         action = features[:action]
       end
 
@@ -114,12 +118,12 @@ module SportsSouth
       end
 
       if features.respond_to?(:[]=)
-        features[:series] = content_for(node, 'SERIES')
+        features[:series] = series
       end
 
       {
-        name:              content_for(node, 'IDESC').gsub(/\s+/, ' '),
-        model:             content_for(node, 'IMODEL'),
+        name:              "#{model} #{series} #{mfg_number}".gsub(/\s+/, ' ').rstrip,
+        model:             model,
         upc:               content_for(node, 'ITUPC').rjust(12, "0"),
         item_identifier:   content_for(node, 'ITEMNO'),
         quantity:          content_for(node, 'QTYOH').to_i,
@@ -128,7 +132,7 @@ module SportsSouth
         long_description:  long_description,
         category:          category[:description],
         product_type:      ITEM_TYPES[content_for(node, 'ITYPE')],
-        mfg_number:        content_for(node, 'MFGINO'),
+        mfg_number:        mfg_number,
         weight:            content_for(node, 'WTPBX'),
         caliber:           caliber,
         action:            action,

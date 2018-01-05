@@ -1,3 +1,5 @@
+require 'cgi'
+
 module SportsSouth
   # Holds methods common to all classes.
   class Base
