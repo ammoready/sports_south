@@ -22,6 +22,11 @@ module SportsSouth
       '8' => :suppressor,
     }
 
+    UNITS_OF_MEASURE = {
+      'BX' => :box,
+      'CS' => :case
+    }
+
     def initialize(options = {})
       requires!(options, :username, :password)
 
@@ -59,8 +64,8 @@ module SportsSouth
         LastItem:   @options[:last_item].to_s
       }))
 
-      response  = http.request(request)
-      xml_doc   = Nokogiri::XML(sanitize_response(response))
+      response = http.request(request)
+      xml_doc  = Nokogiri::XML(sanitize_response(response))
 
       xml_doc.css('Table').map do |item|
         if chunker.is_full?
@@ -84,8 +89,8 @@ module SportsSouth
         ItemNumber: item_number
       }))
 
-      response  = http.request(request)
-      xml_doc   = Nokogiri::XML(sanitize_response(response))
+      response = http.request(request)
+      xml_doc  = Nokogiri::XML(sanitize_response(response))
 
       content_for(xml_doc, 'CATALOGTEXT')
     end
@@ -93,9 +98,9 @@ module SportsSouth
     protected
 
     def map_hash(node, full_product = false)
-      category  = @categories.find { |category| category[:category_id] == content_for(node, 'CATID') }
-      brand     = @brands.find { |brand| brand[:brand_id] == content_for(node, 'ITBRDNO') }
-      features  = self.map_features(category.except(:category_id, :department_id, :department_description, :description), node)
+      category = @categories.find { |category| category[:category_id] == content_for(node, 'CATID') }
+      brand    = @brands.find { |brand| brand[:brand_id] == content_for(node, 'ITBRDNO') }
+      features = self.map_features(category.except(:category_id, :department_id, :department_description, :description), node)
 
       model      = content_for(node, 'IMODEL')
       series     = content_for(node, 'SERIES')
@@ -113,8 +118,6 @@ module SportsSouth
 
       if full_product
         long_description = self.get_description(content_for(node, 'ITEMNO'))
-      else
-        nil
       end
 
       if features.respond_to?(:[]=)
@@ -138,7 +141,8 @@ module SportsSouth
         action:            action,
         map_price:         content_for(node, 'MFPRC'),
         brand:             brand.present? ? brand[:name] : nil,
-        features:          features
+        features:          features,
+        unit_of_measure:   UNITS_OF_MEASURE.fetch(content_for(node, 'UOM'), nil)
       }
     end
 
