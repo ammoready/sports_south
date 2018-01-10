@@ -12,7 +12,7 @@ module SportsSouth
     end
 
     def initialize(options = {})
-      requires!(options, :username, :password, :source, :customer_number)
+      requires!(options, :username, :password)
       @options = options
       @po_number = options[:po_number]
     end
@@ -24,6 +24,8 @@ module SportsSouth
 
       request.set_form_data(form_params(@options).merge({
         PONumber: @po_number,
+        customer_number: @options[:username],
+        source: SportsSouth.config.source
       }))
 
       response = http.request(request)
