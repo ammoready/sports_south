@@ -24,12 +24,12 @@ module SportsSouth
 
     def self.find(order_number, options = {})
       requires!(options, :username, :password)
-      new(options.merge({order_number: order_number}))
+      new(options.merge(order_number: order_number))
     end
 
     def initialize(options = {})
       requires!(options, :username, :password)
-      @options = options
+      @options = options.merge(source: SportsSouth.config.source)
       @order_number = options[:order_number]
     end
 
