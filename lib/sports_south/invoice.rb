@@ -8,7 +8,7 @@ module SportsSouth
 
     def self.find_by_po_number(po_number, options = {})
       requires!(options, :username, :password)
-      new(options.merge({po_number: po_number}))
+      new(options.merge(po_number: po_number))
     end
 
     def initialize(options = {})
@@ -23,9 +23,7 @@ module SportsSouth
       http, request = get_http_and_request(API_URL, '/GetTrackingByPo')
 
       request.set_form_data(form_params(@options).merge({
-        PONumber: @po_number,
-        customer_number: @options[:username],
-        source: SportsSouth.config.source
+        PONumber: @po_number
       }))
 
       response = http.request(request)
