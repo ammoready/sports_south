@@ -19,4 +19,24 @@ require 'sports_south/user'
 
 module SportsSouth
   class NotAuthenticated < StandardError; end
+
+  class << self
+    attr_accessor :config
+  end
+
+  def self.config
+    @config ||= Configuration.new
+  end
+
+  def self.configure
+    yield(config)
+  end
+
+  class Configuration
+    attr_accessor :source
+
+    def initialize
+      @source ||= "ammor"
+    end
+  end
 end

@@ -39,7 +39,7 @@ describe SportsSouth::Order do
       stub_request(:post, "http://webservices.theshootingwarehouse.com/smart/orders.asmx/AddHeader").
         with(body: {
           "AdultSignature" => "false",
-          "CustomerNumber" => "10001",
+          "CustomerNumber" => "bob",
           "CustomerOrderNumber" => "1000",
           "Insurance" => "false",
           "PO" => "1000",
@@ -55,12 +55,12 @@ describe SportsSouth::Order do
           "ShipToZip" => "29601",
           "ShipVia" => "",
           "Signature" => "false",
-          "Source" => "ruby-gem",
+          "Source" => "ammor",
           "UserName" => "bob"
         }, headers: {
           'Accept' => '*/*',
           'Content-Type' => 'application/x-www-form-urlencoded', 
-          'User-Agent' => 'sports_south rubygems.org/gems/sports_south v(1.3.0)'
+          'User-Agent' => "sports_south rubygems.org/gems/sports_south v(#{SportsSouth::VERSION})"
         }).to_return(status: 200, body: add_header_response, headers: {})
       order.add_header(params)
     end

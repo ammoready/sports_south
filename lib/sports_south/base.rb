@@ -1,3 +1,5 @@
+require 'cgi'
+
 module SportsSouth
   # Holds methods common to all classes.
   class Base
@@ -38,7 +40,7 @@ module SportsSouth
         UserName: options[:username],
         Password: options[:password],
         CustomerNumber: options[:username],
-        Source: 'ammor',
+        Source: SportsSouth.config.source,
       }
     end
     def form_params(*args); self.class.form_params(*args); end
