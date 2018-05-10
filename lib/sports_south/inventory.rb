@@ -9,6 +9,15 @@ module SportsSouth
       @options = options
     end
 
+    def self.get_quantity_file(options = {})
+      requires!(options, :username, :password)
+
+      options[:last_updated]  = '1990-09-25T14:15:47-04:00'
+      options[:last_item]     = '-1'
+
+      new(options).get_quantity_file
+    end
+
     def self.all(chunk_size = 15, options = {}, &block)
       requires!(options, :username, :password)
 
@@ -53,6 +62,27 @@ module SportsSouth
       if chunker.chunk.count > 0
         yield(chunker.chunk)
       end
+    end
+
+    def get_quantity_file
+      tempfile      = Tempfile.new
+      http, request = get_http_and_request(API_URL, '/IncrementalOnhandUpdate')
+
+      request.set_form_data(form_params = form_params(@options).merge({
+        SinceDateTime: @options[:last_updated],
+        LastItem:      @options[:last_item].to_s
+      }))
+
+      response  = http.request(request)
+      xml_doc   = Nokogiri::XML(sanitize_response(response))
+
+      xml_doc.css('Onhand').map do |item|
+        tempfile.puts("#{content_for(item, 'I')},#{content_for(item, 'Q')}")
+      end
+
+      tempfile.close
+
+      tempfile.path
     end
 
     def self.quantity(chunk_size = 100, options = {}, &block)
