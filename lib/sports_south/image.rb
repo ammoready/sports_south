@@ -4,7 +4,7 @@ module SportsSouth
     API_URL = 'http://webservices.theshootingwarehouse.com/smart/images.asmx'
 
     def self.urls(item_number, options = {})
-      requires!(options, :username, :password, :source, :customer_number)
+      requires!(options, :username, :password)
 
       http, request = get_http_and_request(API_URL, '/GetPictureURLs')
 
@@ -28,7 +28,7 @@ module SportsSouth
     end
 
     def self.list_new_pictures(options = {})
-      requires!(options, :username, :password, :source, :customer_number)
+      requires!(options, :username, :password)
 
       http, request = get_http_and_request(API_URL, '/ListNewPictures')
 

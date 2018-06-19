@@ -1,3 +1,5 @@
+require 'cgi'
+
 module SportsSouth
   # Holds methods common to all classes.
   class Base
@@ -26,13 +28,19 @@ module SportsSouth
       end
     end
 
+    def self.content_for(xml_doc, field)
+      node = xml_doc.css(field).first
+      node.nil? ? nil : CGI.unescapeHTML(node.content.strip)
+    end
+    def content_for(*args); self.class.content_for(*args); end
+
     # Returns a hash of common form params.
     def self.form_params(options = {})
       {
         UserName: options[:username],
         Password: options[:password],
-        CustomerNumber: options[:customer_number],
-        Source: options[:source],
+        CustomerNumber: options[:username],
+        Source: SportsSouth.config.source,
       }
     end
     def form_params(*args); self.class.form_params(*args); end
@@ -51,12 +59,6 @@ module SportsSouth
       return http, request
     end
     def get_http_and_request(*args); self.class.get_http_and_request(*args); end
-
-    def self.content_for(xml_doc, field)
-      node = xml_doc.css(field).first
-      node.nil? ? nil : node.content.strip
-    end
-    def content_for(*args); self.class.content_for(*args); end
 
     def self.not_authenticated?(xml_doc)
       msg = content_for(xml_doc, 'ERROR')

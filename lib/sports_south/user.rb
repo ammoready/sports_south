@@ -6,7 +6,8 @@ module SportsSouth
     attr_reader :response_body
 
     def initialize(options = {})
-      requires!(options, :username, :password, :source, :customer_number)
+      requires!(options, :username, :password)
+
       @options = options
     end
 
