@@ -31,6 +31,7 @@ describe SportsSouth::Order do
           state:       "SC",
           zip:         "29601",
           phone:       "8009915555",
+          ship_via:    :premium_ground,
         }
       }
     end
@@ -53,7 +54,7 @@ describe SportsSouth::Order do
           "ShipToPhone" => "8009915555",
           "ShipToState" => "SC",
           "ShipToZip" => "29601",
-          "ShipVia" => "",
+          "ShipVia" => "G",
           "Signature" => "false",
           "Source" => "ammor",
           "UserName" => "bob"
