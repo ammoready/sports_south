@@ -35,7 +35,7 @@ module SportsSouth
       @brands     = SportsSouth::Brand.all(options)
     end
 
-    def self.all(chunk_size = 15, options = {}, &block)
+    def self.all(options = {}, &block)
       requires!(options, :username, :password)
 
       if options[:last_updated]
@@ -46,7 +46,7 @@ module SportsSouth
 
       options[:last_item] ||= '-1'
 
-      new(options).all(chunk_size, &block)
+      new(options).all &block
     end
 
     def self.get_description(item_number, options = {})
@@ -55,8 +55,7 @@ module SportsSouth
       new(options, :username, :password)
     end
 
-    def all(chunk_size, &block)
-      chunker = SportsSouth::Chunker.new(chunk_size)
+    def all(&block)
       http, request = get_http_and_request(API_URL, '/DailyItemUpdate')
 
       request.set_form_data(form_params(@options).merge({
@@ -68,17 +67,7 @@ module SportsSouth
       xml_doc  = Nokogiri::XML(sanitize_response(response))
 
       xml_doc.css('Table').map do |item|
-        if chunker.is_full?
-          yield(chunker.chunk)
-
-          chunker.reset!
-        else
-          chunker.add(map_hash(item, !@options[:full_product].nil?))
-        end
-      end
-
-      if chunker.chunk.count > 0
-        yield(chunker.chunk)
+        yield(map_hash(item, !@options[:full_product].nil?))
       end
     end
 
