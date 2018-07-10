@@ -18,7 +18,7 @@ module SportsSouth
       new(options).get_quantity_file
     end
 
-    def self.all(chunk_size = 15, options = {}, &block)
+    def self.all(options = {}, &block)
       requires!(options, :username, :password)
 
       if options[:last_updated].present?
@@ -29,7 +29,7 @@ module SportsSouth
 
       options[:last_item] ||= '-1'
 
-      new(options).all(chunk_size, &block)
+      new(options).all(&block)
     end
 
     def self.get(item_identifier, options = {})
@@ -37,8 +37,7 @@ module SportsSouth
       new(options).get(item_identifier)
     end
 
-    def all(chunk_size, &block)
-      chunker = SportsSouth::Chunker.new(chunk_size)
+    def all(&block)
       http, request = get_http_and_request(API_URL, '/IncrementalOnhandUpdate')
 
       request.set_form_data(form_params = form_params(@options).merge({
@@ -46,21 +45,11 @@ module SportsSouth
         LastItem:      @options[:last_item].to_s
       }))
 
-      response  = http.request(request)
-      xml_doc   = Nokogiri::XML(sanitize_response(response))
+      response = http.request(request)
+      xml_doc  = Nokogiri::XML(sanitize_response(response))
 
       xml_doc.css('Onhand').map do |item|
-        if chunker.is_full?
-          yield(chunker.chunk)
-
-          chunker.reset!
-        else
-          chunker.add(self.map_hash(item))
-        end
-      end
-
-      if chunker.chunk.count > 0
-        yield(chunker.chunk)
+        yield(self.map_hash(item))
       end
     end
 
@@ -73,8 +62,8 @@ module SportsSouth
         LastItem:      @options[:last_item].to_s
       }))
 
-      response  = http.request(request)
-      xml_doc   = Nokogiri::XML(sanitize_response(response))
+      response = http.request(request)
+      xml_doc  = Nokogiri::XML(sanitize_response(response))
 
       xml_doc.css('Onhand').map do |item|
         tempfile.puts("#{content_for(item, 'I')},#{content_for(item, 'Q')}")
@@ -85,7 +74,7 @@ module SportsSouth
       tempfile.path
     end
 
-    def self.quantity(chunk_size = 100, options = {}, &block)
+    def self.quantity(options = {}, &block)
       requires!(options, :username, :password)
 
       if options[:last_updated].present?
@@ -96,37 +85,7 @@ module SportsSouth
 
       options[:last_item] ||= '-1'
 
-      new(options).all(chunk_size, &block)
-    end
-
-    def quantity(chunk_size, &block)
-      chunker = SportsSouth::Chunker.new(chunk_size)
-      http, request = get_http_and_request(API_URL, '/IncrementalOnhandUpdate')
-
-      request.set_form_data(form_params = form_params(@options).merge({
-        SinceDateTime: @options[:last_updated],
-        LastItem:      @options[:last_item].to_s
-      }))
-
-      response  = http.request(request)
-      xml_doc   = Nokogiri::XML(sanitize_response(response))
-
-      xml_doc.css('Onhand').map do |item|
-        if chunker.is_full?
-          yield(chunker.chunk)
-
-          chunker.reset!
-        else
-          chunker.add({
-            item_identifier: content_for(node, 'I'),
-            quantity: content_for(node, 'Q').to_i
-          })
-        end
-      end
-
-      if chunker.chunk.count > 0
-        yield(chunker.chunk)
-      end
+      new(options).all(&block)
     end
 
     def get(item_identifier)
