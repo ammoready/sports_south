@@ -12,8 +12,8 @@ module SportsSouth
     def self.get_quantity_file(options = {})
       requires!(options, :username, :password)
 
-      options[:last_updated]  = '1990-09-25T14:15:47-04:00'
-      options[:last_item]     = '-1'
+      options[:last_updated] = '1990-09-25T14:15:47-04:00'
+      options[:last_item]    = '-1'
 
       new(options).get_quantity_file
     end
@@ -70,7 +70,6 @@ module SportsSouth
       end
 
       tempfile.close
-
       tempfile.path
     end
 

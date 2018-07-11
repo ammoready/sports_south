@@ -3,7 +3,6 @@ module SportsSouth
 
     API_URL = 'http://tsw-api.com/images/rotator/check.php'
 
-
     def self.check(api_user_id, api_key, *items)
       new(api_user_id, api_key).check(items)
     end
