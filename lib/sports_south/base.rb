@@ -5,7 +5,7 @@ module SportsSouth
   class Base
 
     TIMEOUT = 960 # seconds
-    USER_AGENT = "sports_south rubygems.org/gems/sports_south v(#{SportsSouth::VERSION})"
+    USER_AGENT = "sports_south rubygems.org/gems/sports_south v(#{SportsSouth::VERSION})".freeze
     CONTENT_TYPE = 'application/x-www-form-urlencoded'.freeze
 
     protected

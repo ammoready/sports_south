@@ -35,17 +35,18 @@ module SportsSouth
       @response_body = body
 
       @tracking = {
-        invoice_number: content_for(xml_doc, 'INVNO'),
+        invoice_number:  content_for(xml_doc, 'INVNO'),
         customer_number: content_for(xml_doc, 'CUSNO'),
-        po_number: content_for(xml_doc, 'PONBR'),
-        ship_date: content_for(xml_doc, 'SHPDTE'),
+        po_number:       content_for(xml_doc, 'PONBR'),
+        ship_date:       content_for(xml_doc, 'SHPDTE'),
         tracking_number: content_for(xml_doc, 'TRACKNO'),
-        package_weight: content_for(xml_doc, 'PKGWT'),
-        cod_amount: content_for(xml_doc, 'CODAMT'),
-        hazmat: content_for(xml_doc, 'HAZMAT'),
-        ship_amount: content_for(xml_doc, 'SHPAMT'),
-        ship_service: content_for(xml_doc, 'SERVICE'),
+        package_weight:  content_for(xml_doc, 'PKGWT'),
+        cod_amount:      content_for(xml_doc, 'CODAMT'),
+        hazmat:          content_for(xml_doc, 'HAZMAT'),
+        ship_amount:     content_for(xml_doc, 'SHPAMT'),
+        ship_service:    content_for(xml_doc, 'SERVICE'),
       }
     end
+
   end
 end

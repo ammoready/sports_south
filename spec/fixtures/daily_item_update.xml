@@ -1,0 +1,3084 @@
+<string xmlns="http://webservices.theshootingwarehouse.com/smart/Inventory.asmx">
+  <NewDataSet>
+    <Table>
+      <ITEMNO>50001</ITEMNO>
+      <IDESC>Product 1</IDESC>
+      <IMFSEQ>5775</IMFSEQ>
+      <IMFGNO>940</IMFGNO>
+      <CSEQ>910</CSEQ>
+      <ITYPE>4</ITYPE>
+      <SHDESC>Product 1</SHDESC>
+      <UOM>BX</UOM>
+      <PRC1>11.89</PRC1>
+      <CPRC>11.89</CPRC>
+      <QTYOH>25</QTYOH>
+      <WTPBX>0.895</WTPBX>
+      <ITUPC>123000000001</ITUPC>
+      <MFGINO>Ammo-1</MFGINO>
+      <SCNAM1>Ammo</SCNAM1>
+      <SCNAM2>A1</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>5</CATID>
+      <TXTREF>50001</TXTREF>
+      <PICREF>50001</PICREF>
+      <ITBRDNO>1</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH>1.9</LENGTH>
+      <HEIGHT>1.1</HEIGHT>
+      <WIDTH>3.8</WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2017-12-22T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50002</ITEMNO>
+      <IDESC>Product 2</IDESC>
+      <IMFSEQ>5775</IMFSEQ>
+      <IMFGNO>941</IMFGNO>
+      <CSEQ>911</CSEQ>
+      <ITYPE>4</ITYPE>
+      <SHDESC>Product 2</SHDESC>
+      <UOM>BX</UOM>
+      <PRC1>110.99</PRC1>
+      <CPRC>110.99</CPRC>
+      <QTYOH>25</QTYOH>
+      <WTPBX>0.895</WTPBX>
+      <ITUPC>123000000002</ITUPC>
+      <MFGINO>Handgun-1</MFGINO>
+      <SCNAM1>Handgun</SCNAM1>
+      <SCNAM2>A2</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>5</CATID>
+      <TXTREF>50002</TXTREF>
+      <PICREF>50002</PICREF>
+      <ITBRDNO>2</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH>1.9</LENGTH>
+      <HEIGHT>1.1</HEIGHT>
+      <WIDTH>3.8</WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2017-12-22T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50003</ITEMNO>
+      <IDESC>Product 3</IDESC>
+      <IMFSEQ>5775</IMFSEQ>
+      <IMFGNO>942</IMFGNO>
+      <CSEQ>912</CSEQ>
+      <ITYPE>1</ITYPE>
+      <SHDESC>Product 3</SHDESC>
+      <UOM>GN</UOM>
+      <PRC1>300.62</PRC1>
+      <CPRC>300.62</CPRC>
+      <QTYOH>0</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000003</ITUPC>
+      <MFGINO>CI000003</MFGINO>
+      <SCNAM1>CI</SCNAM1>
+      <SCNAM2>A3</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>4</CATID>
+      <TXTREF>50003</TXTREF>
+      <PICREF>50003</PICREF>
+      <ITBRDNO>3</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH>0</LENGTH>
+      <HEIGHT>0</HEIGHT>
+      <WIDTH>0</WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2018-07-09T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50004</ITEMNO>
+      <IDESC>Product 4</IDESC>
+      <IMFSEQ>5775</IMFSEQ>
+      <IMFGNO>943</IMFGNO>
+      <CSEQ>913</CSEQ>
+      <ITYPE>1</ITYPE>
+      <SHDESC>Product 4</SHDESC>
+      <UOM>GN</UOM>
+      <PRC1>110.99</PRC1>
+      <CPRC>302.62</CPRC>
+      <QTYOH>25</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000004</ITUPC>
+      <MFGINO>Handgun-1</MFGINO>
+      <SCNAM1>Handgun-1</SCNAM1>
+      <SCNAM2>A4</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>4</CATID>
+      <TXTREF>50004</TXTREF>
+      <PICREF>50004</PICREF>
+      <ITBRDNO>4</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH></LENGTH>
+      <HEIGHT></HEIGHT>
+      <WIDTH></WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2017-12-22T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50005</ITEMNO>
+      <IDESC>Product 5</IDESC>
+      <IMFSEQ>5775</IMFSEQ>
+      <IMFGNO>944</IMFGNO>
+      <CSEQ>914</CSEQ>
+      <ITYPE>1</ITYPE>
+      <SHDESC>Product 5</SHDESC>
+      <UOM>GN</UOM>
+      <PRC1>111.99</PRC1>
+      <CPRC>304.62</CPRC>
+      <QTYOH>10</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000005</ITUPC>
+      <MFGINO>Handgun-2</MFGINO>
+      <SCNAM1>Handgun-2</SCNAM1>
+      <SCNAM2>A5</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>4</CATID>
+      <TXTREF>50005</TXTREF>
+      <PICREF>50005</PICREF>
+      <ITBRDNO>5</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH></LENGTH>
+      <HEIGHT></HEIGHT>
+      <WIDTH></WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2017-12-22T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50006</ITEMNO>
+      <IDESC>Product 6</IDESC>
+      <IMFSEQ>5775</IMFSEQ>
+      <IMFGNO>945</IMFGNO>
+      <CSEQ>915</CSEQ>
+      <ITYPE>1</ITYPE>
+      <SHDESC>Product 6</SHDESC>
+      <UOM>GN</UOM>
+      <PRC1>112.99</PRC1>
+      <CPRC>306.62</CPRC>
+      <QTYOH>10</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000006</ITUPC>
+      <MFGINO>Handgun-1</MFGINO>
+      <SCNAM1>Handgun-3</SCNAM1>
+      <SCNAM2>A6</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>4</CATID>
+      <TXTREF>50006</TXTREF>
+      <PICREF>50006</PICREF>
+      <ITBRDNO>6</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH></LENGTH>
+      <HEIGHT></HEIGHT>
+      <WIDTH></WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2018-07-09T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50007</ITEMNO>
+      <IDESC>Product 7</IDESC>
+      <IMFSEQ>5776</IMFSEQ>
+      <IMFGNO>946</IMFGNO>
+      <CSEQ>916</CSEQ>
+      <ITYPE>3</ITYPE>
+      <SHDESC>Product 7</SHDESC>
+      <UOM>EA</UOM>
+      <PRC1>112.99</PRC1>
+      <CPRC>308.62</CPRC>
+      <QTYOH>10</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000007</ITUPC>
+      <MFGINO>Handgun-2</MFGINO>
+      <SCNAM1>Handgun-4</SCNAM1>
+      <SCNAM2>A7</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>6</CATID>
+      <TXTREF>50007</TXTREF>
+      <PICREF>50007</PICREF>
+      <ITBRDNO>7</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH></LENGTH>
+      <HEIGHT></HEIGHT>
+      <WIDTH></WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2017-12-22T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50008</ITEMNO>
+      <IDESC>Product 8</IDESC>
+      <IMFSEQ>5777</IMFSEQ>
+      <IMFGNO>947</IMFGNO>
+      <CSEQ>917</CSEQ>
+      <ITYPE>1</ITYPE>
+      <SHDESC>Product 8</SHDESC>
+      <UOM>GN</UOM>
+      <PRC1>248.50</PRC1>
+      <CPRC>310.62</CPRC>
+      <QTYOH>10</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000008</ITUPC>
+      <MFGINO>Handgun-3</MFGINO>
+      <SCNAM1>Handgun-2</SCNAM1>
+      <SCNAM2>A8</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>4</CATID>
+      <TXTREF>50008</TXTREF>
+      <PICREF>50008</PICREF>
+      <ITBRDNO>8</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH></LENGTH>
+      <HEIGHT></HEIGHT>
+      <WIDTH></WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2018-07-09T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50009</ITEMNO>
+      <IDESC>Product 9</IDESC>
+      <IMFSEQ>5778</IMFSEQ>
+      <IMFGNO>948</IMFGNO>
+      <CSEQ>918</CSEQ>
+      <ITYPE>1</ITYPE>
+      <SHDESC>Product 9</SHDESC>
+      <UOM>GN</UOM>
+      <PRC1>250.10</PRC1>
+      <CPRC>312.62</CPRC>
+      <QTYOH>10</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000009</ITUPC>
+      <MFGINO>Handgun-4</MFGINO>
+      <SCNAM1>Handgun-3</SCNAM1>
+      <SCNAM2>A9</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>4</CATID>
+      <TXTREF>50009</TXTREF>
+      <PICREF>50009</PICREF>
+      <ITBRDNO>9</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH></LENGTH>
+      <HEIGHT></HEIGHT>
+      <WIDTH></WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2017-12-22T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50010</ITEMNO>
+      <IDESC>Product 10</IDESC>
+      <IMFSEQ>5779</IMFSEQ>
+      <IMFGNO>949</IMFGNO>
+      <CSEQ>919</CSEQ>
+      <ITYPE>1</ITYPE>
+      <SHDESC>Product 10</SHDESC>
+      <UOM>GN</UOM>
+      <PRC1>251.70</PRC1>
+      <CPRC>314.62</CPRC>
+      <QTYOH>10</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000010</ITUPC>
+      <MFGINO>Handgun-5</MFGINO>
+      <SCNAM1>Handgun-4</SCNAM1>
+      <SCNAM2>A10</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>4</CATID>
+      <TXTREF>50010</TXTREF>
+      <PICREF>50010</PICREF>
+      <ITBRDNO>10</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH></LENGTH>
+      <HEIGHT></HEIGHT>
+      <WIDTH></WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2017-12-22T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50011</ITEMNO>
+      <IDESC>Product 11</IDESC>
+      <IMFSEQ>5780</IMFSEQ>
+      <IMFGNO>950</IMFGNO>
+      <CSEQ>920</CSEQ>
+      <ITYPE>3</ITYPE>
+      <SHDESC>Product 11</SHDESC>
+      <UOM>EA</UOM>
+      <PRC1>93.30</PRC1>
+      <CPRC>116.62</CPRC>
+      <QTYOH>10</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000011</ITUPC>
+      <MFGINO>Accessory-1</MFGINO>
+      <SCNAM1>Accessory-0</SCNAM1>
+      <SCNAM2>A11</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>6</CATID>
+      <TXTREF>50011</TXTREF>
+      <PICREF>50011</PICREF>
+      <ITBRDNO>11</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH></LENGTH>
+      <HEIGHT></HEIGHT>
+      <WIDTH></WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2018-07-09T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50012</ITEMNO>
+      <IDESC>Product 12</IDESC>
+      <IMFSEQ>5781</IMFSEQ>
+      <IMFGNO>951</IMFGNO>
+      <CSEQ>921</CSEQ>
+      <ITYPE>1</ITYPE>
+      <SHDESC>Product 12</SHDESC>
+      <UOM>GN</UOM>
+      <PRC1>254.90</PRC1>
+      <CPRC>318.62</CPRC>
+      <QTYOH>10</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000012</ITUPC>
+      <MFGINO>Handgun-6</MFGINO>
+      <SCNAM1>Handgun-5</SCNAM1>
+      <SCNAM2>A12</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>4</CATID>
+      <TXTREF>50012</TXTREF>
+      <PICREF>50012</PICREF>
+      <ITBRDNO>12</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH></LENGTH>
+      <HEIGHT></HEIGHT>
+      <WIDTH></WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2017-12-22T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50013</ITEMNO>
+      <IDESC>Product 13</IDESC>
+      <IMFSEQ>5782</IMFSEQ>
+      <IMFGNO>952</IMFGNO>
+      <CSEQ>922</CSEQ>
+      <ITYPE>1</ITYPE>
+      <SHDESC>Product 13</SHDESC>
+      <UOM>GN</UOM>
+      <PRC1>256.50</PRC1>
+      <CPRC>320.62</CPRC>
+      <QTYOH>10</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000013</ITUPC>
+      <MFGINO>Handgun-7</MFGINO>
+      <SCNAM1>Handgun-6</SCNAM1>
+      <SCNAM2>A13</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>4</CATID>
+      <TXTREF>50013</TXTREF>
+      <PICREF>50013</PICREF>
+      <ITBRDNO>13</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH></LENGTH>
+      <HEIGHT></HEIGHT>
+      <WIDTH></WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2018-07-09T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50014</ITEMNO>
+      <IDESC>Product 14</IDESC>
+      <IMFSEQ>5783</IMFSEQ>
+      <IMFGNO>953</IMFGNO>
+      <CSEQ>923</CSEQ>
+      <ITYPE>1</ITYPE>
+      <SHDESC>Product 14</SHDESC>
+      <UOM>GN</UOM>
+      <PRC1>338.10</PRC1>
+      <CPRC>422.62</CPRC>
+      <QTYOH>10</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000014</ITUPC>
+      <MFGINO>Handgun-8</MFGINO>
+      <SCNAM1>Handgun-7</SCNAM1>
+      <SCNAM2>A14</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>4</CATID>
+      <TXTREF>50014</TXTREF>
+      <PICREF>50014</PICREF>
+      <ITBRDNO>14</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH></LENGTH>
+      <HEIGHT></HEIGHT>
+      <WIDTH></WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2017-12-22T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50015</ITEMNO>
+      <IDESC>Product 15</IDESC>
+      <IMFSEQ>5784</IMFSEQ>
+      <IMFGNO>954</IMFGNO>
+      <CSEQ>910</CSEQ>
+      <ITYPE>4</ITYPE>
+      <SHDESC>Product 15</SHDESC>
+      <UOM>BX</UOM>
+      <PRC1>11.89</PRC1>
+      <CPRC>11.89</CPRC>
+      <QTYOH>25</QTYOH>
+      <WTPBX>0.895</WTPBX>
+      <ITUPC>123000000015</ITUPC>
+      <MFGINO>Ammo-1</MFGINO>
+      <SCNAM1>Ammo</SCNAM1>
+      <SCNAM2>A1</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>5</CATID>
+      <TXTREF>50015</TXTREF>
+      <PICREF>50015</PICREF>
+      <ITBRDNO>1</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH>1.9</LENGTH>
+      <HEIGHT>1.1</HEIGHT>
+      <WIDTH>3.8</WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2017-12-22T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50016</ITEMNO>
+      <IDESC>Product 16</IDESC>
+      <IMFSEQ>5785</IMFSEQ>
+      <IMFGNO>955</IMFGNO>
+      <CSEQ>911</CSEQ>
+      <ITYPE>4</ITYPE>
+      <SHDESC>Product 16</SHDESC>
+      <UOM>BX</UOM>
+      <PRC1>110.99</PRC1>
+      <CPRC>110.99</CPRC>
+      <QTYOH>25</QTYOH>
+      <WTPBX>0.895</WTPBX>
+      <ITUPC>123000000016</ITUPC>
+      <MFGINO>Handgun-1</MFGINO>
+      <SCNAM1>Handgun</SCNAM1>
+      <SCNAM2>A2</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>5</CATID>
+      <TXTREF>50016</TXTREF>
+      <PICREF>50016</PICREF>
+      <ITBRDNO>2</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH>1.9</LENGTH>
+      <HEIGHT>1.1</HEIGHT>
+      <WIDTH>3.8</WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2017-12-22T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50017</ITEMNO>
+      <IDESC>Product 17</IDESC>
+      <IMFSEQ>5786</IMFSEQ>
+      <IMFGNO>956</IMFGNO>
+      <CSEQ>912</CSEQ>
+      <ITYPE>1</ITYPE>
+      <SHDESC>Product 17</SHDESC>
+      <UOM>GN</UOM>
+      <PRC1>300.62</PRC1>
+      <CPRC>300.62</CPRC>
+      <QTYOH>0</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000017</ITUPC>
+      <MFGINO>CI000003</MFGINO>
+      <SCNAM1>CI</SCNAM1>
+      <SCNAM2>A3</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>4</CATID>
+      <TXTREF>50017</TXTREF>
+      <PICREF>50017</PICREF>
+      <ITBRDNO>3</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH>0</LENGTH>
+      <HEIGHT>0</HEIGHT>
+      <WIDTH>0</WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2018-07-09T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50018</ITEMNO>
+      <IDESC>Product 18</IDESC>
+      <IMFSEQ>5787</IMFSEQ>
+      <IMFGNO>957</IMFGNO>
+      <CSEQ>913</CSEQ>
+      <ITYPE>1</ITYPE>
+      <SHDESC>Product 18</SHDESC>
+      <UOM>GN</UOM>
+      <PRC1>110.99</PRC1>
+      <CPRC>302.62</CPRC>
+      <QTYOH>25</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000018</ITUPC>
+      <MFGINO>Handgun-1</MFGINO>
+      <SCNAM1>Handgun-1</SCNAM1>
+      <SCNAM2>A4</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>4</CATID>
+      <TXTREF>50018</TXTREF>
+      <PICREF>50018</PICREF>
+      <ITBRDNO>4</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH></LENGTH>
+      <HEIGHT></HEIGHT>
+      <WIDTH></WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2017-12-22T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50019</ITEMNO>
+      <IDESC>Product 19</IDESC>
+      <IMFSEQ>5788</IMFSEQ>
+      <IMFGNO>958</IMFGNO>
+      <CSEQ>914</CSEQ>
+      <ITYPE>1</ITYPE>
+      <SHDESC>Product 19</SHDESC>
+      <UOM>GN</UOM>
+      <PRC1>111.99</PRC1>
+      <CPRC>304.62</CPRC>
+      <QTYOH>10</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000019</ITUPC>
+      <MFGINO>Handgun-2</MFGINO>
+      <SCNAM1>Handgun-2</SCNAM1>
+      <SCNAM2>A5</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>4</CATID>
+      <TXTREF>50019</TXTREF>
+      <PICREF>50019</PICREF>
+      <ITBRDNO>5</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH></LENGTH>
+      <HEIGHT></HEIGHT>
+      <WIDTH></WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2017-12-22T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50020</ITEMNO>
+      <IDESC>Product 20</IDESC>
+      <IMFSEQ>5789</IMFSEQ>
+      <IMFGNO>959</IMFGNO>
+      <CSEQ>915</CSEQ>
+      <ITYPE>1</ITYPE>
+      <SHDESC>Product 20</SHDESC>
+      <UOM>GN</UOM>
+      <PRC1>112.99</PRC1>
+      <CPRC>306.62</CPRC>
+      <QTYOH>10</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000020</ITUPC>
+      <MFGINO>Handgun-1</MFGINO>
+      <SCNAM1>Handgun-3</SCNAM1>
+      <SCNAM2>A6</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>5</CATID>
+      <TXTREF>50020</TXTREF>
+      <PICREF>50020</PICREF>
+      <ITBRDNO>6</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH></LENGTH>
+      <HEIGHT></HEIGHT>
+      <WIDTH></WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2018-07-09T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50021</ITEMNO>
+      <IDESC>Product 21</IDESC>
+      <IMFSEQ>5790</IMFSEQ>
+      <IMFGNO>960</IMFGNO>
+      <CSEQ>916</CSEQ>
+      <ITYPE>3</ITYPE>
+      <SHDESC>Product 21</SHDESC>
+      <UOM>EA</UOM>
+      <PRC1>112.99</PRC1>
+      <CPRC>308.62</CPRC>
+      <QTYOH>10</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000021</ITUPC>
+      <MFGINO>Handgun-2</MFGINO>
+      <SCNAM1>Handgun-4</SCNAM1>
+      <SCNAM2>A7</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>6</CATID>
+      <TXTREF>50021</TXTREF>
+      <PICREF>50021</PICREF>
+      <ITBRDNO>7</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH></LENGTH>
+      <HEIGHT></HEIGHT>
+      <WIDTH></WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2017-12-22T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50022</ITEMNO>
+      <IDESC>Product 22</IDESC>
+      <IMFSEQ>5791</IMFSEQ>
+      <IMFGNO>961</IMFGNO>
+      <CSEQ>917</CSEQ>
+      <ITYPE>1</ITYPE>
+      <SHDESC>Product 22</SHDESC>
+      <UOM>GN</UOM>
+      <PRC1>248.50</PRC1>
+      <CPRC>310.62</CPRC>
+      <QTYOH>10</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000022</ITUPC>
+      <MFGINO>Handgun-3</MFGINO>
+      <SCNAM1>Handgun-2</SCNAM1>
+      <SCNAM2>A8</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>4</CATID>
+      <TXTREF>50022</TXTREF>
+      <PICREF>50022</PICREF>
+      <ITBRDNO>8</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH></LENGTH>
+      <HEIGHT></HEIGHT>
+      <WIDTH></WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2018-07-09T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50023</ITEMNO>
+      <IDESC>Product 23</IDESC>
+      <IMFSEQ>5792</IMFSEQ>
+      <IMFGNO>962</IMFGNO>
+      <CSEQ>918</CSEQ>
+      <ITYPE>1</ITYPE>
+      <SHDESC>Product 23</SHDESC>
+      <UOM>GN</UOM>
+      <PRC1>250.10</PRC1>
+      <CPRC>312.62</CPRC>
+      <QTYOH>10</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000023</ITUPC>
+      <MFGINO>Handgun-4</MFGINO>
+      <SCNAM1>Handgun-3</SCNAM1>
+      <SCNAM2>A9</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>4</CATID>
+      <TXTREF>50023</TXTREF>
+      <PICREF>50023</PICREF>
+      <ITBRDNO>9</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH></LENGTH>
+      <HEIGHT></HEIGHT>
+      <WIDTH></WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2017-12-22T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50024</ITEMNO>
+      <IDESC>Product 24</IDESC>
+      <IMFSEQ>5793</IMFSEQ>
+      <IMFGNO>963</IMFGNO>
+      <CSEQ>919</CSEQ>
+      <ITYPE>1</ITYPE>
+      <SHDESC>Product 24</SHDESC>
+      <UOM>GN</UOM>
+      <PRC1>251.70</PRC1>
+      <CPRC>314.62</CPRC>
+      <QTYOH>10</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000024</ITUPC>
+      <MFGINO>Handgun-5</MFGINO>
+      <SCNAM1>Handgun-4</SCNAM1>
+      <SCNAM2>A10</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>4</CATID>
+      <TXTREF>50024</TXTREF>
+      <PICREF>50024</PICREF>
+      <ITBRDNO>10</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH></LENGTH>
+      <HEIGHT></HEIGHT>
+      <WIDTH></WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2017-12-22T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50025</ITEMNO>
+      <IDESC>Product 25</IDESC>
+      <IMFSEQ>5794</IMFSEQ>
+      <IMFGNO>964</IMFGNO>
+      <CSEQ>920</CSEQ>
+      <ITYPE>3</ITYPE>
+      <SHDESC>Product 25</SHDESC>
+      <UOM>EA</UOM>
+      <PRC1>93.30</PRC1>
+      <CPRC>116.62</CPRC>
+      <QTYOH>10</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000025</ITUPC>
+      <MFGINO>Accessory-1</MFGINO>
+      <SCNAM1>Accessory-0</SCNAM1>
+      <SCNAM2>A11</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>6</CATID>
+      <TXTREF>50025</TXTREF>
+      <PICREF>50025</PICREF>
+      <ITBRDNO>11</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH></LENGTH>
+      <HEIGHT></HEIGHT>
+      <WIDTH></WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2018-07-09T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50026</ITEMNO>
+      <IDESC>Product 26</IDESC>
+      <IMFSEQ>5795</IMFSEQ>
+      <IMFGNO>965</IMFGNO>
+      <CSEQ>921</CSEQ>
+      <ITYPE>1</ITYPE>
+      <SHDESC>Product 26</SHDESC>
+      <UOM>GN</UOM>
+      <PRC1>254.90</PRC1>
+      <CPRC>318.62</CPRC>
+      <QTYOH>10</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000026</ITUPC>
+      <MFGINO>Handgun-6</MFGINO>
+      <SCNAM1>Handgun-5</SCNAM1>
+      <SCNAM2>A12</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>4</CATID>
+      <TXTREF>50026</TXTREF>
+      <PICREF>50026</PICREF>
+      <ITBRDNO>12</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH></LENGTH>
+      <HEIGHT></HEIGHT>
+      <WIDTH></WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2017-12-22T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50027</ITEMNO>
+      <IDESC>Product 27</IDESC>
+      <IMFSEQ>5796</IMFSEQ>
+      <IMFGNO>966</IMFGNO>
+      <CSEQ>922</CSEQ>
+      <ITYPE>1</ITYPE>
+      <SHDESC>Product 27</SHDESC>
+      <UOM>GN</UOM>
+      <PRC1>256.50</PRC1>
+      <CPRC>320.62</CPRC>
+      <QTYOH>10</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000027</ITUPC>
+      <MFGINO>Handgun-7</MFGINO>
+      <SCNAM1>Handgun-6</SCNAM1>
+      <SCNAM2>A13</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>4</CATID>
+      <TXTREF>50027</TXTREF>
+      <PICREF>50027</PICREF>
+      <ITBRDNO>13</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH></LENGTH>
+      <HEIGHT></HEIGHT>
+      <WIDTH></WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2018-07-09T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50028</ITEMNO>
+      <IDESC>Product 28</IDESC>
+      <IMFSEQ>5797</IMFSEQ>
+      <IMFGNO>967</IMFGNO>
+      <CSEQ>923</CSEQ>
+      <ITYPE>1</ITYPE>
+      <SHDESC>Product 28</SHDESC>
+      <UOM>GN</UOM>
+      <PRC1>338.10</PRC1>
+      <CPRC>422.62</CPRC>
+      <QTYOH>10</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000028</ITUPC>
+      <MFGINO>Handgun-8</MFGINO>
+      <SCNAM1>Handgun-7</SCNAM1>
+      <SCNAM2>A14</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>4</CATID>
+      <TXTREF>50028</TXTREF>
+      <PICREF>50028</PICREF>
+      <ITBRDNO>14</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH></LENGTH>
+      <HEIGHT></HEIGHT>
+      <WIDTH></WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2017-12-22T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50029</ITEMNO>
+      <IDESC>Product 29</IDESC>
+      <IMFSEQ>5798</IMFSEQ>
+      <IMFGNO>968</IMFGNO>
+      <CSEQ>910</CSEQ>
+      <ITYPE>4</ITYPE>
+      <SHDESC>Product 29</SHDESC>
+      <UOM>BX</UOM>
+      <PRC1>11.89</PRC1>
+      <CPRC>11.89</CPRC>
+      <QTYOH>25</QTYOH>
+      <WTPBX>0.895</WTPBX>
+      <ITUPC>123000000029</ITUPC>
+      <MFGINO>Ammo-1</MFGINO>
+      <SCNAM1>Ammo</SCNAM1>
+      <SCNAM2>A1</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>5</CATID>
+      <TXTREF>50029</TXTREF>
+      <PICREF>50029</PICREF>
+      <ITBRDNO>1</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH>1.9</LENGTH>
+      <HEIGHT>1.1</HEIGHT>
+      <WIDTH>3.8</WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2017-12-22T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50030</ITEMNO>
+      <IDESC>Product 30</IDESC>
+      <IMFSEQ>5799</IMFSEQ>
+      <IMFGNO>969</IMFGNO>
+      <CSEQ>911</CSEQ>
+      <ITYPE>4</ITYPE>
+      <SHDESC>Product 30</SHDESC>
+      <UOM>BX</UOM>
+      <PRC1>110.99</PRC1>
+      <CPRC>110.99</CPRC>
+      <QTYOH>25</QTYOH>
+      <WTPBX>0.895</WTPBX>
+      <ITUPC>123000000030</ITUPC>
+      <MFGINO>Handgun-1</MFGINO>
+      <SCNAM1>Handgun</SCNAM1>
+      <SCNAM2>A2</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>5</CATID>
+      <TXTREF>50030</TXTREF>
+      <PICREF>50030</PICREF>
+      <ITBRDNO>2</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH>1.9</LENGTH>
+      <HEIGHT>1.1</HEIGHT>
+      <WIDTH>3.8</WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2017-12-22T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50031</ITEMNO>
+      <IDESC>Product 31</IDESC>
+      <IMFSEQ>5800</IMFSEQ>
+      <IMFGNO>970</IMFGNO>
+      <CSEQ>912</CSEQ>
+      <ITYPE>1</ITYPE>
+      <SHDESC>Product 31</SHDESC>
+      <UOM>GN</UOM>
+      <PRC1>300.62</PRC1>
+      <CPRC>300.62</CPRC>
+      <QTYOH>0</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000031</ITUPC>
+      <MFGINO>CI000003</MFGINO>
+      <SCNAM1>CI</SCNAM1>
+      <SCNAM2>A3</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>4</CATID>
+      <TXTREF>50031</TXTREF>
+      <PICREF>50031</PICREF>
+      <ITBRDNO>3</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH>0</LENGTH>
+      <HEIGHT>0</HEIGHT>
+      <WIDTH>0</WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2018-07-09T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50032</ITEMNO>
+      <IDESC>Product 32</IDESC>
+      <IMFSEQ>5801</IMFSEQ>
+      <IMFGNO>971</IMFGNO>
+      <CSEQ>913</CSEQ>
+      <ITYPE>1</ITYPE>
+      <SHDESC>Product 32</SHDESC>
+      <UOM>GN</UOM>
+      <PRC1>110.99</PRC1>
+      <CPRC>302.62</CPRC>
+      <QTYOH>25</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000032</ITUPC>
+      <MFGINO>Handgun-1</MFGINO>
+      <SCNAM1>Handgun-1</SCNAM1>
+      <SCNAM2>A4</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>4</CATID>
+      <TXTREF>50032</TXTREF>
+      <PICREF>50032</PICREF>
+      <ITBRDNO>4</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH></LENGTH>
+      <HEIGHT></HEIGHT>
+      <WIDTH></WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2017-12-22T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50033</ITEMNO>
+      <IDESC>Product 33</IDESC>
+      <IMFSEQ>5802</IMFSEQ>
+      <IMFGNO>972</IMFGNO>
+      <CSEQ>914</CSEQ>
+      <ITYPE>1</ITYPE>
+      <SHDESC>Product 33</SHDESC>
+      <UOM>GN</UOM>
+      <PRC1>111.99</PRC1>
+      <CPRC>304.62</CPRC>
+      <QTYOH>10</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000033</ITUPC>
+      <MFGINO>Handgun-2</MFGINO>
+      <SCNAM1>Handgun-2</SCNAM1>
+      <SCNAM2>A5</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>4</CATID>
+      <TXTREF>50033</TXTREF>
+      <PICREF>50033</PICREF>
+      <ITBRDNO>5</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH></LENGTH>
+      <HEIGHT></HEIGHT>
+      <WIDTH></WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2017-12-22T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50034</ITEMNO>
+      <IDESC>Product 34</IDESC>
+      <IMFSEQ>5803</IMFSEQ>
+      <IMFGNO>973</IMFGNO>
+      <CSEQ>915</CSEQ>
+      <ITYPE>1</ITYPE>
+      <SHDESC>Product 34</SHDESC>
+      <UOM>GN</UOM>
+      <PRC1>112.99</PRC1>
+      <CPRC>306.62</CPRC>
+      <QTYOH>10</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000034</ITUPC>
+      <MFGINO>Handgun-1</MFGINO>
+      <SCNAM1>Handgun-3</SCNAM1>
+      <SCNAM2>A6</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>4</CATID>
+      <TXTREF>50034</TXTREF>
+      <PICREF>50034</PICREF>
+      <ITBRDNO>6</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH></LENGTH>
+      <HEIGHT></HEIGHT>
+      <WIDTH></WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2018-07-09T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50035</ITEMNO>
+      <IDESC>Product 35</IDESC>
+      <IMFSEQ>5804</IMFSEQ>
+      <IMFGNO>974</IMFGNO>
+      <CSEQ>916</CSEQ>
+      <ITYPE>3</ITYPE>
+      <SHDESC>Product 35</SHDESC>
+      <UOM>EA</UOM>
+      <PRC1>112.99</PRC1>
+      <CPRC>308.62</CPRC>
+      <QTYOH>10</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000035</ITUPC>
+      <MFGINO>Handgun-2</MFGINO>
+      <SCNAM1>Handgun-4</SCNAM1>
+      <SCNAM2>A7</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>6</CATID>
+      <TXTREF>50035</TXTREF>
+      <PICREF>50035</PICREF>
+      <ITBRDNO>7</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH></LENGTH>
+      <HEIGHT></HEIGHT>
+      <WIDTH></WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2017-12-22T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50036</ITEMNO>
+      <IDESC>Product 36</IDESC>
+      <IMFSEQ>5805</IMFSEQ>
+      <IMFGNO>975</IMFGNO>
+      <CSEQ>917</CSEQ>
+      <ITYPE>1</ITYPE>
+      <SHDESC>Product 36</SHDESC>
+      <UOM>GN</UOM>
+      <PRC1>248.50</PRC1>
+      <CPRC>310.62</CPRC>
+      <QTYOH>10</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000036</ITUPC>
+      <MFGINO>Handgun-3</MFGINO>
+      <SCNAM1>Handgun-2</SCNAM1>
+      <SCNAM2>A8</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>4</CATID>
+      <TXTREF>50036</TXTREF>
+      <PICREF>50036</PICREF>
+      <ITBRDNO>8</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH></LENGTH>
+      <HEIGHT></HEIGHT>
+      <WIDTH></WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2018-07-09T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50037</ITEMNO>
+      <IDESC>Product 37</IDESC>
+      <IMFSEQ>5806</IMFSEQ>
+      <IMFGNO>976</IMFGNO>
+      <CSEQ>918</CSEQ>
+      <ITYPE>1</ITYPE>
+      <SHDESC>Product 37</SHDESC>
+      <UOM>GN</UOM>
+      <PRC1>250.10</PRC1>
+      <CPRC>312.62</CPRC>
+      <QTYOH>10</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000037</ITUPC>
+      <MFGINO>Handgun-4</MFGINO>
+      <SCNAM1>Handgun-3</SCNAM1>
+      <SCNAM2>A9</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>4</CATID>
+      <TXTREF>50037</TXTREF>
+      <PICREF>50037</PICREF>
+      <ITBRDNO>9</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH></LENGTH>
+      <HEIGHT></HEIGHT>
+      <WIDTH></WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2017-12-22T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50038</ITEMNO>
+      <IDESC>Product 38</IDESC>
+      <IMFSEQ>5807</IMFSEQ>
+      <IMFGNO>977</IMFGNO>
+      <CSEQ>919</CSEQ>
+      <ITYPE>1</ITYPE>
+      <SHDESC>Product 38</SHDESC>
+      <UOM>GN</UOM>
+      <PRC1>251.70</PRC1>
+      <CPRC>314.62</CPRC>
+      <QTYOH>10</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000038</ITUPC>
+      <MFGINO>Handgun-5</MFGINO>
+      <SCNAM1>Handgun-4</SCNAM1>
+      <SCNAM2>A10</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>4</CATID>
+      <TXTREF>50038</TXTREF>
+      <PICREF>50038</PICREF>
+      <ITBRDNO>10</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH></LENGTH>
+      <HEIGHT></HEIGHT>
+      <WIDTH></WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2017-12-22T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50039</ITEMNO>
+      <IDESC>Product 39</IDESC>
+      <IMFSEQ>5808</IMFSEQ>
+      <IMFGNO>978</IMFGNO>
+      <CSEQ>920</CSEQ>
+      <ITYPE>3</ITYPE>
+      <SHDESC>Product 39</SHDESC>
+      <UOM>EA</UOM>
+      <PRC1>93.30</PRC1>
+      <CPRC>116.62</CPRC>
+      <QTYOH>10</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000039</ITUPC>
+      <MFGINO>Accessory-1</MFGINO>
+      <SCNAM1>Accessory-0</SCNAM1>
+      <SCNAM2>A11</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>6</CATID>
+      <TXTREF>50039</TXTREF>
+      <PICREF>50039</PICREF>
+      <ITBRDNO>11</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH></LENGTH>
+      <HEIGHT></HEIGHT>
+      <WIDTH></WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2018-07-09T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50040</ITEMNO>
+      <IDESC>Product 40</IDESC>
+      <IMFSEQ>5809</IMFSEQ>
+      <IMFGNO>979</IMFGNO>
+      <CSEQ>921</CSEQ>
+      <ITYPE>1</ITYPE>
+      <SHDESC>Product 40</SHDESC>
+      <UOM>GN</UOM>
+      <PRC1>254.90</PRC1>
+      <CPRC>318.62</CPRC>
+      <QTYOH>10</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000040</ITUPC>
+      <MFGINO>Handgun-6</MFGINO>
+      <SCNAM1>Handgun-5</SCNAM1>
+      <SCNAM2>A12</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>4</CATID>
+      <TXTREF>50040</TXTREF>
+      <PICREF>50040</PICREF>
+      <ITBRDNO>12</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH></LENGTH>
+      <HEIGHT></HEIGHT>
+      <WIDTH></WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2017-12-22T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50041</ITEMNO>
+      <IDESC>Product 41</IDESC>
+      <IMFSEQ>5810</IMFSEQ>
+      <IMFGNO>980</IMFGNO>
+      <CSEQ>922</CSEQ>
+      <ITYPE>1</ITYPE>
+      <SHDESC>Product 41</SHDESC>
+      <UOM>GN</UOM>
+      <PRC1>256.50</PRC1>
+      <CPRC>320.62</CPRC>
+      <QTYOH>10</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000041</ITUPC>
+      <MFGINO>Handgun-7</MFGINO>
+      <SCNAM1>Handgun-6</SCNAM1>
+      <SCNAM2>A13</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>4</CATID>
+      <TXTREF>50041</TXTREF>
+      <PICREF>50041</PICREF>
+      <ITBRDNO>13</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH></LENGTH>
+      <HEIGHT></HEIGHT>
+      <WIDTH></WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2018-07-09T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50042</ITEMNO>
+      <IDESC>Product 42</IDESC>
+      <IMFSEQ>5811</IMFSEQ>
+      <IMFGNO>981</IMFGNO>
+      <CSEQ>923</CSEQ>
+      <ITYPE>1</ITYPE>
+      <SHDESC>Product 42</SHDESC>
+      <UOM>GN</UOM>
+      <PRC1>338.10</PRC1>
+      <CPRC>422.62</CPRC>
+      <QTYOH>10</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000042</ITUPC>
+      <MFGINO>Handgun-8</MFGINO>
+      <SCNAM1>Handgun-7</SCNAM1>
+      <SCNAM2>A14</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>4</CATID>
+      <TXTREF>50042</TXTREF>
+      <PICREF>50042</PICREF>
+      <ITBRDNO>14</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH></LENGTH>
+      <HEIGHT></HEIGHT>
+      <WIDTH></WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2017-12-22T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50043</ITEMNO>
+      <IDESC>Product 43</IDESC>
+      <IMFSEQ>5812</IMFSEQ>
+      <IMFGNO>982</IMFGNO>
+      <CSEQ>910</CSEQ>
+      <ITYPE>4</ITYPE>
+      <SHDESC>Product 43</SHDESC>
+      <UOM>BX</UOM>
+      <PRC1>11.89</PRC1>
+      <CPRC>11.89</CPRC>
+      <QTYOH>25</QTYOH>
+      <WTPBX>0.895</WTPBX>
+      <ITUPC>123000000043</ITUPC>
+      <MFGINO>Ammo-1</MFGINO>
+      <SCNAM1>Ammo</SCNAM1>
+      <SCNAM2>A1</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>5</CATID>
+      <TXTREF>50043</TXTREF>
+      <PICREF>50043</PICREF>
+      <ITBRDNO>1</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH>1.9</LENGTH>
+      <HEIGHT>1.1</HEIGHT>
+      <WIDTH>3.8</WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2017-12-22T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50044</ITEMNO>
+      <IDESC>Product 44</IDESC>
+      <IMFSEQ>5813</IMFSEQ>
+      <IMFGNO>983</IMFGNO>
+      <CSEQ>911</CSEQ>
+      <ITYPE>4</ITYPE>
+      <SHDESC>Product 44</SHDESC>
+      <UOM>BX</UOM>
+      <PRC1>110.99</PRC1>
+      <CPRC>110.99</CPRC>
+      <QTYOH>25</QTYOH>
+      <WTPBX>0.895</WTPBX>
+      <ITUPC>123000000044</ITUPC>
+      <MFGINO>Handgun-1</MFGINO>
+      <SCNAM1>Handgun</SCNAM1>
+      <SCNAM2>A2</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>5</CATID>
+      <TXTREF>50044</TXTREF>
+      <PICREF>50044</PICREF>
+      <ITBRDNO>2</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH>1.9</LENGTH>
+      <HEIGHT>1.1</HEIGHT>
+      <WIDTH>3.8</WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2017-12-22T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50045</ITEMNO>
+      <IDESC>Product 45</IDESC>
+      <IMFSEQ>5814</IMFSEQ>
+      <IMFGNO>984</IMFGNO>
+      <CSEQ>912</CSEQ>
+      <ITYPE>1</ITYPE>
+      <SHDESC>Product 45</SHDESC>
+      <UOM>GN</UOM>
+      <PRC1>300.62</PRC1>
+      <CPRC>300.62</CPRC>
+      <QTYOH>0</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000045</ITUPC>
+      <MFGINO>CI000003</MFGINO>
+      <SCNAM1>CI</SCNAM1>
+      <SCNAM2>A3</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>4</CATID>
+      <TXTREF>50045</TXTREF>
+      <PICREF>50045</PICREF>
+      <ITBRDNO>3</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH>0</LENGTH>
+      <HEIGHT>0</HEIGHT>
+      <WIDTH>0</WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2018-07-09T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50046</ITEMNO>
+      <IDESC>Product 46</IDESC>
+      <IMFSEQ>5815</IMFSEQ>
+      <IMFGNO>985</IMFGNO>
+      <CSEQ>913</CSEQ>
+      <ITYPE>1</ITYPE>
+      <SHDESC>Product 46</SHDESC>
+      <UOM>GN</UOM>
+      <PRC1>110.99</PRC1>
+      <CPRC>302.62</CPRC>
+      <QTYOH>25</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000046</ITUPC>
+      <MFGINO>Handgun-1</MFGINO>
+      <SCNAM1>Handgun-1</SCNAM1>
+      <SCNAM2>A4</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>4</CATID>
+      <TXTREF>50046</TXTREF>
+      <PICREF>50046</PICREF>
+      <ITBRDNO>4</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH></LENGTH>
+      <HEIGHT></HEIGHT>
+      <WIDTH></WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2017-12-22T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50047</ITEMNO>
+      <IDESC>Product 47</IDESC>
+      <IMFSEQ>5816</IMFSEQ>
+      <IMFGNO>986</IMFGNO>
+      <CSEQ>914</CSEQ>
+      <ITYPE>1</ITYPE>
+      <SHDESC>Product 47</SHDESC>
+      <UOM>GN</UOM>
+      <PRC1>111.99</PRC1>
+      <CPRC>304.62</CPRC>
+      <QTYOH>10</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000047</ITUPC>
+      <MFGINO>Handgun-2</MFGINO>
+      <SCNAM1>Handgun-2</SCNAM1>
+      <SCNAM2>A5</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>4</CATID>
+      <TXTREF>50047</TXTREF>
+      <PICREF>50047</PICREF>
+      <ITBRDNO>5</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH></LENGTH>
+      <HEIGHT></HEIGHT>
+      <WIDTH></WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2017-12-22T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50048</ITEMNO>
+      <IDESC>Product 48</IDESC>
+      <IMFSEQ>5817</IMFSEQ>
+      <IMFGNO>987</IMFGNO>
+      <CSEQ>915</CSEQ>
+      <ITYPE>1</ITYPE>
+      <SHDESC>Product 48</SHDESC>
+      <UOM>GN</UOM>
+      <PRC1>112.99</PRC1>
+      <CPRC>306.62</CPRC>
+      <QTYOH>10</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000048</ITUPC>
+      <MFGINO>Handgun-1</MFGINO>
+      <SCNAM1>Handgun-3</SCNAM1>
+      <SCNAM2>A6</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>4</CATID>
+      <TXTREF>50048</TXTREF>
+      <PICREF>50048</PICREF>
+      <ITBRDNO>6</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH></LENGTH>
+      <HEIGHT></HEIGHT>
+      <WIDTH></WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2018-07-09T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50049</ITEMNO>
+      <IDESC>Product 49</IDESC>
+      <IMFSEQ>5818</IMFSEQ>
+      <IMFGNO>988</IMFGNO>
+      <CSEQ>916</CSEQ>
+      <ITYPE>3</ITYPE>
+      <SHDESC>Product 49</SHDESC>
+      <UOM>EA</UOM>
+      <PRC1>112.99</PRC1>
+      <CPRC>308.62</CPRC>
+      <QTYOH>10</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000049</ITUPC>
+      <MFGINO>Handgun-2</MFGINO>
+      <SCNAM1>Handgun-4</SCNAM1>
+      <SCNAM2>A7</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>6</CATID>
+      <TXTREF>50049</TXTREF>
+      <PICREF>50049</PICREF>
+      <ITBRDNO>7</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH></LENGTH>
+      <HEIGHT></HEIGHT>
+      <WIDTH></WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2017-12-22T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50050</ITEMNO>
+      <IDESC>Product 50</IDESC>
+      <IMFSEQ>5819</IMFSEQ>
+      <IMFGNO>989</IMFGNO>
+      <CSEQ>917</CSEQ>
+      <ITYPE>1</ITYPE>
+      <SHDESC>Product 50</SHDESC>
+      <UOM>GN</UOM>
+      <PRC1>248.50</PRC1>
+      <CPRC>310.62</CPRC>
+      <QTYOH>10</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000050</ITUPC>
+      <MFGINO>Handgun-3</MFGINO>
+      <SCNAM1>Handgun-2</SCNAM1>
+      <SCNAM2>A8</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>4</CATID>
+      <TXTREF>50050</TXTREF>
+      <PICREF>50050</PICREF>
+      <ITBRDNO>8</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH></LENGTH>
+      <HEIGHT></HEIGHT>
+      <WIDTH></WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2018-07-09T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50051</ITEMNO>
+      <IDESC>Product 51</IDESC>
+      <IMFSEQ>5820</IMFSEQ>
+      <IMFGNO>990</IMFGNO>
+      <CSEQ>918</CSEQ>
+      <ITYPE>1</ITYPE>
+      <SHDESC>Product 51</SHDESC>
+      <UOM>GN</UOM>
+      <PRC1>250.10</PRC1>
+      <CPRC>312.62</CPRC>
+      <QTYOH>10</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000051</ITUPC>
+      <MFGINO>Handgun-4</MFGINO>
+      <SCNAM1>Handgun-3</SCNAM1>
+      <SCNAM2>A9</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>4</CATID>
+      <TXTREF>50051</TXTREF>
+      <PICREF>50051</PICREF>
+      <ITBRDNO>9</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH></LENGTH>
+      <HEIGHT></HEIGHT>
+      <WIDTH></WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2017-12-22T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50052</ITEMNO>
+      <IDESC>Product 52</IDESC>
+      <IMFSEQ>5821</IMFSEQ>
+      <IMFGNO>991</IMFGNO>
+      <CSEQ>919</CSEQ>
+      <ITYPE>1</ITYPE>
+      <SHDESC>Product 52</SHDESC>
+      <UOM>GN</UOM>
+      <PRC1>251.70</PRC1>
+      <CPRC>314.62</CPRC>
+      <QTYOH>10</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000052</ITUPC>
+      <MFGINO>Handgun-5</MFGINO>
+      <SCNAM1>Handgun-4</SCNAM1>
+      <SCNAM2>A10</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>4</CATID>
+      <TXTREF>50052</TXTREF>
+      <PICREF>50052</PICREF>
+      <ITBRDNO>10</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH></LENGTH>
+      <HEIGHT></HEIGHT>
+      <WIDTH></WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2017-12-22T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50053</ITEMNO>
+      <IDESC>Product 53</IDESC>
+      <IMFSEQ>5822</IMFSEQ>
+      <IMFGNO>992</IMFGNO>
+      <CSEQ>920</CSEQ>
+      <ITYPE>3</ITYPE>
+      <SHDESC>Product 53</SHDESC>
+      <UOM>EA</UOM>
+      <PRC1>93.30</PRC1>
+      <CPRC>116.62</CPRC>
+      <QTYOH>10</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000053</ITUPC>
+      <MFGINO>Accessory-1</MFGINO>
+      <SCNAM1>Accessory-0</SCNAM1>
+      <SCNAM2>A11</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>6</CATID>
+      <TXTREF>50053</TXTREF>
+      <PICREF>50053</PICREF>
+      <ITBRDNO>11</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH></LENGTH>
+      <HEIGHT></HEIGHT>
+      <WIDTH></WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2018-07-09T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50054</ITEMNO>
+      <IDESC>Product 54</IDESC>
+      <IMFSEQ>5823</IMFSEQ>
+      <IMFGNO>993</IMFGNO>
+      <CSEQ>921</CSEQ>
+      <ITYPE>1</ITYPE>
+      <SHDESC>Product 54</SHDESC>
+      <UOM>GN</UOM>
+      <PRC1>254.90</PRC1>
+      <CPRC>318.62</CPRC>
+      <QTYOH>10</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000054</ITUPC>
+      <MFGINO>Handgun-6</MFGINO>
+      <SCNAM1>Handgun-5</SCNAM1>
+      <SCNAM2>A12</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>4</CATID>
+      <TXTREF>50054</TXTREF>
+      <PICREF>50054</PICREF>
+      <ITBRDNO>12</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH></LENGTH>
+      <HEIGHT></HEIGHT>
+      <WIDTH></WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2017-12-22T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50055</ITEMNO>
+      <IDESC>Product 55</IDESC>
+      <IMFSEQ>5824</IMFSEQ>
+      <IMFGNO>994</IMFGNO>
+      <CSEQ>922</CSEQ>
+      <ITYPE>1</ITYPE>
+      <SHDESC>Product 55</SHDESC>
+      <UOM>GN</UOM>
+      <PRC1>256.50</PRC1>
+      <CPRC>320.62</CPRC>
+      <QTYOH>10</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000055</ITUPC>
+      <MFGINO>Handgun-7</MFGINO>
+      <SCNAM1>Handgun-6</SCNAM1>
+      <SCNAM2>A13</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>4</CATID>
+      <TXTREF>50055</TXTREF>
+      <PICREF>50055</PICREF>
+      <ITBRDNO>13</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH></LENGTH>
+      <HEIGHT></HEIGHT>
+      <WIDTH></WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2018-07-09T00:00:00+00:00</LOADDT>
+    </Table>
+    <Table>
+      <ITEMNO>50056</ITEMNO>
+      <IDESC>Product 56</IDESC>
+      <IMFSEQ>5825</IMFSEQ>
+      <IMFGNO>995</IMFGNO>
+      <CSEQ>923</CSEQ>
+      <ITYPE>1</ITYPE>
+      <SHDESC>Product 56</SHDESC>
+      <UOM>GN</UOM>
+      <PRC1>338.10</PRC1>
+      <CPRC>422.62</CPRC>
+      <QTYOH>10</QTYOH>
+      <WTPBX>0</WTPBX>
+      <ITUPC>123000000056</ITUPC>
+      <MFGINO>Handgun-8</MFGINO>
+      <SCNAM1>Handgun-7</SCNAM1>
+      <SCNAM2>A14</SCNAM2>
+      <CATCD></CATCD>
+      <MFPRTYP></MFPRTYP>
+      <MFPRC>0</MFPRC>
+      <CATID>4</CATID>
+      <TXTREF>50056</TXTREF>
+      <PICREF>50056</PICREF>
+      <ITBRDNO>14</ITBRDNO>
+      <IMODEL></IMODEL>
+      <IPURPOSE></IPURPOSE>
+      <ITATR1 xml:space="preserve"/>
+      <ITATR2 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve"/>
+      <ITATR4 xml:space="preserve"/>
+      <ITATR5 xml:space="preserve"/>
+      <ITATR6 xml:space="preserve"/>
+      <ITATR7 xml:space="preserve"/>
+      <ITATR8 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR9 xml:space="preserve"/>
+      <ITATR11 xml:space="preserve"/>
+      <ITATR12 xml:space="preserve"/>
+      <ITATR13 xml:space="preserve"/>
+      <ITATR14 xml:space="preserve"/>
+      <ITATR15 xml:space="preserve"/>
+      <ITATR16 xml:space="preserve"/>
+      <ITATR17 xml:space="preserve"/>
+      <ITATR18 xml:space="preserve"/>
+      <ITATR19 xml:space="preserve"/>
+      <ITATR20 xml:space="preserve"/>
+      <SERIES></SERIES>
+      <LENGTH></LENGTH>
+      <HEIGHT></HEIGHT>
+      <WIDTH></WIDTH>
+      <HAZAIR></HAZAIR>
+      <HAZGRND></HAZGRND>
+      <CHGDTE>2018-07-09T00:00:00+00:00</CHGDTE>
+      <LOADDT>2017-12-22T00:00:00+00:00</LOADDT>
+    </Table>
+  </NewDataSet>
+</string>
