@@ -67,7 +67,7 @@ module SportsSouth
       xml_doc  = Nokogiri::XML(sanitize_response(response))
 
       xml_doc.css('Table').map do |item|
-        yield(map_hash(item, !@options[:full_product].nil?))
+        yield(map_hash(item, @options[:full_product]))
       end
     end
 
