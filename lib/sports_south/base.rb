@@ -1,5 +1,3 @@
-require 'cgi'
-
 module SportsSouth
   # Holds methods common to all classes.
   class Base
@@ -50,10 +48,12 @@ module SportsSouth
     #   http, request = get_http_and_request(<api_url>, <endpoint>)
     def self.get_http_and_request(api_url, endpoint)
       uri = URI([api_url, endpoint].join)
+
       http = Net::HTTP.new(uri.host, uri.port)
       http.read_timeout = TIMEOUT
+
       request = Net::HTTP::Post.new(uri.request_uri)
-      request['User-Agent'] = USER_AGENT
+      request['User-Agent']   = USER_AGENT
       request['Content-Type'] = CONTENT_TYPE
 
       return http, request
@@ -71,6 +71,35 @@ module SportsSouth
       response.body.gsub('&lt;', '<').gsub('&gt;', '>')
     end
     def sanitize_response(*args); self.class.sanitize_response(*args); end
+
+    def download_to_tempfile(http, request)
+      preformatted_tempfile = Tempfile.new(['preformatted-', '.txt'])
+
+      # Stream the response to disk.
+      # This file is not yet valid XML (the angle brackets are escaped).
+      http.request(request) do |response|
+        File.open(preformatted_tempfile, 'w') do |file|
+          response.read_body do |chunk|
+            file.write(chunk.force_encoding('UTF-8'))
+          end
+        end
+      end
+      preformatted_tempfile.close
+
+      # Now we need to read the file line-by-line and unescape the angle brackets.
+      # The new (properly formatted) XML will be in a secondary tempfile.
+      converted_tempfile = Tempfile.new(['formated-', '.xml'])
+
+      File.open(preformatted_tempfile, 'r') do |file|
+        file.each_line do |line|
+          converted_tempfile.puts CGI.unescapeHTML(line)
+        end
+      end
+
+      # Return the (still opened) tempfile
+      # Since it's sill open you may need to '#rewind' it first before usage
+      return converted_tempfile
+    end
 
   end
 end

@@ -1,8 +1,10 @@
 require 'sports_south/version'
 
+require 'cgi'
 require 'json'
 require 'net/http'
 require 'nokogiri'
+require 'tempfile'
 
 require 'sports_south/base'
 require 'sports_south/brand'
