@@ -46,7 +46,7 @@
       <ITATR18 xml:space="preserve"/>
       <ITATR19 xml:space="preserve"/>
       <ITATR20 xml:space="preserve"/>
-      <SERIES></SERIES>
+      <SERIES>Reginald</SERIES>
       <LENGTH>1.9</LENGTH>
       <HEIGHT>1.1</HEIGHT>
       <WIDTH>3.8</WIDTH>
@@ -83,7 +83,7 @@
       <IPURPOSE></IPURPOSE>
       <ITATR1 xml:space="preserve"/>
       <ITATR2 xml:space="preserve"/>
-      <ITATR3 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve">9MM</ITATR3>>
       <ITATR4 xml:space="preserve"/>
       <ITATR5 xml:space="preserve"/>
       <ITATR6 xml:space="preserve"/>
@@ -101,7 +101,7 @@
       <ITATR18 xml:space="preserve"/>
       <ITATR19 xml:space="preserve"/>
       <ITATR20 xml:space="preserve"/>
-      <SERIES></SERIES>
+      <SERIES>MMM</SERIES>
       <LENGTH>1.9</LENGTH>
       <HEIGHT>1.1</HEIGHT>
       <WIDTH>3.8</WIDTH>
@@ -3037,7 +3037,7 @@
       <PRC1>338.10</PRC1>
       <CPRC>422.62</CPRC>
       <QTYOH>10</QTYOH>
-      <WTPBX>0</WTPBX>
+      <WTPBX>2.3</WTPBX>
       <ITUPC>123000000056</ITUPC>
       <MFGINO>Handgun-8</MFGINO>
       <SCNAM1>Handgun-7</SCNAM1>
@@ -3048,12 +3048,12 @@
       <CATID>4</CATID>
       <TXTREF>50056</TXTREF>
       <PICREF>50056</PICREF>
-      <ITBRDNO>14</ITBRDNO>
+      <ITBRDNO>3</ITBRDNO>
       <IMODEL></IMODEL>
       <IPURPOSE></IPURPOSE>
       <ITATR1 xml:space="preserve"/>
       <ITATR2 xml:space="preserve"/>
-      <ITATR3 xml:space="preserve"/>
+      <ITATR3 xml:space="preserve">380</ITATR3>
       <ITATR4 xml:space="preserve"/>
       <ITATR5 xml:space="preserve"/>
       <ITATR6 xml:space="preserve"/>
@@ -3071,7 +3071,7 @@
       <ITATR18 xml:space="preserve"/>
       <ITATR19 xml:space="preserve"/>
       <ITATR20 xml:space="preserve"/>
-      <SERIES></SERIES>
+      <SERIES>Model 56</SERIES>
       <LENGTH></LENGTH>
       <HEIGHT></HEIGHT>
       <WIDTH></WIDTH>

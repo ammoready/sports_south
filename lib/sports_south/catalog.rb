@@ -2,6 +2,7 @@ module SportsSouth
   class Catalog < Base
 
     API_URL = 'http://webservices.theshootingwarehouse.com/smart/inventory.asmx'
+    ITEM_NODE_NAME = 'Table'
 
     CATALOG_CODES = {
       'S' => :special,
@@ -62,13 +63,22 @@ module SportsSouth
         LastUpdate: @options[:last_updated],
         LastItem:   @options[:last_item].to_s
       }))
+      
+      tempfile = download_to_tempfile(http, request)
+      tempfile.rewind
 
-      response = http.request(request)
-      xml_doc  = Nokogiri::XML(sanitize_response(response))
+      Nokogiri::XML::Reader.from_io(tempfile).each do |reader|
+        next unless reader.node_type == Nokogiri::XML::Reader::TYPE_ELEMENT
+        next unless reader.name == ITEM_NODE_NAME
 
-      xml_doc.css('Table').map do |item|
-        yield(map_hash(item, @options[:full_product]))
+        node = Nokogiri::XML.parse(reader.outer_xml)
+
+        yield map_hash(node.css('Table'), @options[:full_product])
       end
+
+      tempfile.close
+      tempfile.unlink
+      true
     end
 
     def get_description(item_number)
@@ -101,27 +111,18 @@ module SportsSouth
         caliber = features[:gauge]
       end
 
-      if features[:action]
-        action = features[:action]
-      end
-
-      if full_product
-        long_description = self.get_description(content_for(node, 'ITEMNO'))
-      end
-
-      if features.respond_to?(:[]=)
-        features[:series] = series
-      end
+      action = features[:action] if features[:action]
+      features[:series] = series if features.respond_to?(:[]=)
 
       {
-        name:              "#{model} #{series} #{mfg_number}".gsub(/\s+/, ' ').rstrip,
+        name:              "#{model} #{series} #{mfg_number}".gsub(/\s+/, ' ').strip,
         model:             model,
         upc:               content_for(node, 'ITUPC').rjust(12, "0"),
         item_identifier:   content_for(node, 'ITEMNO'),
         quantity:          content_for(node, 'QTYOH').to_i,
         price:             content_for(node, 'CPRC'),
         short_description: content_for(node, 'SHDESC'),
-        long_description:  long_description,
+        long_description:  (full_product ? get_description(content_for(node, 'ITEMNO')) : nil),
         category:          category[:description],
         product_type:      ITEM_TYPES[content_for(node, 'ITYPE')],
         mfg_number:        mfg_number,

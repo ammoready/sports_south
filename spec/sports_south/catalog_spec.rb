@@ -15,10 +15,9 @@ describe SportsSouth::Catalog do
       @brands      ||= JSON.parse(@brands_file.read, symbolize_names: true)
     end
 
-    allow_any_instance_of(Net::HTTP).to receive(:request) do
-      @file     ||= FixtureHelper.get_fixture('daily_item_update.xml')
-      @response ||= instance_double('Net::HTTPResponse', body: @file.read)
-    end
+    tempfile = Tempfile.new('daily_item_update')
+    FileUtils.copy_file(FixtureHelper.get_fixture('daily_item_update.xml').path, tempfile.path)
+    allow_any_instance_of(SportsSouth::Catalog).to receive(:download_to_tempfile) { tempfile }
   end
 
   describe '.all' do
@@ -26,6 +25,36 @@ describe SportsSouth::Catalog do
       count = 0
       SportsSouth::Catalog.all(credentials) do |item|
         count += 1
+        case count
+        when 1
+          expect(item[:name]).to            eq('Reginald Ammo-1')
+          expect(item[:upc]).to             eq('123000000001')
+          expect(item[:item_identifier]).to eq('50001')
+          expect(item[:price]).to           eq('11.89')
+          expect(item[:quantity]).to        eq(25)
+          expect(item[:category]).to        eq('Cool Category')
+          expect(item[:brand]).to           eq('Brand 1')
+          expect(item[:caliber]).to         eq(nil)
+        when 2
+          expect(item[:name]).to            eq('MMM Handgun-1')
+          expect(item[:upc]).to             eq('123000000002')
+          expect(item[:item_identifier]).to eq('50002')
+          expect(item[:price]).to           eq('110.99')
+          expect(item[:quantity]).to        eq(25)
+          expect(item[:category]).to        eq('Cool Category')
+          expect(item[:brand]).to           eq('Brand 2')
+          expect(item[:caliber]).to         eq('9MM')
+        when 56
+          expect(item[:name]).to            eq('Model 56 Handgun-8')
+          expect(item[:upc]).to             eq('123000000056')
+          expect(item[:item_identifier]).to eq('50056')
+          expect(item[:price]).to           eq('422.62')
+          expect(item[:quantity]).to        eq(10)
+          expect(item[:category]).to        eq('Marshmallow Guns')
+          expect(item[:brand]).to           eq('Brand 3')
+          expect(item[:caliber]).to         eq('380')
+          expect(item[:weight]).to          eq('2.3')
+        end
       end
 
       expect(count).to eq(56)
