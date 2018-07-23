@@ -5,10 +5,9 @@ describe SportsSouth::Inventory do
   let(:credentials) { { username: 'usr', password: 'pa$$' } }
 
   before do
-    allow_any_instance_of(Net::HTTP).to receive(:request) do
-      @file     ||= FixtureHelper.get_fixture('incremental_onhand_update.xml')
-      @response ||= instance_double('Net::HTTPResponse', body: @file.read)
-    end
+    tempfile = Tempfile.new('incremental_onhand_update')
+    FileUtils.copy_file(FixtureHelper.get_fixture('incremental_onhand_update.xml').path, tempfile.path)
+    allow_any_instance_of(SportsSouth::Inventory).to receive(:download_to_tempfile) { tempfile }
   end
 
   describe '.all' do

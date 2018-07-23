@@ -73,7 +73,7 @@ module SportsSouth
 
         node = Nokogiri::XML.parse(reader.outer_xml)
 
-        yield map_hash(node.css('Table'), @options[:full_product])
+        yield map_hash(node.css(ITEM_NODE_NAME), @options[:full_product])
       end
 
       tempfile.close

@@ -2,6 +2,7 @@ module SportsSouth
   class Inventory < Base
 
     API_URL = 'http://webservices.theshootingwarehouse.com/smart/inventory.asmx'
+    ITEM_NODE_NAME = 'Onhand'
 
     def initialize(options = {})
       requires!(options, :username, :password)
@@ -45,12 +46,21 @@ module SportsSouth
         LastItem:      @options[:last_item].to_s
       }))
 
-      response = http.request(request)
-      xml_doc  = Nokogiri::XML(sanitize_response(response))
+      tempfile = download_to_tempfile(http, request)
+      tempfile.rewind
 
-      xml_doc.css('Onhand').map do |item|
-        yield(self.map_hash(item))
+      Nokogiri::XML::Reader.from_io(tempfile).each do |reader|
+        next unless reader.node_type == Nokogiri::XML::Reader::TYPE_ELEMENT
+        next unless reader.name == ITEM_NODE_NAME
+
+        node = Nokogiri::XML.parse(reader.outer_xml)
+
+        yield map_hash(node.css(ITEM_NODE_NAME))
       end
+
+      tempfile.close
+      tempfile.unlink
+      true
     end
 
     def get_quantity_file
