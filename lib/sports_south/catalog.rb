@@ -63,8 +63,10 @@ module SportsSouth
         LastUpdate: @options[:last_updated],
         LastItem:   @options[:last_item].to_s
       }))
-      
+
+      items    = []
       tempfile = download_to_tempfile(http, request)
+
       tempfile.rewind
 
       Nokogiri::XML::Reader.from_io(tempfile).each do |reader|
@@ -73,12 +75,15 @@ module SportsSouth
 
         node = Nokogiri::XML.parse(reader.outer_xml)
 
-        yield map_hash(node.css(ITEM_NODE_NAME), @options[:full_product])
+        _map_hash = map_hash(node.css(ITEM_NODE_NAME), @options[:full_product])
+
+        items << _map_hash unless _map_hash.nil?
       end
 
       tempfile.close
       tempfile.unlink
-      true
+
+      assign_brand_names(items)
     end
 
     def get_description(item_number)
@@ -98,7 +103,6 @@ module SportsSouth
 
     def map_hash(node, full_product = false)
       category = @categories.find { |category| category[:category_id] == content_for(node, 'CATID') }
-      brand    = @brands.find { |brand| brand[:brand_id] == content_for(node, 'ITBRDNO') }
       features = self.map_features(category.except(:category_id, :department_id, :department_description, :description), node)
 
       model      = content_for(node, 'IMODEL')
@@ -130,7 +134,7 @@ module SportsSouth
         caliber:           caliber,
         action:            action,
         map_price:         content_for(node, 'MFPRC'),
-        brand:             brand.present? ? brand[:name] : nil,
+        brand:             content_for(node, 'ITBRDNO').presence,
         features:          features,
         unit_of_measure:   UNITS_OF_MEASURE.fetch(content_for(node, 'UOM'), nil)
       }
@@ -138,15 +142,15 @@ module SportsSouth
 
     def map_features(attributes, node)
       features = {
-        attributes[:attribute_1] => content_for(node, 'ITATR1'),
-        attributes[:attribute_2] => content_for(node, 'ITATR2'),
-        attributes[:attribute_3] => content_for(node, 'ITATR3'),
-        attributes[:attribute_4] => content_for(node, 'ITATR4'),
-        attributes[:attribute_5] => content_for(node, 'ITATR5'),
-        attributes[:attribute_6] => content_for(node, 'ITATR6'),
-        attributes[:attribute_7] => content_for(node, 'ITATR7'),
-        attributes[:attribute_8] => content_for(node, 'ITATR8'),
-        attributes[:attribute_9] => content_for(node, 'ITATR9'),
+        attributes[:attribute_1]  => content_for(node, 'ITATR1'),
+        attributes[:attribute_2]  => content_for(node, 'ITATR2'),
+        attributes[:attribute_3]  => content_for(node, 'ITATR3'),
+        attributes[:attribute_4]  => content_for(node, 'ITATR4'),
+        attributes[:attribute_5]  => content_for(node, 'ITATR5'),
+        attributes[:attribute_6]  => content_for(node, 'ITATR6'),
+        attributes[:attribute_7]  => content_for(node, 'ITATR7'),
+        attributes[:attribute_8]  => content_for(node, 'ITATR8'),
+        attributes[:attribute_9]  => content_for(node, 'ITATR9'),
         attributes[:attribute_10] => content_for(node, 'ITATR10'),
         attributes[:attribute_11] => content_for(node, 'ITATR11'),
         attributes[:attribute_12] => content_for(node, 'ITATR12'),
@@ -163,6 +167,23 @@ module SportsSouth
       features.delete_if { |k, v| v.to_s.blank? }
       features.transform_keys! { |k| k.gsub(/\s+/, '_').downcase }
       features.symbolize_keys!
+    end
+
+    def assign_brand_names(items)
+      brand_ids = items.collect { |item| item[:brand] }.uniq.compact
+
+      brand_ids.each do |brand_id|
+        brand_name = @brands.find { |brand| brand[:brand_id] == brand_id }.try(:[], :name)
+
+        next if brand_name.nil?
+
+        items.map! do |item|
+          item[:brand] = brand_name if item[:brand] == brand_id
+          item
+        end
+      end
+
+      items
     end
 
   end
