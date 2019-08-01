@@ -21,12 +21,12 @@ describe SportsSouth::Catalog do
   end
 
   describe '.all' do
-    it 'yields each and every item' do
-      count = 0
-      SportsSouth::Catalog.all(credentials) do |item|
-        count += 1
-        case count
-        when 1
+    it 'returns all items in an array' do
+      items = SportsSouth::Catalog.all(credentials)
+
+      items.each_with_index do |item, index|
+        case index
+        when 0
           expect(item[:name]).to            eq('Reginald Ammo-1')
           expect(item[:upc]).to             eq('123000000001')
           expect(item[:item_identifier]).to eq('50001')
@@ -35,7 +35,7 @@ describe SportsSouth::Catalog do
           expect(item[:category]).to        eq('Cool Category')
           expect(item[:brand]).to           eq('Brand 1')
           expect(item[:caliber]).to         eq(nil)
-        when 2
+        when 1
           expect(item[:name]).to            eq('MMM Handgun-1')
           expect(item[:upc]).to             eq('123000000002')
           expect(item[:item_identifier]).to eq('50002')
@@ -44,7 +44,7 @@ describe SportsSouth::Catalog do
           expect(item[:category]).to        eq('Cool Category')
           expect(item[:brand]).to           eq('Brand 2')
           expect(item[:caliber]).to         eq('9MM')
-        when 56
+        when 55
           expect(item[:name]).to            eq('Model 56 Handgun-8')
           expect(item[:upc]).to             eq('123000000056')
           expect(item[:item_identifier]).to eq('50056')
@@ -57,7 +57,7 @@ describe SportsSouth::Catalog do
         end
       end
 
-      expect(count).to eq(56)
+      expect(items.count).to eq(56)
     end
   end
 
