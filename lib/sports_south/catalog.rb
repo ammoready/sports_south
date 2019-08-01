@@ -36,7 +36,7 @@ module SportsSouth
       @brands     = SportsSouth::Brand.all(options)
     end
 
-    def self.all(options = {}, &block)
+    def self.all(options = {})
       requires!(options, :username, :password)
 
       if options[:last_updated]
@@ -47,16 +47,10 @@ module SportsSouth
 
       options[:last_item] ||= '-1'
 
-      new(options).all &block
+      new(options).all
     end
 
-    def self.get_description(item_number, options = {})
-      requires!(options, :username, :password)
-
-      new(options, :username, :password)
-    end
-
-    def all(&block)
+    def all
       http, request = get_http_and_request(API_URL, '/DailyItemUpdate')
 
       request.set_form_data(form_params(@options).merge({
@@ -84,6 +78,12 @@ module SportsSouth
       tempfile.unlink
 
       assign_brand_names(items)
+    end
+
+    def self.get_description(item_number, options = {})
+      requires!(options, :username, :password)
+
+      new(options, :username, :password)
     end
 
     def get_description(item_number)
