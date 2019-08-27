@@ -19,7 +19,7 @@ module SportsSouth
       new(options).get_quantity_file
     end
 
-    def self.all(options = {}, &block)
+    def self.all(options = {})
       requires!(options, :username, :password)
 
       if options[:last_updated].present?
@@ -30,7 +30,7 @@ module SportsSouth
 
       options[:last_item] ||= '-1'
 
-      new(options).all(&block)
+      new(options).all
     end
 
     def self.get(item_identifier, options = {})
@@ -38,7 +38,7 @@ module SportsSouth
       new(options).get(item_identifier)
     end
 
-    def all(&block)
+    def all
       http, request = get_http_and_request(API_URL, '/IncrementalOnhandUpdate')
 
       request.set_form_data(form_params = form_params(@options).merge({
@@ -46,7 +46,9 @@ module SportsSouth
         LastItem:      @options[:last_item].to_s
       }))
 
+      items    = []
       tempfile = download_to_tempfile(http, request)
+
       tempfile.rewind
 
       Nokogiri::XML::Reader.from_io(tempfile).each do |reader|
@@ -55,12 +57,15 @@ module SportsSouth
 
         node = Nokogiri::XML.parse(reader.outer_xml)
 
-        yield map_hash(node.css(ITEM_NODE_NAME))
+        _map_hash = map_hash(node.css(ITEM_NODE_NAME))
+
+        items << _map_hash unless _map_hash.nil?
       end
 
       tempfile.close
       tempfile.unlink
-      true
+
+      items
     end
 
     def get_quantity_file
@@ -83,7 +88,7 @@ module SportsSouth
       tempfile.path
     end
 
-    def self.quantity(options = {}, &block)
+    def self.quantity(options = {})
       requires!(options, :username, :password)
 
       if options[:last_updated].present?
@@ -94,7 +99,7 @@ module SportsSouth
 
       options[:last_item] ||= '-1'
 
-      new(options).all(&block)
+      new(options).all
     end
 
     def get(item_identifier)
