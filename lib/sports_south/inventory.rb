@@ -88,7 +88,7 @@ module SportsSouth
       tempfile.path
     end
 
-    def self.quantity(options = {}, &block)
+    def self.quantity(options = {})
       requires!(options, :username, :password)
 
       if options[:last_updated].present?
@@ -99,7 +99,7 @@ module SportsSouth
 
       options[:last_item] ||= '-1'
 
-      new(options).all(&block)
+      new(options).all
     end
 
     def get(item_identifier)
