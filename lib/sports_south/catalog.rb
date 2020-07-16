@@ -102,21 +102,19 @@ module SportsSouth
     protected
 
     def map_hash(node, full_product = false)
-      category = @categories.find { |category| category[:category_id] == content_for(node, 'CATID') }
-      features = self.map_features(category.except(:category_id, :department_id, :department_description, :description), node)
+      category        = @categories.find { |category| category[:category_id] == content_for(node, 'CATID') }
+      features        = self.map_features(category.except(:category_id, :department_id, :department_description, :description), node)
+      model           = content_for(node, 'IMODEL')
+      series          = content_for(node, 'SERIES')
+      mfg_number      = content_for(node, 'MFGINO')
+      caliber         = features[:caliber].presence || features[:gauge].presence
+      action          = features[:action].presence
+      unit_of_measure = UNITS_OF_MEASURE.fetch(content_for(node, 'UOM'), nil)
 
-      model      = content_for(node, 'IMODEL')
-      series     = content_for(node, 'SERIES')
-      mfg_number = content_for(node, 'MFGINO')
-
-      if features[:caliber]
-        caliber = features[:caliber]
-      elsif features[:gauge]
-        caliber = features[:gauge]
+      if features.respond_to?(:[]=)
+        features[:series] = series
+        features[:unit_of_measure] = unit_of_measure
       end
-
-      action = features[:action] if features[:action]
-      features[:series] = series if features.respond_to?(:[]=)
 
       {
         name:              "#{model} #{series} #{mfg_number}".gsub(/\s+/, ' ').strip,
@@ -136,7 +134,7 @@ module SportsSouth
         map_price:         content_for(node, 'MFPRC'),
         brand:             content_for(node, 'ITBRDNO').presence,
         features:          features,
-        unit_of_measure:   UNITS_OF_MEASURE.fetch(content_for(node, 'UOM'), nil)
+        unit_of_measure:   unit_of_measure,
       }
     end
 
