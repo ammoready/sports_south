@@ -135,6 +135,7 @@ module SportsSouth
         brand:             content_for(node, 'ITBRDNO').presence,
         features:          features,
         unit_of_measure:   unit_of_measure,
+        picref:            content_for(node, 'PICREF'),
       }
     end
 
