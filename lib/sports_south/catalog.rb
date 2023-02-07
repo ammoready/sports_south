@@ -135,7 +135,6 @@ module SportsSouth
         brand:             content_for(node, 'ITBRDNO').presence,
         features:          features,
         unit_of_measure:   unit_of_measure,
-        picref:            content_for(node, 'PICREF'),
       }
     end
 
@@ -160,7 +159,8 @@ module SportsSouth
         attributes[:attribute_17] => content_for(node, 'ITATR17'),
         attributes[:attribute_18] => content_for(node, 'ITATR18'),
         attributes[:attribute_19] => content_for(node, 'ITATR19'),
-        attributes[:attribute_20] => content_for(node, 'ITATR20')
+        attributes[:attribute_20] => content_for(node, 'ITATR20'),
+        'picref'                  => content_for(node, 'PICREF'),
       }
 
       features.delete_if { |k, v| v.to_s.blank? }
