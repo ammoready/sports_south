@@ -32,17 +32,17 @@ module SportsSouth
       requires!(options, :username, :password)
 
       @options    = options
-      @categories = SportsSouth::Category.all(options)
+      @categories = SportsSouth::Category.all(options).to_h { |cat| [cat[:category_id], cat] }
       @brands     = SportsSouth::Brand.all(options)
     end
 
     def self.all(options = {})
       requires!(options, :username, :password)
 
-      if options[:last_updated]
-        options[:last_updated] = options[:last_updated].strftime("%-m/%-d/%Y")
+      if options[:last_update]
+        options[:last_update] = options[:last_update].strftime("%-m/%-d/%Y")
       else
-        options[:last_updated] ||= '1/1/1990'
+        options[:last_update] ||= '1/1/1990'
       end
 
       options[:last_item] ||= '-1'
@@ -50,16 +50,21 @@ module SportsSouth
       new(options).all
     end
 
-    def all
+    def fetch_items(last_update: nil, last_item: nil)
+      start_time = Process.clock_gettime(Process::CLOCK_MONOTONIC)
+      global_start_time = start_time
+      items = []
+
       http, request = get_http_and_request(API_URL, '/DailyItemUpdate')
 
       request.set_form_data(form_params(@options).merge({
-        LastUpdate: @options[:last_updated],
-        LastItem:   @options[:last_item].to_s
+        LastUpdate: last_update,
+        LastItem:   last_item
       }))
 
-      items    = []
       tempfile = download_to_tempfile(http, request)
+      elapsed = Process.clock_gettime(Process::CLOCK_MONOTONIC) - start_time
+      puts "fetch_items Download elapsed: #{format('%.3f', elapsed)}s"
 
       tempfile.rewind
 
@@ -69,15 +74,36 @@ module SportsSouth
 
         node = Nokogiri::XML.parse(reader.outer_xml)
 
-        _map_hash = map_hash(node.css(ITEM_NODE_NAME), @options[:full_product])
+        _map_hash = raw_map_hash(node.css(ITEM_NODE_NAME), @options[:full_product])
 
         items << _map_hash unless _map_hash.nil?
       end
 
-      tempfile.close
-      tempfile.unlink
 
-      assign_brand_names(items)
+      elapsed = Process.clock_gettime(Process::CLOCK_MONOTONIC) - global_start_time
+      puts "global fetch_items took: #{format('%.3f', elapsed)}s"
+      items
+    end
+
+    def all
+      puts "1st page fetch"
+      items = fetch_items(last_update: @options[:last_update], last_item: @options[:last_item])
+
+      pages = (daily_item_count.to_f/1000.0).ceil - 1
+      puts "page count: #{pages}"
+
+      if pages > 0
+        pages.times do |page| 
+
+          puts "now fetching page: #{page + 1}"
+          cursor = items.last[:item_identifier]
+
+          items.concat(fetch_items(last_update: @options[:last_update], last_item: cursor))
+        end
+      end
+      # assign_brand_names(items)
+
+      items
     end
 
     def self.get_description(item_number, options = {})
@@ -101,9 +127,13 @@ module SportsSouth
 
     protected
 
-    def map_hash(node, full_product = false)
-      category        = @categories.find { |category| category[:category_id] == content_for(node, 'CATID') }
-      features        = self.map_features(category.except(:category_id, :department_id, :department_description, :description), node)
+    def daily_item_count
+      SportsSouth::Inventory.daily_item_count(@options.slice(:username, :password, :last_update))
+    end
+
+    def raw_map_hash(node, full_product = false)
+      category        = @categories[content_for(node, 'CATID')]
+      features        = self.map_features(category, node)
       model           = content_for(node, 'IMODEL')
       series          = content_for(node, 'SERIES')
       mfg_number      = content_for(node, 'MFGINO')
@@ -124,7 +154,8 @@ module SportsSouth
         quantity:          content_for(node, 'QTYOH').to_i,
         price:             content_for(node, 'CPRC'),
         short_description: content_for(node, 'SHDESC'),
-        long_description:  (full_product ? get_description(content_for(node, 'ITEMNO')) : nil),
+        # long_description:  (full_product ? get_description(content_for(node, 'ITEMNO')) : nil),
+        long_description:  nil,
         category:          category[:description],
         product_type:      ITEM_TYPES[content_for(node, 'ITYPE')],
         mfg_number:        mfg_number,
@@ -162,9 +193,8 @@ module SportsSouth
         attributes[:attribute_20] => content_for(node, 'ITATR20')
       }
 
-      features.delete_if { |k, v| v.to_s.blank? }
-      features.transform_keys! { |k| k.gsub(/\s+/, '_').downcase }
-      features.symbolize_keys!
+      features.delete_if { |k, v| v.to_s.empty? }
+      features.transform_keys! { |k| k.gsub(/\s+/, '_').downcase.to_sym }
     end
 
     def assign_brand_names(items)
