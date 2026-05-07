@@ -33,7 +33,7 @@ module SportsSouth
 
       @options    = options
       @categories = SportsSouth::Category.all(options).to_h { |cat| [cat[:category_id], cat] }
-      @brands     = SportsSouth::Brand.all(options)
+      @brands     = SportsSouth::Brand.all(options).to_h { |brand| [brand[:brand_id], brand] }
     end
 
     def self.all(options = {})
@@ -47,7 +47,11 @@ module SportsSouth
 
       options[:last_item] ||= '-1'
 
-      new(options).all
+      start_time = Process.clock_gettime(Process::CLOCK_MONOTONIC)
+      result = new(options).all
+      elapsed = Process.clock_gettime(Process::CLOCK_MONOTONIC) - start_time
+      puts "total Catalog.all elapsed: #{format('%.3f', elapsed)}s"
+      result
     end
 
     def fetch_items(last_update: nil, last_item: nil)
@@ -163,7 +167,7 @@ module SportsSouth
         caliber:           caliber,
         action:            action,
         map_price:         content_for(node, 'MFPRC'),
-        brand:             content_for(node, 'ITBRDNO').presence,
+        brand:             @brands[content_for(node, 'ITBRDNO').presence],
         features:          features,
         unit_of_measure:   unit_of_measure,
       }
@@ -197,22 +201,9 @@ module SportsSouth
       features.transform_keys! { |k| k.gsub(/\s+/, '_').downcase.to_sym }
     end
 
-    def assign_brand_names(items)
-      brand_ids = items.collect { |item| item[:brand] }.uniq.compact
-
-      brand_ids.each do |brand_id|
-        brand_name = @brands.find { |brand| brand[:brand_id] == brand_id }.try(:[], :name)
-
-        next if brand_name.nil?
-
-        items.map! do |item|
-          item[:brand] = brand_name if item[:brand] == brand_id
-          item
-        end
-      end
-
-      items
+    # This request takes a while
+    def assign_item_long_description(item)
+      item[:long_description] = get_description(item[:item_identifier])
     end
-
   end
 end
