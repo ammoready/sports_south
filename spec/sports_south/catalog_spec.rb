@@ -2,62 +2,169 @@ require 'spec_helper'
 
 describe SportsSouth::Catalog do
 
+  API_BASE = 'http://webservices.theshootingwarehouse.com/smart/inventory.asmx'
+
   let(:credentials) { { username: 'usr', password: 'pa$$' } }
 
   before do
-    allow(SportsSouth::Category).to receive(:all).with(credentials) do
+    allow(SportsSouth::Category).to receive(:all) do
       @categories_file ||= FixtureHelper.get_fixture('categories.json')
       @categories      ||= JSON.parse(@categories_file.read, symbolize_names: true)
     end
 
-    allow(SportsSouth::Brand).to receive(:all).with(credentials) do
+    allow(SportsSouth::Brand).to receive(:all) do
       @brands_file ||= FixtureHelper.get_fixture('brands.json')
       @brands      ||= JSON.parse(@brands_file.read, symbolize_names: true)
     end
-
-    tempfile = Tempfile.new('daily_item_update')
-    FileUtils.copy_file(FixtureHelper.get_fixture('daily_item_update.xml').path, tempfile.path)
-    allow_any_instance_of(SportsSouth::Catalog).to receive(:download_to_tempfile) { tempfile }
   end
 
   describe '.all' do
-    it 'returns all items in an array' do
-      items = SportsSouth::Catalog.all(credentials)
+    context 'with a single page of results' do
+      before do
+        stub_request(:post, "#{API_BASE}/DailyItemUpdate").
+          to_return(status: 200, body: FixtureHelper.get_fixture('daily_item_update.xml').read)
 
-      items.each_with_index do |item, index|
-        case index
-        when 0
-          expect(item[:name]).to            eq('Reginald Ammo-1')
-          expect(item[:upc]).to             eq('123000000001')
-          expect(item[:item_identifier]).to eq('50001')
-          expect(item[:price]).to           eq('11.89')
-          expect(item[:quantity]).to        eq(25)
-          expect(item[:category]).to        eq('Cool Category')
-          expect(item[:brand]).to           eq('Brand 1')
-          expect(item[:caliber]).to         eq(nil)
-        when 1
-          expect(item[:name]).to            eq('MMM Handgun-1')
-          expect(item[:upc]).to             eq('123000000002')
-          expect(item[:item_identifier]).to eq('50002')
-          expect(item[:price]).to           eq('110.99')
-          expect(item[:quantity]).to        eq(25)
-          expect(item[:category]).to        eq('Cool Category')
-          expect(item[:brand]).to           eq('Brand 2')
-          expect(item[:caliber]).to         eq('9MM')
-        when 55
-          expect(item[:name]).to            eq('Model 56 Handgun-8')
-          expect(item[:upc]).to             eq('123000000056')
-          expect(item[:item_identifier]).to eq('50056')
-          expect(item[:price]).to           eq('422.62')
-          expect(item[:quantity]).to        eq(10)
-          expect(item[:category]).to        eq('Marshmallow Guns')
-          expect(item[:brand]).to           eq('Brand 3')
-          expect(item[:caliber]).to         eq('380')
-          expect(item[:weight]).to          eq('2.3')
-        end
+        stub_request(:post, "#{API_BASE}/DailyItemCount").
+          to_return(status: 200, body: '<int xmlns="http://webservices.theshootingwarehouse.com/smart/Inventory.asmx">56</int>')
       end
 
-      expect(items.count).to eq(56)
+      it 'returns all items in an array' do
+        items = SportsSouth::Catalog.all(credentials)
+
+        items.each_with_index do |item, index|
+          case index
+          when 0
+            expect(item[:name]).to            eq('Reginald Ammo-1')
+            expect(item[:upc]).to             eq('123000000001')
+            expect(item[:item_identifier]).to eq('50001')
+            expect(item[:price]).to           eq('11.89')
+            expect(item[:quantity]).to        eq(25)
+            expect(item[:category]).to        eq('Cool Category')
+            expect(item[:brand]).to           eq('Brand 1')
+            expect(item[:caliber]).to         eq(nil)
+          when 1
+            expect(item[:name]).to            eq('MMM Handgun-1')
+            expect(item[:upc]).to             eq('123000000002')
+            expect(item[:item_identifier]).to eq('50002')
+            expect(item[:price]).to           eq('110.99')
+            expect(item[:quantity]).to        eq(25)
+            expect(item[:category]).to        eq('Cool Category')
+            expect(item[:brand]).to           eq('Brand 2')
+            expect(item[:caliber]).to         eq('9MM')
+          when 55
+            expect(item[:name]).to            eq('Model 56 Handgun-8')
+            expect(item[:upc]).to             eq('123000000056')
+            expect(item[:item_identifier]).to eq('50056')
+            expect(item[:price]).to           eq('422.62')
+            expect(item[:quantity]).to        eq(10)
+            expect(item[:category]).to        eq('Marshmallow Guns')
+            expect(item[:brand]).to           eq('Brand 3')
+            expect(item[:caliber]).to         eq('380')
+            expect(item[:weight]).to          eq('2.3')
+          end
+        end
+
+        expect(items.count).to eq(56)
+      end
+    end
+
+    context 'when daily_item_count > 1000' do
+      let(:page1_xml) do
+        <<~XML
+          <string xmlns="http://webservices.theshootingwarehouse.com/smart/Inventory.asmx">
+            <NewDataSet>
+              <Table>
+                <ITEMNO>10001</ITEMNO><ITUPC>000000010001</ITUPC><CPRC>9.99</CPRC>
+                <QTYOH>5</QTYOH><CATID>5</CATID><ITBRDNO>1</ITBRDNO>
+                <IMODEL>Model A</IMODEL><MFGINO>SKU-A</MFGINO><SERIES>S1</SERIES>
+                <ITYPE>3</ITYPE><WTPBX>1.0</WTPBX><MFPRC>0</MFPRC><UOM>BX</UOM>
+                <SHDESC>Item A</SHDESC>
+              </Table>
+              <Table>
+                <ITEMNO>10002</ITEMNO><ITUPC>000000010002</ITUPC><CPRC>19.99</CPRC>
+                <QTYOH>10</QTYOH><CATID>5</CATID><ITBRDNO>2</ITBRDNO>
+                <IMODEL>Model B</IMODEL><MFGINO>SKU-B</MFGINO><SERIES>S2</SERIES>
+                <ITYPE>3</ITYPE><WTPBX>2.0</WTPBX><MFPRC>0</MFPRC><UOM>BX</UOM>
+                <SHDESC>Item B</SHDESC>
+              </Table>
+            </NewDataSet>
+          </string>
+        XML
+      end
+
+      let(:page2_xml) do
+        <<~XML
+          <string xmlns="http://webservices.theshootingwarehouse.com/smart/Inventory.asmx">
+            <NewDataSet>
+              <Table>
+                <ITEMNO>10003</ITEMNO><ITUPC>000000010003</ITUPC><CPRC>29.99</CPRC>
+                <QTYOH>3</QTYOH><CATID>5</CATID><ITBRDNO>3</ITBRDNO>
+                <IMODEL>Model C</IMODEL><MFGINO>SKU-C</MFGINO><SERIES>S3</SERIES>
+                <ITYPE>3</ITYPE><WTPBX>3.0</WTPBX><MFPRC>0</MFPRC><UOM>BX</UOM>
+                <SHDESC>Item C</SHDESC>
+              </Table>
+            </NewDataSet>
+          </string>
+        XML
+      end
+
+      before do
+        stub_request(:post, "#{API_BASE}/DailyItemCount").
+          to_return(status: 200, body: '<int xmlns="http://webservices.theshootingwarehouse.com/smart/Inventory.asmx">1200</int>')
+
+        stub_request(:post, "#{API_BASE}/DailyItemUpdate").
+          with(body: hash_including('LastItem' => '-1')).
+          to_return(status: 200, body: page1_xml)
+
+        stub_request(:post, "#{API_BASE}/DailyItemUpdate").
+          with(body: hash_including('LastItem' => '10002')).
+          to_return(status: 200, body: page2_xml)
+      end
+
+      it 'fetches all pages and concatenates results' do
+        items = SportsSouth::Catalog.all(credentials)
+
+        expect(items.count).to eq(3)
+        expect(items[0][:item_identifier]).to eq('10001')
+        expect(items[1][:item_identifier]).to eq('10002')
+        expect(items[2][:item_identifier]).to eq('10003')
+      end
+    end
+
+    context 'with full_product: true' do
+      let(:item_xml) do
+        <<~XML
+          <string xmlns="http://webservices.theshootingwarehouse.com/smart/Inventory.asmx">
+            <NewDataSet>
+              <Table>
+                <ITEMNO>20001</ITEMNO><ITUPC>000000020001</ITUPC><CPRC>49.99</CPRC>
+                <QTYOH>7</QTYOH><CATID>5</CATID><ITBRDNO>1</ITBRDNO>
+                <IMODEL>Full Model</IMODEL><MFGINO>FM-1</MFGINO><SERIES>FS</SERIES>
+                <ITYPE>3</ITYPE><WTPBX>1.5</WTPBX><MFPRC>0</MFPRC><UOM>BX</UOM>
+                <SHDESC>Full Item</SHDESC>
+              </Table>
+            </NewDataSet>
+          </string>
+        XML
+      end
+
+      before do
+        stub_request(:post, "#{API_BASE}/DailyItemUpdate").
+          to_return(status: 200, body: item_xml)
+
+        stub_request(:post, "#{API_BASE}/DailyItemCount").
+          to_return(status: 200, body: '<int xmlns="http://webservices.theshootingwarehouse.com/smart/Inventory.asmx">1</int>')
+
+        stub_request(:post, "#{API_BASE}/GetText").
+          to_return(status: 200, body: '<string xmlns="http://webservices.theshootingwarehouse.com/smart/Inventory.asmx"><CATALOGTEXT>A detailed product description</CATALOGTEXT></string>')
+      end
+
+      it 'fetches long descriptions for all items' do
+        items = SportsSouth::Catalog.all(credentials.merge(full_product: true))
+
+        expect(items.count).to eq(1)
+        expect(items.first[:long_description]).to eq('A detailed product description')
+      end
     end
   end
 

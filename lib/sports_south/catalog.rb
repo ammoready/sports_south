@@ -166,7 +166,7 @@ module SportsSouth
         caliber:           caliber,
         action:            action,
         map_price:         content_for(node, 'MFPRC'),
-        brand:             @brands[content_for(node, 'ITBRDNO').presence],
+        brand:             @brands[content_for(node, 'ITBRDNO').presence]&.dig(:name),
         features:          features,
         unit_of_measure:   unit_of_measure,
       }
