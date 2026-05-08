@@ -78,7 +78,8 @@ module SportsSouth
 
         node = Nokogiri::XML.parse(reader.outer_xml)
 
-        _map_hash = raw_map_hash(node.css(ITEM_NODE_NAME), @options[:full_product])
+        _map_hash = raw_map_hash(node.css(ITEM_NODE_NAME))
+        assign_item_long_description(_map_hash) if @options[:full_product] == true
 
         items << _map_hash unless _map_hash.nil?
       end
@@ -105,7 +106,6 @@ module SportsSouth
           items.concat(fetch_items(last_update: @options[:last_update], last_item: cursor))
         end
       end
-      # assign_brand_names(items)
 
       items
     end
@@ -135,7 +135,7 @@ module SportsSouth
       SportsSouth::Inventory.daily_item_count(@options.slice(:username, :password, :last_update))
     end
 
-    def raw_map_hash(node, full_product = false)
+    def raw_map_hash(node)
       category        = @categories[content_for(node, 'CATID')]
       features        = self.map_features(category, node)
       model           = content_for(node, 'IMODEL')
@@ -158,7 +158,6 @@ module SportsSouth
         quantity:          content_for(node, 'QTYOH').to_i,
         price:             content_for(node, 'CPRC'),
         short_description: content_for(node, 'SHDESC'),
-        # long_description:  (full_product ? get_description(content_for(node, 'ITEMNO')) : nil),
         long_description:  nil,
         category:          category[:description],
         product_type:      ITEM_TYPES[content_for(node, 'ITYPE')],
