@@ -166,6 +166,24 @@ describe SportsSouth::Catalog do
         expect(items.first[:long_description]).to eq('A detailed product description')
       end
     end
+
+    context 'with upcs_to_not_process' do
+      before do
+        stub_request(:post, "#{API_BASE}/DailyItemUpdate").
+          to_return(status: 200, body: FixtureHelper.get_fixture('daily_item_update.xml').read)
+
+        stub_request(:post, "#{API_BASE}/DailyItemCount").
+          to_return(status: 200, body: '<int xmlns="http://webservices.theshootingwarehouse.com/smart/Inventory.asmx">56</int>')
+      end
+
+      it 'excludes items whose UPC is present in the lookup hash' do
+        skip_upcs = Set['123000000001', '123000000056']
+        items = SportsSouth::Catalog.all(credentials.merge(upcs_to_not_process: skip_upcs))
+
+        expect(items.count).to eq(54)
+        expect(items.map { |i| i[:upc] }).not_to include('123000000001', '123000000056')
+      end
+    end
   end
 
 end

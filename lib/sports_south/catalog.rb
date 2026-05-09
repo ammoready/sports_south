@@ -45,6 +45,16 @@ module SportsSouth
         options[:last_update] ||= '1/1/1990'
       end
 
+      # Pass a set in order to not include items with given upcs
+      # in the results. Also avoids requesting GetText for them
+      options[:upcs_to_not_process] ||= nil
+
+      # Pass full_product: true to get the full item description
+      # costs a secondary HTTP request per item
+      options[:full_product] ||= false
+
+      # Pass last_item: -1 to fetch the whole catalog. Pass a ITEMNO
+      # to fetch that item + 999 others (page cursor)
       options[:last_item] ||= '-1'
 
       start_time = Process.clock_gettime(Process::CLOCK_MONOTONIC)
@@ -78,6 +88,8 @@ module SportsSouth
 
         node = Nokogiri::XML.parse(reader.outer_xml)
 
+        next if reject_upc?(node)
+
         _map_hash = raw_map_hash(node.css(ITEM_NODE_NAME))
         assign_item_long_description(_map_hash) if @options[:full_product] == true
 
@@ -98,7 +110,7 @@ module SportsSouth
       puts "page count: #{pages}"
 
       if pages > 0
-        pages.times do |page| 
+        pages.times do |page|
 
           puts "now fetching page: #{page + 1}"
           cursor = items.last[:item_identifier]
@@ -198,6 +210,16 @@ module SportsSouth
 
       features.delete_if { |k, v| v.to_s.empty? }
       features.transform_keys! { |k| k.gsub(/\s+/, '_').downcase.to_sym }
+    end
+
+    def reject_upc?(node)
+      return false if @options[:upcs_to_not_process].nil? || @options[:upcs_to_not_process].empty?
+
+      @options[:upcs_to_not_process].include?(upc_for_node(node).to_s)
+    end
+
+    def upc_for_node(node)
+      content_for(node, 'ITUPC').rjust(12, "0")
     end
 
     # This request takes a while
