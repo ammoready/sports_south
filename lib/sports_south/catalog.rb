@@ -57,16 +57,10 @@ module SportsSouth
       # to fetch that item + 999 others (page cursor)
       options[:last_item] ||= '-1'
 
-      start_time = Process.clock_gettime(Process::CLOCK_MONOTONIC)
-      result = new(options).all
-      elapsed = Process.clock_gettime(Process::CLOCK_MONOTONIC) - start_time
-      puts "total Catalog.all elapsed: #{format('%.3f', elapsed)}s"
-      result
+      new(options).all
     end
 
     def fetch_items(last_update: nil, last_item: nil)
-      start_time = Process.clock_gettime(Process::CLOCK_MONOTONIC)
-      global_start_time = start_time
       items = []
 
       http, request = get_http_and_request(API_URL, '/DailyItemUpdate')
@@ -77,9 +71,6 @@ module SportsSouth
       }))
 
       tempfile = download_to_tempfile(http, request)
-      elapsed = Process.clock_gettime(Process::CLOCK_MONOTONIC) - start_time
-      puts "fetch_items Download elapsed: #{format('%.3f', elapsed)}s"
-
       tempfile.rewind
 
       Nokogiri::XML::Reader.from_io(tempfile).each do |reader|
@@ -96,30 +87,33 @@ module SportsSouth
         items << _map_hash unless _map_hash.nil?
       end
 
-
-      elapsed = Process.clock_gettime(Process::CLOCK_MONOTONIC) - global_start_time
-      puts "global fetch_items took: #{format('%.3f', elapsed)}s"
+      tempfile.close
+      tempfile.unlink
       items
     end
 
     def all
-      puts "1st page fetch"
-      items = fetch_items(last_update: @options[:last_update], last_item: @options[:last_item])
+      last_item = @options[:last_item]
+      last_update = @options[:last_update]
 
-      pages = (daily_item_count.to_f/1000.0).ceil - 1
-      puts "page count: #{pages}"
+      return fetch_items(last_update: last_update, last_item: last_item) if !use_pagination?
+      pages = (daily_item_count.to_f/1000.0).ceil
+      cursor = last_item
+      items = []
 
-      if pages > 0
-        pages.times do |page|
-
-          puts "now fetching page: #{page + 1}"
-          cursor = items.last[:item_identifier]
-
-          items.concat(fetch_items(last_update: @options[:last_update], last_item: cursor))
-        end
+      pages.times do |page|
+        items.concat(
+          fetch_items(last_update: last_update,
+                      last_item: cursor)
+        )
+        cursor = items.last[:item_identifier]
       end
 
       items
+    end
+
+    def use_pagination?
+      @options[:last_item].to_i > -1
     end
 
     def self.get_description(item_number, options = {})
@@ -148,7 +142,7 @@ module SportsSouth
     end
 
     def raw_map_hash(node)
-      category        = @categories[content_for(node, 'CATID')]
+      category        = @categories[content_for(node, 'CATID')] || {}
       features        = self.map_features(category, node)
       model           = content_for(node, 'IMODEL')
       series          = content_for(node, 'SERIES')
@@ -185,6 +179,8 @@ module SportsSouth
     end
 
     def map_features(attributes, node)
+      return {} if attributes.blank?
+
       features = {
         attributes[:attribute_1]  => content_for(node, 'ITATR1'),
         attributes[:attribute_2]  => content_for(node, 'ITATR2'),
@@ -208,7 +204,7 @@ module SportsSouth
         attributes[:attribute_20] => content_for(node, 'ITATR20')
       }
 
-      features.delete_if { |k, v| v.to_s.empty? }
+      features.delete_if { |k, v| k.nil? || v.to_s.empty? }
       features.transform_keys! { |k| k.gsub(/\s+/, '_').downcase.to_sym }
     end
 

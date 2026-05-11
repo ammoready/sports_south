@@ -113,7 +113,7 @@ describe SportsSouth::Catalog do
           to_return(status: 200, body: '<int xmlns="http://webservices.theshootingwarehouse.com/smart/Inventory.asmx">1200</int>')
 
         stub_request(:post, "#{API_BASE}/DailyItemUpdate").
-          with(body: hash_including('LastItem' => '-1')).
+          with(body: hash_including('LastItem' => '0')).
           to_return(status: 200, body: page1_xml)
 
         stub_request(:post, "#{API_BASE}/DailyItemUpdate").
@@ -122,7 +122,7 @@ describe SportsSouth::Catalog do
       end
 
       it 'fetches all pages and concatenates results' do
-        items = SportsSouth::Catalog.all(credentials)
+        items = SportsSouth::Catalog.all(credentials.merge(last_item: 0))
 
         expect(items.count).to eq(3)
         expect(items[0][:item_identifier]).to eq('10001')
@@ -182,6 +182,43 @@ describe SportsSouth::Catalog do
 
         expect(items.count).to eq(54)
         expect(items.map { |i| i[:upc] }).not_to include('123000000001', '123000000056')
+      end
+    end
+  end
+
+  describe '#map_features' do
+    let(:catalog) { SportsSouth::Catalog.new(credentials) }
+
+    context 'when category lookup returns nil (attributes is an empty hash)' do
+      let(:node_no_itatr) do
+        Nokogiri::XML.parse('<Table></Table>').css('Table')
+      end
+
+      let(:node_with_itatr20) do
+        Nokogiri::XML.parse('<Table><ITATR20>SomeValue</ITATR20></Table>').css('Table')
+      end
+
+      let(:node_with_itatr1_only) do
+        Nokogiri::XML.parse('<Table><ITATR1>Pistol</ITATR1></Table>').css('Table')
+      end
+
+      it 'returns an empty hash when no ITATR values are present' do
+        result = catalog.send(:map_features, {}, node_no_itatr)
+        expect(result).to eq({})
+      end
+
+      it 'does not raise an error when ITATR20 has a value' do
+        expect { catalog.send(:map_features, {}, node_with_itatr20) }.not_to raise_error
+      end
+
+      it 'returns a hash without nil keys when ITATR20 has a value' do
+        result = catalog.send(:map_features, {}, node_with_itatr20)
+        expect(result.keys).not_to include(nil)
+      end
+
+      it 'returns an empty hash when only earlier ITATR fields have values' do
+        result = catalog.send(:map_features, {}, node_with_itatr1_only)
+        expect(result).to eq({})
       end
     end
   end
