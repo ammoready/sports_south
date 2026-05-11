@@ -102,6 +102,12 @@ module SportsSouth
       new(options).all
     end
 
+    def self.daily_item_count(options = {})
+      requires!(options, :username, :password, :last_update)
+
+      new(options).daily_item_count
+    end
+
     def get(item_identifier)
       http, request = get_http_and_request(API_URL, '/OnhandInquiry')
 
@@ -109,6 +115,24 @@ module SportsSouth
 
       response = http.request(request)
       xml_doc  = Nokogiri::XML(sanitize_response(response))
+    end
+
+    def daily_item_count
+      http, request = get_http_and_request(API_URL, '/DailyItemCount')
+      last_update_formatted = @options[:last_update]
+
+      if last_update_formatted.is_a?(Date)
+        last_update_formatted = last_update_formatted.strftime('%m/%d/%Y')
+      end
+
+      request.set_form_data(form_params(@options).merge({
+        LastUpdate: last_update_formatted
+      }))
+
+      response = http.request(request)
+      xml_doc  = Nokogiri::XML(sanitize_response(response))
+
+      content_for(xml_doc, 'int').to_i
     end
 
     protected
@@ -120,6 +144,5 @@ module SportsSouth
         price: content_for(node, 'C')
       }
     end
-
   end
 end

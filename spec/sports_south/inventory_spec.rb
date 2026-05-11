@@ -43,4 +43,15 @@ describe SportsSouth::Inventory do
     end
   end
 
+  describe '.daily_item_count' do
+    it 'returns the count of items' do
+      response_body = '<int xmlns="http://webservices.theshootingwarehouse.com/smart/Inventory.asmx">42</int>'
+      allow_any_instance_of(Net::HTTP).to receive(:request).and_return(double(body: response_body))
+
+      count = SportsSouth::Inventory.daily_item_count(credentials.merge(last_update: Date.today))
+
+      expect(count).to eq(42)
+    end
+  end
+
 end
