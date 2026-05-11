@@ -102,10 +102,12 @@ module SportsSouth
       items = []
 
       pages.times do |page|
-        items.concat(
-          fetch_items(last_update: last_update,
-                      last_item: cursor)
-        )
+        page_items = fetch_items(last_update: last_update,
+                                 last_item: cursor)
+
+        break if page_items.empty?
+
+        items.concat(page_items)
         cursor = items.last[:item_identifier]
       end
 
@@ -179,7 +181,7 @@ module SportsSouth
     end
 
     def map_features(attributes, node)
-      return {} if attributes.blank?
+      return {} if attributes.empty?
 
       features = {
         attributes[:attribute_1]  => content_for(node, 'ITATR1'),
