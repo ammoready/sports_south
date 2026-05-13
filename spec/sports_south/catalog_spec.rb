@@ -186,6 +186,43 @@ describe SportsSouth::Catalog do
     end
   end
 
+  describe '#reject_upc?' do
+    let(:skip_upcs) { Set['123000000001', '000000099999'] }
+    let(:catalog) { SportsSouth::Catalog.new(credentials.merge(upcs_to_not_process: skip_upcs)) }
+
+    let(:matching_node) do
+      Nokogiri::XML.parse('<Table><ITUPC>123000000001</ITUPC></Table>').css('Table')
+    end
+
+    let(:non_matching_node) do
+      Nokogiri::XML.parse('<Table><ITUPC>000000000042</ITUPC></Table>').css('Table')
+    end
+
+    let(:short_upc_node) do
+      Nokogiri::XML.parse('<Table><ITUPC>99999</ITUPC></Table>').css('Table')
+    end
+
+    it 'returns true when the parseable_node UPC is in upcs_to_not_process' do
+      expect(catalog.send(:reject_upc?, matching_node)).to be true
+    end
+
+    it 'returns false when the parseable_node UPC is not in upcs_to_not_process' do
+      expect(catalog.send(:reject_upc?, non_matching_node)).to be false
+    end
+
+    it 'left-pads short UPCs to 12 digits before checking' do
+      expect(catalog.send(:reject_upc?, short_upc_node)).to be true
+    end
+
+    context 'when upcs_to_not_process is nil' do
+      let(:catalog) { SportsSouth::Catalog.new(credentials) }
+
+      it 'returns false without raising' do
+        expect(catalog.send(:reject_upc?, matching_node)).to be false
+      end
+    end
+  end
+
   describe '#map_features' do
     let(:catalog) { SportsSouth::Catalog.new(credentials) }
 

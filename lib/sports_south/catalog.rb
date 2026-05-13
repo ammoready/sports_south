@@ -78,10 +78,12 @@ module SportsSouth
         next unless reader.name == ITEM_NODE_NAME
 
         node = Nokogiri::XML.parse(reader.outer_xml)
+        parseable_node = node.css(ITEM_NODE_NAME)
 
-        next if reject_upc?(node)
+        next if reject_upc?(parseable_node)
 
-        _map_hash = raw_map_hash(node.css(ITEM_NODE_NAME))
+        _map_hash = raw_map_hash(parseable_node)
+
         assign_item_long_description(_map_hash) if @options[:full_product] == true
 
         items << _map_hash unless _map_hash.nil?
@@ -161,7 +163,7 @@ module SportsSouth
       {
         name:              "#{model} #{series} #{mfg_number}".gsub(/\s+/, ' ').strip,
         model:             model,
-        upc:               content_for(node, 'ITUPC').rjust(12, "0"),
+        upc:               upc_for_node(node),
         item_identifier:   content_for(node, 'ITEMNO'),
         quantity:          content_for(node, 'QTYOH').to_i,
         price:             content_for(node, 'CPRC'),
@@ -211,7 +213,7 @@ module SportsSouth
     end
 
     def reject_upc?(node)
-      return false if @options[:upcs_to_not_process].nil? || @options[:upcs_to_not_process].empty?
+      return false if @options[:upcs_to_not_process].nil?
 
       @options[:upcs_to_not_process].include?(upc_for_node(node).to_s)
     end
